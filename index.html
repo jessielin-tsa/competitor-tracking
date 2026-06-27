@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>競品訊號站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10141b;
+    --surface:#181f2a;
+    --surface-2:#1f2836;
+    --paper:#eae7de;
+    --paper-dim:#9aa0ad;
+    --rule:rgba(234,231,222,0.09);
+    --rule-strong:rgba(234,231,222,0.18);
+    --brass:#e2793f;
+    --caution:#d9a73d;
+    --calm:#5fa8a3;
+    --font-display:'Big Shoulders Display',sans-serif;
+    --font-serif:'Source Serif 4',Georgia,serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+
+  *{box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, rgba(234,231,222,0.025) 0px, rgba(234,231,222,0.025) 1px, transparent 1px, transparent 28px),
+      var(--ink);
+    color:var(--paper);
+    font-family:var(--font-serif);
+    min-height:100vh;
+    padding:32px 24px 80px;
+  }
+
+  .wrap{max-width:1180px; margin:0 auto;}
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:16px;
+    border-bottom:1px solid var(--rule-strong);
+    padding-bottom:20px;
+    margin-bottom:32px;
+  }
+  .title-block h1{
+    font-family:var(--font-display);
+    font-weight:900;
+    font-size:clamp(32px,5vw,52px);
+    letter-spacing:0.5px;
+    margin:0 0 4px;
+    line-height:0.95;
+  }
+  .title-block .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--calm);
+  }
+  .status-block{
+    text-align:right;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--paper-dim);
+  }
+  .status-block .scan-time{
+    color:var(--paper);
+    font-size:15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    justify-content:flex-end;
+  }
+  .pulse{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--calm);
+    box-shadow:0 0 0 0 rgba(95,168,163,0.6);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(95,168,163,0.5);}
+    70%{box-shadow:0 0 0 7px rgba(95,168,163,0);}
+    100%{box-shadow:0 0 0 0 rgba(95,168,163,0);}
+  }
+  .alert-count{color:var(--brass); font-weight:600;}
+
+  /* ---------- Competitor cards ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:18px;
+    margin-bottom:48px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:2px;
+    padding:22px 22px 20px;
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute; top:0; left:0; bottom:0;
+    width:3px;
+    background:var(--card-accent, var(--calm));
+  }
+  .card h2{
+    font-family:var(--font-display);
+    font-size:24px;
+    font-weight:700;
+    margin:0 0 14px;
+    letter-spacing:0.3px;
+  }
+  .bars{display:flex; gap:4px; align-items:flex-end; height:24px; margin-bottom:6px;}
+  .bars span{
+    width:7px;
+    background:var(--rule-strong);
+    border-radius:1px;
+  }
+  .bars span.lit{background:var(--card-accent, var(--calm));}
+  .bars-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    margin-bottom:18px;
+  }
+
+  .metric-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--paper-dim);
+    margin-bottom:4px;
+  }
+  .metric-row .value{
+    font-size:18px;
+    color:var(--paper);
+    font-weight:500;
+  }
+  .trend{display:flex; align-items:center; gap:8px; margin-bottom:14px;}
+  .trend svg{display:block;}
+
+  .card-summary{
+    font-size:14.5px;
+    line-height:1.55;
+    color:var(--paper);
+    padding-top:14px;
+    border-top:1px solid var(--rule);
+    font-style:italic;
+  }
+
+  /* ---------- Log ---------- */
+  .log-section h3{
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:700;
+    margin:0 0 4px;
+  }
+  .log-section .sub{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--paper-dim);
+    margin-bottom:18px;
+    letter-spacing:0.5px;
+  }
+  .filters{display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;}
+  .filters button{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:1px;
+    background:transparent;
+    border:1px solid var(--rule-strong);
+    color:var(--paper-dim);
+    padding:7px 14px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  .filters button.active{
+    border-color:var(--calm);
+    color:var(--paper);
+    background:var(--surface-2);
+  }
+  .filters button:focus-visible, button:focus-visible, a:focus-visible{
+    outline:2px solid var(--calm);
+    outline-offset:2px;
+  }
+
+  .log-list{border-top:1px solid var(--rule);}
+  .log-row{
+    display:grid;
+    grid-template-columns:110px 110px 1fr 70px;
+    gap:16px;
+    align-items:baseline;
+    padding:14px 4px;
+    border-bottom:1px solid var(--rule);
+    font-size:14.5px;
+  }
+  .log-row .date, .log-row .who{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    color:var(--paper-dim);
+  }
+  .log-row .who{color:var(--paper);}
+  .log-row .change{line-height:1.5;}
+  .sev-tag{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-align:right;
+    text-transform:uppercase;
+    align-self:center;
+  }
+  .sev-high{color:var(--brass);}
+  .sev-medium{color:var(--caution);}
+  .sev-low{color:var(--calm);}
+
+  @media (max-width:640px){
+    .log-row{grid-template-columns:1fr 1fr; row-gap:4px;}
+    .log-row .change{grid-column:1/-1; order:3;}
+    .log-row .sev-tag{text-align:left;}
+    .status-block{text-align:left;}
+    header{align-items:flex-start;}
+  }
+
+  footer{
+    margin-top:56px;
+    padding-top:18px;
+    border-top:1px solid var(--rule);
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--paper-dim);
+    letter-spacing:0.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="title-block">
+      <div class="eyebrow">COMPETITIVE SIGNAL STATION</div>
+      <h1>競品訊號站</h1>
+    </div>
+    <div class="status-block">
+      <div class="scan-time"><span class="pulse"></span><span id="lastUpdated">—</span> 最後掃描</div>
+      <div id="alertSummary">載入中...</div>
+    </div>
+  </header>
+
+  <section class="grid" id="cardGrid"></section>
+
+  <section class="log-section">
+    <h3>變化紀錄</h3>
+    <div class="sub">SIGNAL LOG · 倒序時間軸</div>
+    <div class="filters" id="filters">
+      <button data-sev="all" class="active">全部</button>
+      <button data-sev="high">高</button>
+      <button data-sev="medium">中</button>
+      <button data-sev="low">低</button>
+    </div>
+    <div class="log-list" id="logList"></div>
+  </section>
+
+  <footer>
+    資料來源：data/tracking-data.json · 由 Claude Code Routine 定期更新
+  </footer>
+
+</div>
+
+<script>
+// ============================================================
+// 資料載入：優先讀取外部 JSON（部署到 GitHub Pages 時使用）
+// 讀不到（例如直接用 file:// 打開）則退回內建範例資料
+// ============================================================
+const SAMPLE_DATA = {
+  lastUpdated: "2026-06-27",
+  competitors: [
+    {
+      id: "comp-a", name: "競品 A", threat: 4, accent: "var(--brass)",
+      pricing: { current: 49, unit: "USD/月", history: [29,29,35,39,49] },
+      rating:  { current: 4.3, history: [4.6,4.5,4.5,4.4,4.3] },
+      summary: "本期上漲 25%，並新增企業版方案。"
+    },
+    {
+      id: "comp-b", name: "競品 B", threat: 2, accent: "var(--calm)",
+      pricing: { current: 29, unit: "USD/月", history: [29,29,29,29,29] },
+      rating:  { current: 4.6, history: [4.4,4.4,4.5,4.5,4.6] },
+      summary: "本期無重大變化，評分穩定上升。"
+    },
+    {
+      id: "comp-c", name: "競品 C", threat: 5, accent: "var(--brass)",
+      pricing: { current: 99, unit: "USD/月", history: [79,79,79,89,99] },
+      rating:  { current: 4.1, history: [4.3,4.2,4.2,4.1,4.1] },
+      summary: "推出企業方案並大幅擴張銷售團隊。"
+    }
+  ],
+  log: [
+    { date:"2026-06-27", competitor:"競品 A", change:"定價由 $39 調整為 $49（+25%）", severity:"high" },
+    { date:"2026-06-27", competitor:"競品 C", change:"推出新企業方案，含 SSO 與專屬客服", severity:"high" },
+    { date:"2026-06-20", competitor:"競品 B", change:"G2 評分由 4.5 上升至 4.6", severity:"low" },
+    { date:"2026-06-13", competitor:"競品 C", change:"官網新增三則大型企業案例研究", severity:"medium" },
+    { date:"2026-06-06", competitor:"競品 A", change:"Changelog 新增批量匯出功能", severity:"medium" },
+    { date:"2026-05-30", competitor:"競品 B", change:"本期無新動態", severity:"low" }
+  ]
+};
+
+async function loadData() {
+  try {
+    const res = await fetch('./tracking-data.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('not found');
+    return await res.json();
+  } catch (e) {
+    return SAMPLE_DATA;
+  }
+}
+
+function sparkline(values, color) {
+  const w = 140, h = 36, pad = 4;
+  const min = Math.min(...values), max = Math.max(...values);
+  const range = (max - min) || 1;
+  const step = (w - pad * 2) / (values.length - 1);
+  const points = values.map((v, i) => {
+    const x = pad + i * step;
+    const y = h - pad - ((v - min) / range) * (h - pad * 2);
+    return [x, y];
+  });
+  const path = points.map((p, i) => (i === 0 ? 'M' : 'L') + p[0].toFixed(1) + ',' + p[1].toFixed(1)).join(' ');
+  const last = points[points.length - 1];
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <path d="${path}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="${color}"/>
+  </svg>`;
+}
+
+function trendArrow(history) {
+  if (history.length < 2) return '–';
+  const diff = history[history.length - 1] - history[history.length - 2];
+  if (diff > 0) return '↑';
+  if (diff < 0) return '↓';
+  return '–';
+}
+
+function threatBars(level) {
+  let bars = '';
+  for (let i = 1; i <= 5; i++) {
+    bars += `<span style="height:${8 + i * 3}px" class="${i <= level ? 'lit' : ''}"></span>`;
+  }
+  return bars;
+}
+
+function render(data) {
+  document.getElementById('lastUpdated').textContent = data.lastUpdated;
+
+  const todayHighs = data.log.filter(l => l.date === data.lastUpdated && l.severity === 'high').length;
+  document.getElementById('alertSummary').innerHTML = todayHighs > 0
+    ? `<span class="alert-count">${todayHighs} 項需立即關注</span>`
+    : `${data.competitors.length} 個競品在追蹤 · 無高優先警示`;
+
+  const grid = document.getElementById('cardGrid');
+  grid.innerHTML = data.competitors.map(c => `
+    <article class="card" style="--card-accent:${c.accent || 'var(--calm)'}">
+      <h2>${c.name}</h2>
+      <div class="bars">${threatBars(c.threat)}</div>
+      <div class="bars-label">威脅等級 ${c.threat}/5</div>
+
+      <div class="metric-row"><span>定價</span></div>
+      <div class="trend">
+        ${sparkline(c.pricing.history, c.accent || 'var(--calm)')}
+        <div>
+          <div class="value">$${c.pricing.current} <small style="color:var(--paper-dim);font-size:12px;">${c.pricing.unit}</small></div>
+          <div style="font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);">較上期 ${trendArrow(c.pricing.history)}</div>
+        </div>
+      </div>
+
+      <div class="metric-row"><span>評分</span></div>
+      <div class="trend">
+        ${sparkline(c.rating.history, c.accent || 'var(--calm)')}
+        <div>
+          <div class="value">${c.rating.current.toFixed(1)}</div>
+          <div style="font-family:var(--font-mono);font-size:12px;color:var(--paper-dim);">較上期 ${trendArrow(c.rating.history)}</div>
+        </div>
+      </div>
+
+      <div class="card-summary">${c.summary}</div>
+    </article>
+  `).join('');
+
+  const logList = document.getElementById('logList');
+  function paintLog(filter) {
+    const rows = data.log.filter(l => filter === 'all' || l.severity === filter);
+    logList.innerHTML = rows.map(l => `
+      <div class="log-row" data-severity="${l.severity}">
+        <div class="date">${l.date}</div>
+        <div class="who">${l.competitor}</div>
+        <div class="change">${l.change}</div>
+        <div class="sev-tag sev-${l.severity}">${l.severity === 'high' ? '高' : l.severity === 'medium' ? '中' : '低'}</div>
+      </div>
+    `).join('') || `<div class="log-row"><div class="change" style="color:var(--paper-dim);">這個篩選條件下沒有紀錄</div></div>`;
+  }
+  paintLog('all');
+
+  document.querySelectorAll('#filters button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      paintLog(btn.dataset.sev);
+    });
+  });
+}
+
+loadData().then(render);
+</script>
+</body>
+</html>

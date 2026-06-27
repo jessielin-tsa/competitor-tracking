@@ -1,0 +1,27 @@
+{
+  "lastUpdated": "2026-06-27",
+  "competitors": [
+    {
+      "id": "comp-a",
+      "name": "競品 A",
+      "threat": 3,
+      "accent": "var(--brass)",
+      "pricing": { "current": 39, "unit": "USD/月", "history": [39] },
+      "rating": { "current": 4.5, "history": [4.5] },
+      "summary": "尚無歷史資料，本次為基準報告。"
+    },
+    {
+      "id": "comp-b",
+      "name": "競品 B",
+      "threat": 2,
+      "accent": "var(--calm)",
+      "pricing": { "current": 29, "unit": "USD/月", "history": [29] },
+      "rating": { "current": 4.5, "history": [4.5] },
+      "summary": "尚無歷史資料，本次為基準報告。"
+    }
+  ],
+  "log": [
+    { "date": "2026-06-27", "competitor": "競品 A", "change": "建立基準報告", "severity": "low" },
+    { "date": "2026-06-27", "competitor": "競品 B", "change": "建立基準報告", "severity": "low" }
+  ]
+}
