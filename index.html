@@ -284,6 +284,15 @@
   }
   table.compare td{ line-height:1.55; color:var(--paper); }
   table.compare td.empty{ color:var(--paper-dim); font-style:italic; }
+  table.compare tbody tr.is-us th, table.compare tbody tr.is-us td{
+    background:rgba(226,121,63,0.08);
+  }
+  table.compare tbody tr.is-us th{ border-right-color:var(--brass); }
+  table.compare tbody tr.row-continued th{
+    color:var(--paper-dim);
+    font-size:13px;
+    font-weight:500;
+  }
 
   /* ---------- PowerHero SWOT ---------- */
   .swot-grid{
@@ -549,15 +558,22 @@ function renderPanel(indicator) {
   const head = document.getElementById('compareHead');
   head.innerHTML = `<th>競品</th>` + indicator.columns.map(c => `<th>${c.label}</th>`).join('');
   const body = document.getElementById('compareBody');
-  body.innerHTML = indicator.rows.map(row => `
-    <tr>
+  let lastCompetitor = null;
+  body.innerHTML = indicator.rows.map(row => {
+    const isUs = /powerhero/i.test(row.competitor) || row.competitor.includes('我方');
+    const isContinued = row.competitor === lastCompetitor;
+    lastCompetitor = row.competitor;
+    const rowClasses = [isUs ? 'is-us' : '', isContinued ? 'row-continued' : ''].filter(Boolean).join(' ');
+    return `
+    <tr class="${rowClasses}">
       <th scope="row">${row.competitor}</th>
       ${indicator.columns.map(c => {
         const val = row[c.key];
         return val ? `<td>${val}</td>` : `<td class="empty">未取得資料</td>`;
       }).join('')}
     </tr>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function renderSwot(analysis) {

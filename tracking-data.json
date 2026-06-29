@@ -79,18 +79,24 @@
         {
           "id": "product_service",
           "label": "產品與服務指標",
-          "sub": "獨特賣點(USP) · 定價策略",
+          "sub": "獨特賣點(USP) · 定價策略 — 本項以「商品」為單位比較，同品牌可有多款商品",
           "columns": [
-            { "key": "usp", "label": "獨特賣點" },
+            { "key": "product", "label": "商品名稱" },
+            { "key": "format", "label": "劑型/規格" },
+            { "key": "keyIngredients", "label": "主成分/濃度訴求" },
             { "key": "price", "label": "定價" },
             { "key": "priceBasis", "label": "比較基準" }
           ],
           "rows": [
-            { "competitor": "大研生醫", "usp": "高劑量精胺酸+瑪卡複方，添加刺五加/透納葉/蛹蟲草", "price": "$1,320", "priceBasis": "22包/盒，momo單盒價" },
-            { "competitor": "九五之丹", "usp": "全產品國際品牌原料+原廠授權，透明標示劑量來源", "price": "$360", "priceBasis": "30粒/包(15天份)" },
-            { "competitor": "嚴萃", "usp": "成分/製造地/專利/價格四項全公開透明", "price": "待確認", "priceBasis": "30粒/盒，官網未列價" },
-            { "competitor": "武倍對策", "usp": "非瑪卡複方(精胺酸+蜆精+酵母鋅)+日本專利成分", "price": "$999", "priceBasis": "14包/盒，官網單盒價" },
-            { "competitor": "UNIQMAN", "usp": "紅瑪卡+鹿茸+鋅複方，產品線完整", "price": "$690", "priceBasis": "60粒/瓶，優惠價(定價$890)" }
+            { "competitor": "PowerHero（我方）", "product": "L-精胺酸祕魯黑瑪卡膠囊", "format": "膠囊，90顆/盒", "keyIngredients": "30倍濃縮黑瑪卡+韓國精胺酸+法國酵母鋅+黃精+鱉蜆蠔複方", "price": "$1,020", "priceBasis": "官網2盒組$2,039換算單盒價" },
+            { "competitor": "PowerHero（我方）", "product": "久倍戰力勁黑瑪卡粉包", "format": "粉包，14包/盒", "keyIngredients": "50倍極萃濃縮黑瑪卡", "price": "待確認", "priceBasis": "momo/PChome未查到單盒明確定價" },
+            { "competitor": "大研生醫", "product": "精氣神瑪卡粉包", "format": "粉包，22包/盒", "keyIngredients": "瑪卡+精胺酸5000mg+透納葉/蛹蟲草/刺五加/鋅", "price": "$1,320", "priceBasis": "momo單盒價" },
+            { "competitor": "九五之丹", "product": "至尊．黑瑪卡+酵母鋅", "format": "膠囊/包，30粒/包(15天份)", "keyIngredients": "黑瑪卡2400mg+酵母鋅300mg+透納葉300mg", "price": "$360", "priceBasis": "官方通路單包價" },
+            { "competitor": "九五之丹", "product": "飛龍．高純度左旋精胺酸", "format": "膠囊", "keyIngredients": "99%純度左旋精胺酸1000mg/份", "price": "待確認", "priceBasis": "未查到單盒明確定價" },
+            { "competitor": "嚴萃", "product": "威猛戰神黑瑪卡", "format": "膠囊，30粒/盒", "keyIngredients": "黑瑪卡+精胺酸+酵母鋅", "price": "待確認", "priceBasis": "官網未列價，待從momo/樂天確認" },
+            { "competitor": "武倍對策", "product": "武倍對策", "format": "粉包，14包/盒", "keyIngredients": "日本專利BNN蕉護活性+精胺酸+鋅（非瑪卡）", "price": "$999", "priceBasis": "官網單盒價" },
+            { "competitor": "UNIQMAN", "product": "紅瑪卡膠囊", "format": "膠囊，60顆/瓶", "keyIngredients": "紅瑪卡+鹿茸+甘胺酸鋅", "price": "$690", "priceBasis": "博客來優惠價(定價$890)" },
+            { "competitor": "UNIQMAN", "product": "極戰黑瑪卡粉", "format": "粉包，30包/盒", "keyIngredients": "黑紅瑪卡35000mg/日+日本專利香蕉萃取", "price": "待確認", "priceBasis": "未查到單盒明確定價" }
           ]
         },
         {
