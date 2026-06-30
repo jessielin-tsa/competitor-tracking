@@ -1,8 +1,8 @@
 {
-  "months": [
+  "snapshots": [
     {
+      "date": "2026-06-27",
       "month": "2026-06",
-      "label": "2026年6月",
       "trends": [
         {
           "title": "劑量透明化成為評測新標準",
@@ -47,16 +47,50 @@
           "label": "市場與品牌定位",
           "sub": "品牌定位 / 差異化主張 · 價格定位 · 品牌知名度",
           "columns": [
-            { "key": "positioning", "label": "品牌定位 / 差異化主張" },
-            { "key": "priceTier", "label": "價格定位" },
-            { "key": "awareness", "label": "品牌知名度（聲量代理指標）" }
+            {
+              "key": "positioning",
+              "label": "品牌定位 / 差異化主張"
+            },
+            {
+              "key": "priceTier",
+              "label": "價格定位"
+            },
+            {
+              "key": "awareness",
+              "label": "品牌知名度（聲量代理指標）"
+            }
           ],
           "rows": [
-            { "competitor": "大研生醫", "positioning": "全方位保健生醫品牌，主打名人代言背書，男性線為多品類矩陣中的一支", "priceTier": "中高價", "awareness": "高" },
-            { "competitor": "九五之丹", "positioning": "「帝王級保健」訴求，以國際原料品牌授權與世界品質評鑑獲獎紀錄建立信任", "priceTier": "中價（強調高CP值）", "awareness": "高" },
-            { "competitor": "嚴萃", "positioning": "「四大透明指標」差異化（原料/製造地/專利/價格全公開），對抗業界高抽成", "priceTier": "中價（親民入門）", "awareness": "中低" },
-            { "competitor": "武倍對策", "positioning": "「夜間戰力」直接訴求，行銷語言大膽，非瑪卡複方做差異化", "priceTier": "中高價", "awareness": "高" },
-            { "competitor": "UNIQMAN", "positioning": "高知名度大眾品牌，明星/節目合作背書，產品線廣泛", "priceTier": "中價", "awareness": "高" }
+            {
+              "competitor": "大研生醫",
+              "positioning": "全方位保健生醫品牌，主打名人代言背書，男性線為多品類矩陣中的一支",
+              "priceTier": "中高價",
+              "awareness": "高"
+            },
+            {
+              "competitor": "九五之丹",
+              "positioning": "「帝王級保健」訴求，以國際原料品牌授權與世界品質評鑑獲獎紀錄建立信任",
+              "priceTier": "中價（強調高CP值）",
+              "awareness": "高"
+            },
+            {
+              "competitor": "嚴萃",
+              "positioning": "「四大透明指標」差異化（原料/製造地/專利/價格全公開），對抗業界高抽成",
+              "priceTier": "中價（親民入門）",
+              "awareness": "中低"
+            },
+            {
+              "competitor": "武倍對策",
+              "positioning": "「夜間戰力」直接訴求，行銷語言大膽，非瑪卡複方做差異化",
+              "priceTier": "中高價",
+              "awareness": "高"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "positioning": "高知名度大眾品牌，明星/節目合作背書，產品線廣泛",
+              "priceTier": "中價",
+              "awareness": "高"
+            }
           ]
         },
         {
@@ -64,16 +98,50 @@
           "label": "行銷與社群表現",
           "sub": "網路聲量 · 粉絲互動率",
           "columns": [
-            { "key": "buzz", "label": "網路聲量" },
-            { "key": "engagement", "label": "粉絲互動率" },
-            { "key": "trend", "label": "近期趨勢" }
+            {
+              "key": "buzz",
+              "label": "網路聲量"
+            },
+            {
+              "key": "engagement",
+              "label": "粉絲互動率"
+            },
+            {
+              "key": "trend",
+              "label": "近期趨勢"
+            }
           ],
           "rows": [
-            { "competitor": "大研生醫", "buzz": "中高", "engagement": "未公開，待查FB/IG", "trend": "持平" },
-            { "competitor": "九五之丹", "buzz": "高", "engagement": "中高（內容行銷活躍）", "trend": "上升" },
-            { "competitor": "嚴萃", "buzz": "低", "engagement": "低", "trend": "持平" },
-            { "competitor": "武倍對策", "buzz": "高（Dcard/PTT討論度高）", "engagement": "中（商品評論數多）", "trend": "上升" },
-            { "competitor": "UNIQMAN", "buzz": "中", "engagement": "中", "trend": "持平" }
+            {
+              "competitor": "大研生醫",
+              "buzz": "中高",
+              "engagement": "未公開，待查FB/IG",
+              "trend": "持平"
+            },
+            {
+              "competitor": "九五之丹",
+              "buzz": "高",
+              "engagement": "中高（內容行銷活躍）",
+              "trend": "上升"
+            },
+            {
+              "competitor": "嚴萃",
+              "buzz": "低",
+              "engagement": "低",
+              "trend": "持平"
+            },
+            {
+              "competitor": "武倍對策",
+              "buzz": "高（Dcard/PTT討論度高）",
+              "engagement": "中（商品評論數多）",
+              "trend": "上升"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "buzz": "中",
+              "engagement": "中",
+              "trend": "持平"
+            }
           ]
         },
         {
@@ -81,22 +149,100 @@
           "label": "產品與服務指標",
           "sub": "獨特賣點(USP) · 定價策略 — 本項以「商品」為單位比較，同品牌可有多款商品",
           "columns": [
-            { "key": "product", "label": "商品名稱" },
-            { "key": "format", "label": "劑型/規格" },
-            { "key": "keyIngredients", "label": "主成分/濃度訴求" },
-            { "key": "price", "label": "定價" },
-            { "key": "priceBasis", "label": "比較基準" }
+            {
+              "key": "product",
+              "label": "商品名稱"
+            },
+            {
+              "key": "format",
+              "label": "劑型/規格"
+            },
+            {
+              "key": "keyIngredients",
+              "label": "主成分/濃度訴求"
+            },
+            {
+              "key": "price",
+              "label": "定價"
+            },
+            {
+              "key": "priceBasis",
+              "label": "比較基準"
+            }
           ],
           "rows": [
-            { "competitor": "PowerHero（我方）", "product": "L-精胺酸祕魯黑瑪卡膠囊", "format": "膠囊，90顆/盒", "keyIngredients": "30倍濃縮黑瑪卡+韓國精胺酸+法國酵母鋅+黃精+鱉蜆蠔複方", "price": "$1,020", "priceBasis": "官網2盒組$2,039換算單盒價" },
-            { "competitor": "PowerHero（我方）", "product": "久倍戰力勁黑瑪卡粉包", "format": "粉包，14包/盒", "keyIngredients": "50倍極萃濃縮黑瑪卡", "price": "待確認", "priceBasis": "momo/PChome未查到單盒明確定價" },
-            { "competitor": "大研生醫", "product": "精氣神瑪卡粉包", "format": "粉包，22包/盒", "keyIngredients": "瑪卡+精胺酸5000mg+透納葉/蛹蟲草/刺五加/鋅", "price": "$1,320", "priceBasis": "momo單盒價" },
-            { "competitor": "九五之丹", "product": "至尊．黑瑪卡+酵母鋅", "format": "膠囊/包，30粒/包(15天份)", "keyIngredients": "黑瑪卡2400mg+酵母鋅300mg+透納葉300mg", "price": "$360", "priceBasis": "官方通路單包價" },
-            { "competitor": "九五之丹", "product": "飛龍．高純度左旋精胺酸", "format": "膠囊", "keyIngredients": "99%純度左旋精胺酸1000mg/份", "price": "待確認", "priceBasis": "未查到單盒明確定價" },
-            { "competitor": "嚴萃", "product": "威猛戰神黑瑪卡", "format": "膠囊，30粒/盒", "keyIngredients": "黑瑪卡+精胺酸+酵母鋅", "price": "待確認", "priceBasis": "官網未列價，待從momo/樂天確認" },
-            { "competitor": "武倍對策", "product": "武倍對策", "format": "粉包，14包/盒", "keyIngredients": "日本專利BNN蕉護活性+精胺酸+鋅（非瑪卡）", "price": "$999", "priceBasis": "官網單盒價" },
-            { "competitor": "UNIQMAN", "product": "紅瑪卡膠囊", "format": "膠囊，60顆/瓶", "keyIngredients": "紅瑪卡+鹿茸+甘胺酸鋅", "price": "$690", "priceBasis": "博客來優惠價(定價$890)" },
-            { "competitor": "UNIQMAN", "product": "極戰黑瑪卡粉", "format": "粉包，30包/盒", "keyIngredients": "黑紅瑪卡35000mg/日+日本專利香蕉萃取", "price": "待確認", "priceBasis": "未查到單盒明確定價" }
+            {
+              "competitor": "PowerHero（我方）",
+              "product": "L-精胺酸祕魯黑瑪卡膠囊",
+              "format": "膠囊，90顆/盒",
+              "keyIngredients": "30倍濃縮黑瑪卡+韓國精胺酸+法國酵母鋅+黃精+鱉蜆蠔複方",
+              "price": "$1,020",
+              "priceBasis": "官網2盒組$2,039換算單盒價"
+            },
+            {
+              "competitor": "PowerHero（我方）",
+              "product": "久倍戰力勁黑瑪卡粉包",
+              "format": "粉包，14包/盒",
+              "keyIngredients": "50倍極萃濃縮黑瑪卡",
+              "price": "待確認",
+              "priceBasis": "momo/PChome未查到單盒明確定價"
+            },
+            {
+              "competitor": "大研生醫",
+              "product": "精氣神瑪卡粉包",
+              "format": "粉包，22包/盒",
+              "keyIngredients": "瑪卡+精胺酸5000mg+透納葉/蛹蟲草/刺五加/鋅",
+              "price": "$1,320",
+              "priceBasis": "momo單盒價"
+            },
+            {
+              "competitor": "九五之丹",
+              "product": "至尊．黑瑪卡+酵母鋅",
+              "format": "膠囊/包，30粒/包(15天份)",
+              "keyIngredients": "黑瑪卡2400mg+酵母鋅300mg+透納葉300mg",
+              "price": "$360",
+              "priceBasis": "官方通路單包價"
+            },
+            {
+              "competitor": "九五之丹",
+              "product": "飛龍．高純度左旋精胺酸",
+              "format": "膠囊",
+              "keyIngredients": "99%純度左旋精胺酸1000mg/份",
+              "price": "待確認",
+              "priceBasis": "未查到單盒明確定價"
+            },
+            {
+              "competitor": "嚴萃",
+              "product": "威猛戰神黑瑪卡",
+              "format": "膠囊，30粒/盒",
+              "keyIngredients": "黑瑪卡+精胺酸+酵母鋅",
+              "price": "待確認",
+              "priceBasis": "官網未列價，待從momo/樂天確認"
+            },
+            {
+              "competitor": "武倍對策",
+              "product": "武倍對策",
+              "format": "粉包，14包/盒",
+              "keyIngredients": "日本專利BNN蕉護活性+精胺酸+鋅（非瑪卡）",
+              "price": "$999",
+              "priceBasis": "官網單盒價"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "product": "紅瑪卡膠囊",
+              "format": "膠囊，60顆/瓶",
+              "keyIngredients": "紅瑪卡+鹿茸+甘胺酸鋅",
+              "price": "$690",
+              "priceBasis": "博客來優惠價(定價$890)"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "product": "極戰黑瑪卡粉",
+              "format": "粉包，30包/盒",
+              "keyIngredients": "黑紅瑪卡35000mg/日+日本專利香蕉萃取",
+              "price": "待確認",
+              "priceBasis": "未查到單盒明確定價"
+            }
           ]
         },
         {
@@ -104,15 +250,41 @@
           "label": "受眾",
           "sub": "目標客群輪廓 · 通路布局",
           "columns": [
-            { "key": "targetProfile", "label": "目標客群輪廓" },
-            { "key": "channels", "label": "通路布局" }
+            {
+              "key": "targetProfile",
+              "label": "目標客群輪廓"
+            },
+            {
+              "key": "channels",
+              "label": "通路布局"
+            }
           ],
           "rows": [
-            { "competitor": "大研生醫", "targetProfile": "一般上班族男性，全年齡層保健需求者", "channels": "官網、momo、PChome、屈臣氏" },
-            { "competitor": "九五之丹", "targetProfile": "30-50歲事業型男性，「為家庭打拚的靠山」形象", "channels": "官網、momo、蝦皮、PChome" },
-            { "competitor": "嚴萃", "targetProfile": "重視成分透明度、價格敏感的保健新手", "channels": "官網、momo、樂天、全聯" },
-            { "competitor": "武倍對策", "targetProfile": "注重即時效果與夜間表現，行銷語言貼近年輕受眾", "channels": "官網、momo、PChome" },
-            { "competitor": "UNIQMAN", "targetProfile": "大眾男性消費者，品牌信任度導向", "channels": "官網、momo、博客來、屈臣氏、康是美" }
+            {
+              "competitor": "大研生醫",
+              "targetProfile": "一般上班族男性，全年齡層保健需求者",
+              "channels": "官網、momo、PChome、屈臣氏"
+            },
+            {
+              "competitor": "九五之丹",
+              "targetProfile": "30-50歲事業型男性，「為家庭打拚的靠山」形象",
+              "channels": "官網、momo、蝦皮、PChome"
+            },
+            {
+              "competitor": "嚴萃",
+              "targetProfile": "重視成分透明度、價格敏感的保健新手",
+              "channels": "官網、momo、樂天、全聯"
+            },
+            {
+              "competitor": "武倍對策",
+              "targetProfile": "注重即時效果與夜間表現，行銷語言貼近年輕受眾",
+              "channels": "官網、momo、PChome"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "targetProfile": "大眾男性消費者，品牌信任度導向",
+              "channels": "官網、momo、博客來、屈臣氏、康是美"
+            }
           ]
         },
         {
@@ -120,24 +292,78 @@
           "label": "成長動能指標",
           "sub": "促銷頻率 · 通路擴張 · 聲量成長趨勢（財務數據無公開來源，以此類可觀察訊號替代）",
           "columns": [
-            { "key": "promo", "label": "促銷活動頻率" },
-            { "key": "channelExpansion", "label": "新通路擴張" },
-            { "key": "buzzGrowth", "label": "聲量成長趨勢" }
+            {
+              "key": "promo",
+              "label": "促銷活動頻率"
+            },
+            {
+              "key": "channelExpansion",
+              "label": "新通路擴張"
+            },
+            {
+              "key": "buzzGrowth",
+              "label": "聲量成長趨勢"
+            }
           ],
           "rows": [
-            { "competitor": "大研生醫", "promo": "高（常態多盒組合優惠）", "channelExpansion": "穩定，無明顯新動作", "buzzGrowth": "持平" },
-            { "competitor": "九五之丹", "promo": "高（買3送1等常態促銷）", "channelExpansion": "持續擴增品類（葉黃素/魚油/睡眠）", "buzzGrowth": "上升" },
-            { "competitor": "嚴萃", "promo": "中（品牌月折扣）", "channelExpansion": "持平", "buzzGrowth": "持平" },
-            { "competitor": "武倍對策", "promo": "高（幾乎每月皆有檔期活動）", "channelExpansion": "擴增周邊品（明守對策葉黃素等）", "buzzGrowth": "上升" },
-            { "competitor": "UNIQMAN", "promo": "中", "channelExpansion": "持平", "buzzGrowth": "持平" }
+            {
+              "competitor": "大研生醫",
+              "promo": "高（常態多盒組合優惠）",
+              "channelExpansion": "穩定，無明顯新動作",
+              "buzzGrowth": "持平"
+            },
+            {
+              "competitor": "九五之丹",
+              "promo": "高（買3送1等常態促銷）",
+              "channelExpansion": "持續擴增品類（葉黃素/魚油/睡眠）",
+              "buzzGrowth": "上升"
+            },
+            {
+              "competitor": "嚴萃",
+              "promo": "中（品牌月折扣）",
+              "channelExpansion": "持平",
+              "buzzGrowth": "持平"
+            },
+            {
+              "competitor": "武倍對策",
+              "promo": "高（幾乎每月皆有檔期活動）",
+              "channelExpansion": "擴增周邊品（明守對策葉黃素等）",
+              "buzzGrowth": "上升"
+            },
+            {
+              "competitor": "UNIQMAN",
+              "promo": "中",
+              "channelExpansion": "持平",
+              "buzzGrowth": "持平"
+            }
           ]
         }
       ],
       "log": [
-        { "date": "2026-06-27", "competitor": "九五之丹", "change": "持續以世界品質評鑑獲獎紀錄做內容行銷，聲量呈上升趨勢", "severity": "medium" },
-        { "date": "2026-06-27", "competitor": "武倍對策", "change": "Dcard/PTT討論度高，常被網友列入男性保健品比較名單第一位", "severity": "medium" },
-        { "date": "2026-06-27", "competitor": "嚴萃", "change": "官網未列明確售價，待下次掃描從通路確認", "severity": "low" },
-        { "date": "2026-06-27", "competitor": "全體", "change": "建立五大指標基準報告（市場定位/行銷社群/產品服務/受眾/成長動能）", "severity": "low" }
+        {
+          "date": "2026-06-27",
+          "competitor": "九五之丹",
+          "change": "持續以世界品質評鑑獲獎紀錄做內容行銷，聲量呈上升趨勢",
+          "severity": "medium"
+        },
+        {
+          "date": "2026-06-27",
+          "competitor": "武倍對策",
+          "change": "Dcard/PTT討論度高，常被網友列入男性保健品比較名單第一位",
+          "severity": "medium"
+        },
+        {
+          "date": "2026-06-27",
+          "competitor": "嚴萃",
+          "change": "官網未列明確售價，待下次掃描從通路確認",
+          "severity": "low"
+        },
+        {
+          "date": "2026-06-27",
+          "competitor": "全體",
+          "change": "建立五大指標基準報告（市場定位/行銷社群/產品服務/受眾/成長動能）",
+          "severity": "low"
+        }
       ]
     }
   ]

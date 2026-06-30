@@ -93,15 +93,16 @@
     100%{box-shadow:0 0 0 0 rgba(95,168,163,0);}
   }
 
-  /* ---------- Month selector ---------- */
-  .month-row{
+  /* ---------- Month / date selector ---------- */
+  .month-row, .date-row{
     display:flex;
     align-items:center;
     gap:10px;
-    margin-bottom:40px;
     flex-wrap:wrap;
   }
-  .month-row .month-label{
+  .month-row{ margin-bottom:14px; }
+  .date-row{ margin-bottom:40px; padding-left:8px; }
+  .month-row .month-label, .date-row .date-label{
     font-family:var(--font-mono);
     font-size:11px;
     letter-spacing:1.5px;
@@ -126,7 +127,23 @@
     color:var(--ink);
     font-weight:600;
   }
-  .month-pill:focus-visible{ outline:2px solid var(--calm); outline-offset:2px; }
+  .date-pill{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.3px;
+    background:transparent;
+    border:1px solid var(--rule);
+    color:var(--paper-dim);
+    padding:6px 13px;
+    border-radius:14px;
+    cursor:pointer;
+  }
+  .date-pill.active{
+    border-color:var(--calm);
+    color:var(--paper);
+    background:var(--surface-2);
+  }
+  .month-pill:focus-visible, .date-pill:focus-visible{ outline:2px solid var(--calm); outline-offset:2px; }
 
   /* ---------- Section headers ---------- */
   .section{ margin-bottom:52px; }
@@ -438,6 +455,9 @@
   <div class="month-row" id="monthRow">
     <span class="month-label">查看月份</span>
   </div>
+  <div class="date-row" id="dateRow">
+    <span class="date-label">查看週期</span>
+  </div>
 
   <section class="section">
     <div class="section-head">
@@ -504,7 +524,7 @@
 </div>
 
 <script>
-const EMPTY_DATA = { months: [] };
+const EMPTY_DATA = { snapshots: [] };
 
 async function loadData() {
   try {
@@ -516,20 +536,30 @@ async function loadData() {
   }
 }
 
-function renderMonthRow(months, activeIdx, onSelect) {
+function renderMonthRow(allMonths, activeMonth, onSelect) {
   const row = document.getElementById('monthRow');
-  row.innerHTML = `<span class="month-label">查看月份</span>` + months.map((m, i) => `
-    <button class="month-pill ${i === activeIdx ? 'active' : ''}" data-i="${i}">${m.label}</button>
+  row.innerHTML = `<span class="month-label">查看月份</span>` + allMonths.map(m => `
+    <button class="month-pill ${m === activeMonth ? 'active' : ''}" data-m="${m}">${m.replace('-', '年')}月</button>
   `).join('');
   row.querySelectorAll('.month-pill').forEach(btn => {
-    btn.addEventListener('click', () => onSelect(parseInt(btn.dataset.i, 10)));
+    btn.addEventListener('click', () => onSelect(btn.dataset.m));
+  });
+}
+
+function renderDateRow(snapshotsInMonth, activeDate, onSelect) {
+  const row = document.getElementById('dateRow');
+  row.innerHTML = `<span class="date-label">查看週期</span>` + snapshotsInMonth.map(s => `
+    <button class="date-pill ${s.date === activeDate ? 'active' : ''}" data-d="${s.date}">${s.date}</button>
+  `).join('');
+  row.querySelectorAll('.date-pill').forEach(btn => {
+    btn.addEventListener('click', () => onSelect(btn.dataset.d));
   });
 }
 
 function renderTrends(trends) {
   const grid = document.getElementById('trendGrid');
   if (!trends || trends.length === 0) {
-    grid.innerHTML = `<div class="empty-state">本月尚無趨勢資料</div>`;
+    grid.innerHTML = `<div class="empty-state">本期尚無趨勢資料</div>`;
     return;
   }
   grid.innerHTML = trends.map(t => `
@@ -591,24 +621,24 @@ function renderSwot(analysis) {
   recoList.innerHTML = (analysis.recommendations || []).map(s => `<li>${s}</li>`).join('') || '<li>無</li>';
 }
 
-function renderMonth(monthData) {
-  document.getElementById('lastUpdated').textContent = monthData.month;
-  document.getElementById('brandLine').textContent = `PowerHero 勁漢英雄 ｜ ${monthData.indicators.length} 項指標 · ${(monthData.indicators[0]?.rows || []).length} 個競品追蹤中`;
+function renderSnapshot(snap) {
+  document.getElementById('lastUpdated').textContent = snap.date;
+  document.getElementById('brandLine').textContent = `PowerHero 勁漢英雄 ｜ ${snap.indicators.length} 項指標 · ${(snap.indicators[0]?.rows || []).length} 筆資料`;
 
-  renderTrends(monthData.trends);
-  renderSwot(monthData.powerHeroAnalysis);
+  renderTrends(snap.trends);
+  renderSwot(snap.powerHeroAnalysis);
 
   let activeIndex = 0;
   function show(i) {
     activeIndex = i;
-    renderDial(monthData.indicators, activeIndex, show);
-    renderPanel(monthData.indicators[activeIndex]);
+    renderDial(snap.indicators, activeIndex, show);
+    renderPanel(snap.indicators[activeIndex]);
   }
   show(0);
 
   const logList = document.getElementById('logList');
   function paintLog(filter) {
-    const rows = (monthData.log || []).filter(l => filter === 'all' || l.severity === filter);
+    const rows = (snap.log || []).filter(l => filter === 'all' || l.severity === filter);
     logList.innerHTML = rows.map(l => `
       <div class="log-row" data-severity="${l.severity}">
         <div class="date">${l.date}</div>
@@ -630,18 +660,33 @@ function renderMonth(monthData) {
 }
 
 function render(data) {
-  const months = data.months || [];
-  if (months.length === 0) {
+  const snapshots = (data.snapshots || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+  if (snapshots.length === 0) {
     document.getElementById('brandLine').textContent = '尚無資料';
     return;
   }
-  let activeMonthIdx = months.length - 1; // 預設顯示最新月份
-  function showMonth(i) {
-    activeMonthIdx = i;
-    renderMonthRow(months, activeMonthIdx, showMonth);
-    renderMonth(months[activeMonthIdx]);
+
+  const allMonths = [...new Set(snapshots.map(s => s.month))].sort();
+  let activeMonth = allMonths[allMonths.length - 1];
+  let activeDate = null;
+
+  function pickMonth(month) {
+    activeMonth = month;
+    const inMonth = snapshots.filter(s => s.month === activeMonth);
+    activeDate = inMonth[inMonth.length - 1].date; // 預設該月最新一筆
+    renderMonthRow(allMonths, activeMonth, pickMonth);
+    renderDateRow(inMonth, activeDate, pickDate);
+    renderSnapshot(inMonth.find(s => s.date === activeDate));
   }
-  showMonth(activeMonthIdx);
+
+  function pickDate(date) {
+    activeDate = date;
+    const inMonth = snapshots.filter(s => s.month === activeMonth);
+    renderDateRow(inMonth, activeDate, pickDate);
+    renderSnapshot(snapshots.find(s => s.date === activeDate));
+  }
+
+  pickMonth(activeMonth);
 }
 
 loadData().then(render);
