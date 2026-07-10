@@ -1,0 +1,268 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-07-05",
+      "month": "2026-07",
+      "globalTrends": [
+        {
+          "title": "第三方評測文章成為保健品購買決策的主戰場",
+          "summary": "營養師評比、部落格開箱文章大量出現且排名影響力擴大，兩品牌的商品都已被納入評測（御熹堂舒密妃獲蔓越莓評比第二名、魚油被納入十款評比；PowerHero南瓜籽被點名黑麥花粉含量不足）。品牌是否在這些評測中出現、排名如何，直接影響搜尋流量與轉換。"
+        },
+        {
+          "title": "劑量透明化成為跨品類的評分標準",
+          "summary": "不論男性保健、私密保養還是關節保健，評測方一致以「是否標示明確毫克數」作為核心評選指標。只寫「高濃縮」而不標實際劑量的品牌普遍被扣分，這對兩個品牌的商品頁設計都是直接提醒。"
+        },
+        {
+          "title": "UC-II 正在取代葡萄糖胺成為關節保健主流",
+          "summary": "多篇評測引用臨床研究：每日40mg UC-II 效果優於1500mg葡萄糖胺+1200mg軟骨素組合的兩倍以上。傳統葡萄糖胺品牌（維骨力、Move Free）都在轉推UC-II產品線，這個品類正在典範轉移期。"
+        },
+        {
+          "title": "紅麴必須搭配Q10已成市場共識",
+          "summary": "「紅麴的Monacolin K會消耗體內Q10」這個知識點被各大評測與媒體反覆傳播，無添加Q10的單方紅麴產品在比較中處於劣勢。同時衛福部Monacolin K上限15mg的法規框架讓各品牌劑量趨同，差異化轉向檢驗透明度（橘黴素檢驗）與複方設計。"
+        },
+        {
+          "title": "台灣保健品法規限制行銷用語，信任轉移到檢驗與認證",
+          "summary": "健康食品法規僅允許14項保健功效認證，品牌難以直接訴求功效，因此「逐批檢驗公開」「國際認證」「專利原料授權標章」成為新的信任貨幣。健康力以逐批檢驗奪魚油評比第一就是代表案例。"
+        }
+      ],
+      "brands": [
+        {
+          "id": "powerhero",
+          "name": "PowerHero 勁漢英雄",
+          "tagline": "男性運動保健",
+          "accent": "brass",
+          "categories": [
+            {
+              "id": "male_vitality",
+              "label": "男性戰力／精力",
+              "icon": "⚡",
+              "ownProduct": "L-精胺酸祕魯黑瑪卡膠囊（90顆/盒，約$1,020）；久倍戰力勁黑瑪卡粉包（14包/盒，定價待確認）",
+              "competitors": [
+                { "name": "大研生醫", "product": "精氣神瑪卡粉包", "usp": "精胺酸5000mg+瑪卡，陳美鳳代言", "price": "$1,320", "priceBasis": "22包/盒，momo單盒價", "channels": "官網、momo、PChome、屈臣氏", "promo": "高" },
+                { "name": "九五之丹", "product": "至尊．黑瑪卡+酵母鋅", "usp": "Monde Selection金獎，劑量透明標示", "price": "$350-360", "priceBasis": "30粒/包(15天份)", "channels": "官網、momo、蝦皮", "promo": "高（買多送多）" },
+                { "name": "嚴萃", "product": "威猛戰神黑瑪卡", "usp": "四大透明指標，全素可食", "price": "待確認", "priceBasis": "30粒/盒", "channels": "官網、momo、樂天", "promo": "中" },
+                { "name": "武倍對策", "product": "武倍對策", "usp": "非瑪卡複方，論壇口碑最強", "price": "$999", "priceBasis": "14包/盒，官網價", "channels": "官網、momo、PChome", "promo": "高（6/1-7/26生存指南活動）" },
+                { "name": "UNIQMAN", "product": "紅瑪卡膠囊", "usp": "實體通路最廣，入門價格", "price": "$690", "priceBasis": "60粒/瓶(定價$890)", "channels": "官網、momo、博客來、屈臣氏、康是美", "promo": "中" }
+              ],
+              "strengths": [
+                "30倍濃縮黑瑪卡（粉包標榜50倍）在濃縮倍數話題上具優勢",
+                "複方故事性強：法國酵母鋅+韓國精胺酸+黃精+鱉蜆蠔古方三寶"
+              ],
+              "weaknesses": [
+                "PTT/Dcard最新評測比較名單完全未出現PowerHero，自然口碑聲量嚴重不足",
+                "單盒約$1,020高於武倍($999)與九五之丹(月費約$720)，缺乏CP值論述",
+                "缺乏第三方認證背書（vs 九五之丹的Monde Selection金獎）"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "武倍對策", "change": "6/1-7/26生存指南活動持續，滿額贈B群", "severity": "medium" },
+                { "date": "2026-07-05", "competitor": "PowerHero", "change": "本期仍未出現在論壇評測名單，口碑缺口持續", "severity": "high" }
+              ]
+            },
+            {
+              "id": "prostate",
+              "label": "攝護腺保健",
+              "icon": "🛡️",
+              "ownProduct": "水溶性專利南瓜籽＋茄紅素（南瓜籽萃取150mg/份、茄紅素100mg、黑麥花粉6.6mg）",
+              "competitors": [
+                { "name": "大研生醫", "product": "好攝力南瓜籽黑麥花膠囊", "usp": "50倍濃縮水萃+黑麥花粉250mg+蔓越莓，評測第一", "price": "中高價", "priceBasis": "每日花費市場中高位", "channels": "官網、momo、PChome", "promo": "高" },
+                { "name": "九五之丹", "product": "英雄20倍南瓜籽+茄紅素", "usp": "南瓜籽500mg+茄紅素300mg，2024世界品質金獎、素食", "price": "親民", "priceBasis": "評測性價比第二名", "channels": "官網、momo、蝦皮", "promo": "高" },
+                { "name": "UNIQMAN", "product": "南瓜籽油+茄紅素軟膠囊", "usp": "泌尿科醫師推薦，入門價", "price": "$690", "priceBasis": "60粒/盒", "channels": "官網、momo、博客來、屈臣氏", "promo": "中" },
+                { "name": "武倍十攝（火星生技）", "product": "武倍十攝", "usp": "日本專利BNN+無效退費，但成分含量未公開", "price": "高（單日約$80，市場最高）", "priceBasis": "官網單盒", "channels": "官網、momo、PChome", "promo": "中" }
+              ],
+              "strengths": [
+                "採用專利水溶性南瓜籽萃取，符合「水萃優於油性」的市場趨勢",
+                "拳擊冠軍小潘代言，運動員背書"
+              ],
+              "weaknesses": [
+                "黑麥花粉僅6.6mg被評測明確點名「不一定能發揮助力」（大研250mg）",
+                "南瓜籽萃取150mg/份低於九五之丹500mg，劑量competitiveness弱"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "大研生醫", "change": "好攝力持續獲多份獨立評測第一名", "severity": "high" },
+                { "date": "2026-07-05", "competitor": "PowerHero", "change": "黑麥花粉含量不足的評測批評持續存在", "severity": "high" }
+              ]
+            },
+            {
+              "id": "red_yeast_ph",
+              "label": "紅麴納豆Q10",
+              "icon": "❤️",
+              "ownProduct": "納豆紅麴Q10膠囊（詳細規格待確認：Monacolin K/納豆激酶FU/Q10含量）",
+              "competitors": [
+                { "name": "大研生醫", "product": "納豆紅麴Q10膠囊", "usp": "Monacolin K 15mg(法規上限)+納豆激酶5000FU+Q10 30mg+胡椒鹼，小林製藥紅麴菌株、逐批檢驗", "price": "中高價", "priceBasis": "60粒/瓶(一個月份)", "channels": "官網、momo、PChome", "promo": "高" },
+                { "name": "悠活原力", "product": "悠活紅麴納豆Q10膠囊", "usp": "Monacolin K 15mg+5000FU+Q10 30mg，規格與大研相同但無複方", "price": "中價", "priceBasis": "60粒/盒", "channels": "官網、momo", "promo": "中" },
+                { "name": "豐傑生醫", "product": "頂級紅麴素食膠囊", "usp": "100%單方紅麴零添加，Monacolin K 12mg，評測96分", "price": "$950", "priceBasis": "60粒", "channels": "官網、momo", "promo": "中" },
+                { "name": "葡萄王", "product": "舒活納麴王升級版", "usp": "老牌生技廠信任度", "price": "待確認", "priceBasis": "—", "channels": "官網、momo、藥局", "promo": "中" }
+              ],
+              "strengths": [
+                "品牌已有紅麴納豆Q10品項，配方方向（含Q10）符合市場共識"
+              ],
+              "weaknesses": [
+                "商品頁未明確揭露Monacolin K/納豆激酶FU/Q10的具體含量，在「劑量透明化」評測標準下容易吃虧",
+                "競品大研以「小林製藥菌株+逐批檢驗橘黴素」建立高信任門檻，PowerHero檢驗敘事相對薄弱"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "全體", "change": "建立紅麴品類基準（與御熹堂共用競品圈），PowerHero自身產品規格待下次掃描確認", "severity": "medium" }
+              ]
+            }
+          ],
+          "recommendations": [
+            "最優先：投入Dcard/PTT原生口碑經營，讓PowerHero進入評測比較名單——這是目前所有品類共同的最大缺口",
+            "全線商品頁補上具體劑量標示（瑪卡mg數、Monacolin K含量、黑麥花粉mg），回應劑量透明化的評測標準",
+            "攝護腺品項考慮提升黑麥花粉含量至100mg以上，這是被評測明確點名的產品力差距",
+            "跟進競品夏季促銷節奏（武倍6-7月活動、九五之丹買多送多），推出首購優惠降低$1,020的嘗試門檻",
+            "評估取得國際品質認證（如Monde Selection），補強第三方背書缺口"
+          ],
+          "futureMarkets": [
+            {
+              "label": "植物蛋白粉",
+              "icon": "🌱",
+              "overview": "市場快速成長（momo設植物蛋白日），現有玩家以女性受眾為主（樂維根$1,598-2,097/KG、Wedar薇達小禎代言、TRYALL$750）。男性運動族群定位仍有空缺。",
+              "fit": "✅ 適合切入：男性定位契合，建議以豌豆蛋白+肌酸複方做差異化"
+            },
+            {
+              "label": "肌酸",
+              "icon": "💪",
+              "overview": "國際品牌主導（MYPROTEIN $599/250g、TRYALL $999/400g momo銷量第一、GNC），Creapure®德國原料為品質標誌，價格競爭激烈。",
+              "fit": "⚠️ 謹慎評估：健身房族群與現有受眾有差距，建議先深耕植物蛋白，或以複方整合切入"
+            }
+          ]
+        },
+        {
+          "id": "yuxitang",
+          "name": "御熹堂",
+          "tagline": "東方女性保健",
+          "accent": "calm",
+          "categories": [
+            {
+              "id": "fish_oil",
+              "label": "魚油",
+              "icon": "🐟",
+              "ownProduct": "黃金頂級90%高濃度專利魚油（已被納入市場十款評比文章）",
+              "competitors": [
+                { "name": "大研生醫", "product": "德國頂級魚油", "usp": "84% Omega-3、德國KD Pharma、IFOS五星+特金獎三連霸，多份評測第一", "price": "每日約$35", "priceBasis": "60粒/盒(一個月)", "channels": "官網、momo、屈臣氏、全家、寶雅", "promo": "高" },
+                { "name": "健康力", "product": "真純淨魚油", "usp": "西班牙Solutex+逐批檢驗公開（含戴奧辛），專業評比第一", "price": "中高價", "priceBasis": "CP值獲評優", "channels": "官網、momo", "promo": "中" },
+                { "name": "營養師輕食", "product": "1000頂級超臨界魚油", "usp": "吳慷仁代言、Solutex原料、檢驗透明", "price": "每日約$40", "priceBasis": "90顆/盒(1.5個月)", "channels": "官網、momo", "promo": "中" },
+                { "name": "悠活原力", "product": "深海黃金魚油", "usp": "Solutex原料，與營養師輕食同源", "price": "每日約$40", "priceBasis": "罐裝", "channels": "官網、momo", "promo": "中" },
+                { "name": "BHK's", "product": "頂級魚油軟膠囊", "usp": "品牌知名度高、通路廣", "price": "中價", "priceBasis": "檢驗報告未完整公開", "channels": "官網、momo、藥妝", "promo": "高" }
+              ],
+              "strengths": [
+                "90%濃度是市場最高等級訴求（大研84%、多數品牌80%上下），數字差異化明確",
+                "已進入第三方評測名單，具備曝光基礎"
+              ],
+              "weaknesses": [
+                "評測決勝點已轉向「檢驗透明度」（健康力以逐批檢驗奪冠），御熹堂檢驗公開程度需要對標",
+                "大研生醫每日$35的CP值+實體通路優勢（全家、屈臣氏），御熹堂以官網為主通路較窄"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "健康力", "change": "以逐批檢驗策略獲專業評比第一，檢驗透明成品類決勝點", "severity": "high" },
+                { "date": "2026-07-05", "competitor": "大研生醫", "change": "魚油持續多份評測第一，實體通路持續擴張", "severity": "medium" }
+              ]
+            },
+            {
+              "id": "cranberry",
+              "label": "蔓越莓益生菌",
+              "icon": "🔴",
+              "ownProduct": "舒密妃專利蔓越莓益生菌（DDS-1益生菌+天然甘露糖+歐洲四大專利植萃）",
+              "competitors": [
+                { "name": "豐傑生醫", "product": "私密舒益生菌", "usp": "6種菌株全公開+9項國際專利+孕婦臨床可食，評測第一(95分)", "price": "中價", "priceBasis": "評測榜首", "channels": "官網、momo", "promo": "中" },
+                { "name": "大研生醫", "product": "淨密樂甘露糖蔓越莓益生菌", "usp": "D-甘露糖1000mg+五株義大利專利菌，Monde五連金獎；但PACs含量未明標被多篇評測扣分", "price": "$592起", "priceBasis": "粉包劑型", "channels": "官網、momo、PChome", "promo": "高（30天無效退費）" },
+                { "name": "嚴萃", "product": "蔓越莓益生菌", "usp": "A型前花青素100mg/粒，同價位含量最高", "price": "$399", "priceBasis": "評測點名高CP值", "channels": "官網、momo", "promo": "中" },
+                { "name": "九五之丹", "product": "蔓越莓+甘露糖", "usp": "PACs 48mg/份明確標示，買3送1", "price": "$450", "priceBasis": "成分標示最透明", "channels": "官網、momo、蝦皮", "promo": "高" },
+                { "name": "BHK's", "product": "紅萃蔓越莓益生菌錠", "usp": "知名度+通路廣，但PACs未標示", "price": "$690起", "priceBasis": "泌尿專科推薦", "channels": "官網、momo、藥妝", "promo": "高" }
+              ],
+              "strengths": [
+                "獨立評測第二名（90分），贏過大研生醫(85分)與BHK's——這是可以直接放大用於行銷的第三方背書",
+                "複方完整度被評測肯定：DDS-1+甘露糖+四大專利植萃"
+              ],
+              "weaknesses": [
+                "僅單一菌株DDS-1，評測明確指出這是輸給第一名豐傑（6菌株）的主因",
+                "嚴萃以$399提供100mg PACs，價格帶競爭激烈，御熹堂需確認自身PACs標示是否明確"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "御熹堂", "change": "舒密妃獲營養師評測第二名(90分)，超越大研與BHK's", "severity": "high" },
+                { "date": "2026-07-05", "competitor": "豐傑生醫", "change": "以6菌株全公開+孕婦可食蟬聯評測第一", "severity": "medium" }
+              ]
+            },
+            {
+              "id": "ucii",
+              "label": "UC-II 葡萄糖胺",
+              "icon": "🦵",
+              "ownProduct": "UC-II+葡萄糖胺｜日本製足量42mg",
+              "competitors": [
+                { "name": "豐傑生醫", "product": "專利二型膠原蛋白", "usp": "美國原廠UC-II®足量40mg，$293同規格最低價，評測第一", "price": "$293", "priceBasis": "評測CP值冠軍", "channels": "官網、momo", "promo": "中" },
+                { "name": "大研生醫", "product": "動易動UC-II", "usp": "UC-II®40mg+Mobilee玻尿酸80mg+薑黃+MSM，配方評測最高分", "price": "每日約$118（次高價）", "priceBasis": "全專利複方", "channels": "官網、momo", "promo": "高" },
+                { "name": "挺立", "product": "關鍵迷你錠UCII", "usp": "藥妝通路最強，但未標UC-II®商標", "price": "平價", "priceBasis": "錠劑", "channels": "藥妝、量販、momo", "promo": "中" },
+                { "name": "VITABOX", "product": "關鍵專科UC-II", "usp": "UC-II®42mg+日本葡萄糖胺+C3薑黃，檢驗透明", "price": "中價", "priceBasis": "膠囊", "channels": "官網為主", "promo": "低" },
+                { "name": "三得利", "product": "固力伸", "usp": "品牌知名度高，但非UC-II®且一天6錠", "price": "中高價", "priceBasis": "錠劑", "channels": "官網、電視購物", "promo": "高" }
+              ],
+              "strengths": [
+                "42mg超過40mg有效劑量門檻，且「日本製」是差異化來源訴求",
+                "UC-II+葡萄糖胺雙成分組合，可同時接住新舊兩代關節保健消費者"
+              ],
+              "weaknesses": [
+                "豐傑以$293同規格殺出CP值底價，價格競爭激烈",
+                "評測強調「UC-II®原廠授權商標」為第一篩選條件，御熹堂需確認商品頁是否清楚展示授權標示",
+                "營養師觀點指出UC2搭配葡萄糖胺效益有限（建議搭配玻尿酸/MSM），現有複方組合的科學敘事可能被挑戰"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "豐傑生醫", "change": "以$293低價策略獲UC2評測第一，價格戰升溫", "severity": "high" },
+                { "date": "2026-07-05", "competitor": "全體", "change": "UC-II取代葡萄糖胺的典範轉移持續，傳統品牌陸續轉線", "severity": "medium" }
+              ]
+            },
+            {
+              "id": "collagen",
+              "label": "膠原蛋白",
+              "icon": "✨",
+              "ownProduct": "膠原蛋白｜28天有感",
+              "competitors": [
+                { "name": "三得利", "product": "蜜露珂內", "usp": "日系品牌經典款，市場知名度最高", "price": "待確認", "priceBasis": "詳細規格待下次掃描", "channels": "官網、電視、電商", "promo": "高" },
+                { "name": "大研生醫", "product": "超美研膠原蛋白飲", "usp": "飲品劑型，常作滿額贈品曝光", "price": "待確認", "priceBasis": "詳細規格待下次掃描", "channels": "官網、momo", "promo": "高" },
+                { "name": "BHK's", "product": "膠原蛋白系列", "usp": "女性保健龍頭品牌，產品線多", "price": "待確認", "priceBasis": "詳細規格待下次掃描", "channels": "官網、momo、藥妝", "promo": "高" }
+              ],
+              "strengths": [
+                "「28天有感」的時間承諾訴求明確好記"
+              ],
+              "weaknesses": [
+                "膠原蛋白為競爭最激烈的女性保健品類之一，競品含國際大牌，詳細比較資料待下次掃描補充"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "全體", "change": "建立膠原蛋白品類基準，競品詳細規格待下次掃描補充", "severity": "low" }
+              ]
+            },
+            {
+              "id": "red_yeast_yx",
+              "label": "紅麴納豆Q10",
+              "icon": "❤️",
+              "ownProduct": "紅麴納豆Q10｜足量有感（官網主打品項之一）",
+              "competitors": [
+                { "name": "大研生醫", "product": "納豆紅麴Q10膠囊", "usp": "Monacolin K 15mg(法規上限)+納豆激酶5000FU+Q10 30mg+胡椒鹼，小林製藥紅麴菌株、逐批檢驗", "price": "中高價", "priceBasis": "60粒/瓶(一個月份)", "channels": "官網、momo、PChome", "promo": "高" },
+                { "name": "悠活原力", "product": "悠活紅麴納豆Q10膠囊", "usp": "Monacolin K 15mg+5000FU+Q10 30mg，規格與大研相同但無複方", "price": "中價", "priceBasis": "60粒/盒", "channels": "官網、momo", "promo": "中" },
+                { "name": "豐傑生醫", "product": "頂級紅麴素食膠囊", "usp": "100%單方紅麴零添加，Monacolin K 12mg，評測96分", "price": "$950", "priceBasis": "60粒", "channels": "官網、momo", "promo": "中" },
+                { "name": "葡萄王", "product": "舒活納麴王升級版", "usp": "老牌生技廠信任度", "price": "待確認", "priceBasis": "—", "channels": "官網、momo、藥局", "promo": "中" }
+              ],
+              "strengths": [
+                "「足量有感」訴求方向正確，紅麴+Q10配方符合市場共識",
+                "御熹堂女性客群與紅麴主力消費者（40+熟齡）高度重疊，品類契合度佳"
+              ],
+              "weaknesses": [
+                "大研與悠活已把規格拉到Monacolin K 15mg+5000FU+Q10 30mg的「頂規」水準，御熹堂需明確標示自身數字才能同場競爭",
+                "橘黴素等安全檢驗的公開透明度是本品類的信任門檻，需對標大研的逐批檢驗敘事"
+              ],
+              "log": [
+                { "date": "2026-07-05", "competitor": "全體", "change": "建立紅麴品類基準（與PowerHero共用競品圈），御熹堂自身產品詳細規格待下次掃描確認", "severity": "medium" }
+              ]
+            }
+          ],
+          "recommendations": [
+            "立即放大「舒密妃評測第二名、贏過大研生醫」這個第三方背書——這是現成可用的行銷資產，適合用於廣告素材與商品頁",
+            "魚油以90%濃度為矛、但要補上檢驗透明度的盾：對標健康力的逐批檢驗公開策略，這是本品類目前的決勝點",
+            "UC-II商品頁確認展示UC-II®原廠授權標章與42mg劑量標示，這是評測方的第一篩選條件",
+            "通路策略檢視：競品（大研、BHK's）都有實體藥妝通路，御熹堂以官網+LINE為主，考慮擴增momo/PChome曝光以接住評測文章帶來的搜尋流量",
+            "蔓越莓下一代產品可評估增加菌株數（現為單一DDS-1），這是評測明確指出輸給第一名的原因"
+          ],
+          "futureMarkets": []
+        }
+      ]
+    }
+  ]
+}
