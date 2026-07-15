@@ -21,6 +21,11 @@
           "date": "2026-07-14",
           "momo": 1290,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 1290,
+          "shopee": null
         }
       ]
     },
@@ -42,6 +47,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": null,
           "shopee": null
         }
@@ -67,6 +77,11 @@
           "date": "2026-07-14",
           "momo": 285,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 285,
+          "shopee": null
         }
       ]
     },
@@ -88,6 +103,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": 999,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": 999,
           "shopee": null
         }
@@ -113,6 +133,11 @@
           "date": "2026-07-14",
           "momo": 690,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 690,
+          "shopee": null
         }
       ]
     },
@@ -135,6 +160,11 @@
         {
           "date": "2026-07-14",
           "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 840,
           "shopee": null
         }
       ]
@@ -159,6 +189,11 @@
           "date": "2026-07-14",
           "momo": 1320,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 1320,
+          "shopee": null
         }
       ]
     },
@@ -175,6 +210,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": null,
           "shopee": null
         }
@@ -195,6 +235,11 @@
           "date": "2026-07-14",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -211,6 +256,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": null,
           "shopee": null
         }
@@ -231,6 +281,11 @@
           "date": "2026-07-14",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": 1190,
+          "shopee": null
         }
       ]
     },
@@ -247,6 +302,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": null,
           "shopee": null
         }
@@ -267,6 +327,11 @@
           "date": "2026-07-14",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -283,6 +348,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": null,
           "shopee": null
         }
@@ -303,6 +373,11 @@
           "date": "2026-07-14",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-15",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -319,6 +394,11 @@
         },
         {
           "date": "2026-07-14",
+          "momo": 1760,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-15",
           "momo": 1760,
           "shopee": null
         }
