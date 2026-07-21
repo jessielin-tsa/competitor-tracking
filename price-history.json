@@ -31,6 +31,11 @@
           "date": "2026-07-20",
           "momo": 1290,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": 1290,
+          "shopee": null
         }
       ]
     },
@@ -62,6 +67,11 @@
         },
         {
           "date": "2026-07-20",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-21",
           "momo": null,
           "shopee": null
         }
@@ -97,6 +107,11 @@
           "date": "2026-07-20",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -128,6 +143,11 @@
         },
         {
           "date": "2026-07-20",
+          "momo": 999,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-21",
           "momo": 999,
           "shopee": null
         }
@@ -163,6 +183,11 @@
           "date": "2026-07-20",
           "momo": 690,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": 690,
+          "shopee": null
         }
       ]
     },
@@ -194,6 +219,11 @@
         },
         {
           "date": "2026-07-20",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-21",
           "momo": null,
           "shopee": null
         }
@@ -229,6 +259,11 @@
           "date": "2026-07-20",
           "momo": 1320,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": 1320,
+          "shopee": null
         }
       ]
     },
@@ -255,6 +290,11 @@
         },
         {
           "date": "2026-07-20",
+          "momo": null,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-21",
           "momo": null,
           "shopee": null
         }
@@ -285,6 +325,11 @@
           "date": "2026-07-20",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -313,6 +358,11 @@
           "date": "2026-07-20",
           "momo": null,
           "shopee": null
+        },
+        {
+          "date": "2026-07-21",
+          "momo": null,
+          "shopee": null
         }
       ]
     },
@@ -339,6 +389,11 @@
         },
         {
           "date": "2026-07-20",
+          "momo": 1190,
+          "shopee": null
+        },
+        {
+          "date": "2026-07-21",
           "momo": 1190,
           "shopee": null
         }
