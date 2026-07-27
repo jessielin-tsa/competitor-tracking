@@ -4,13 +4,21 @@
 
 ---
 
-## 一、資料結構（tracking-data.json）
+## 一、資料結構（兩個檔案）
 
-以「日期快照」為單位：`{ "snapshots": [ {...}, {...} ] }`
+資料拆成兩個檔，讓網頁只需載入最新一筆就能顯示，載入速度不隨歷史累積變慢，同時每次執行也不必把整包歷史讀進 context（省 token）：
+- **tracking-data.json**：只放**最新一筆** snapshot → `{ "snapshots": [ {最新} ] }`（網頁優先載入、Routine 讀寫的對象）
+- **tracking-history.json**：存放**所有較舊的** snapshot → `{ "snapshots": [ {舊}, {舊}, ... ] }`（網頁在背景載入，Routine 只追加、不需讀取）
 
-每次執行時：
+每次執行時（**僅在產生新一筆完整 snapshot 時才做，每日查價只更新 price-history.json，不動這兩個檔**）：
 1. 取得今天日期作為 `date`（YYYY-MM-DD），算出 `month`（YYYY-MM）
-2. **在 snapshots 陣列最後面新增一筆新物件，絕不覆蓋或刪除舊的 snapshot**
+2. **先搬檔、再寫入（保留全部歷史，絕不覆蓋或刪除舊 snapshot）**：
+   - 讀取最新一筆時只讀 tracking-data.json（別讀 history）；如需上一筆內容用 `jq '.snapshots[-1]' tracking-data.json`
+   - 把 tracking-data.json 現有那筆 snapshot **搬進** tracking-history.json 陣列末端，再把本次新 snapshot 寫成 tracking-data.json 的唯一一筆。可用指令避免整包歷史進 context：
+     ```
+     jq '.snapshots += input.snapshots' tracking-history.json tracking-data.json > tmp && mv tmp tracking-history.json
+     # 接著把本次新產生的 snapshot 寫入 tracking-data.json（只含這一筆）
+     ```
 3. 每筆 snapshot 結構如下：
 
 ```
@@ -18,7 +26,7 @@
   "date": "YYYY-MM-DD",
   "month": "YYYY-MM",
   "trendGroups": [
-    { "id": "consumer",   "label": "消費者需求", "sub": "...", "items": [{title, summary}] },
+    { "id": "consumer",   "label": "消費者需求", "sub": "...", "items": [{title, summary, sources:[{name,url}]}] },
     { "id": "market",     "label": "市場現況",   "sub": "...", "items": [...] },
     { "id": "regulation", "label": "法規動態",   "sub": "...", "items": [...] }
   ],
@@ -54,6 +62,7 @@
 ## 二、trendGroups 撰寫規則
 
 - 三塊各 **1-3 則**（上限3則），挑當期最重要的講，不要為湊數而編造
+- **每一則都必須附真實來源**：在該則物件加 `sources: [{ "name": "來源名稱", "url": "https://..." }]`，url 必須是實際存在、可點開查證的網址（食藥署公告頁、評測文章、新聞連結等）。**查不到可查證的來源就不要寫這一則**，寧缺勿假（呼應第五節誠實原則）
 - **消費者需求**：消費者行為、決策方式、溝通語言的變化（搜尋行為、評測依賴、劑量透明要求、時間承諾疲乏等）
 - **市場現況**：產業事件、成分典範轉移、競爭格局變化、新品趨勢
 - **法規動態**：查詢衛福部食藥署公告（fda.gov.tw）、違規裁罰新聞、廣告認定準則異動。若當期無新公告，可保留仍然有效的重要提醒，但需重新確認內容仍準確
@@ -118,3 +127,4 @@
 |---|---|
 | 2026-07-05 | 全面改版：雙品牌架構（PowerHero+御熹堂）、品類制競品分析、趨勢三分組（消費者需求/市場現況/法規動態）、日期快照累積制 |
 | 2026-07-15 | 省額度優化：趨勢每塊上限3則、品類分兩級更新頻率（主力每週/其他每月）、只讀最新snapshot、每日查價僅保留PowerHero瑪卡+御熹堂魚油且只查momo |
+| 2026-07-27 | 資料拆檔（tracking-data.json只留最新一筆＋tracking-history.json存歷史，網頁背景載入）加快載入並省token；趨勢每則新增可查證來源欄位sources；前端加入HTML跳脫避免競品文案含特殊符號時炸版 |
