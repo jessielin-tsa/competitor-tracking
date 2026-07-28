@@ -24,6 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 兩種模式都會把欄位對應表寫進 $GITHUB_STEP_SUMMARY，
+      # 直接顯示在這次執行的頁面上，不必翻 log。
       - name: Inspect sheet columns
         if: ${{ inputs.inspect }}
         run: python3 scripts/sync_sales.py --inspect

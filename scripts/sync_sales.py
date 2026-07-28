@@ -28,6 +28,26 @@ DATA_PATH = os.path.join(ROOT, "sales-data.json")
 
 FIELDS = ["date", "platform", "revenue", "orders", "adSpend", "adRevenue"]
 
+FIELD_LABELS = {
+    "date": "日期", "platform": "平台", "revenue": "營業額",
+    "orders": "訂單數", "adSpend": "廣告花費", "adRevenue": "廣告營收",
+}
+REQUIRED_FIELDS = ("date", "revenue")
+
+# GitHub Actions 會把寫進這個檔案的 Markdown 直接渲染在 workflow 執行頁上，
+# 這樣看欄位對應就不必翻 log。
+SUMMARY_PATH = os.environ.get("GITHUB_STEP_SUMMARY")
+
+
+def emit_summary(md):
+    if not SUMMARY_PATH:
+        return
+    try:
+        with open(SUMMARY_PATH, "a", encoding="utf-8") as f:
+            f.write(md + "\n")
+    except OSError:
+        pass  # 摘要寫不出來不該讓同步失敗
+
 # 自動偵測欄名用的候選字（全部轉小寫、去空白後做「包含」比對，順序即優先序）
 CANDIDATES = {
     "date": ["日期", "統計日期", "訂單日期", "成立日期", "date", "day", "時間"],
@@ -263,12 +283,13 @@ def read_source(src, inspect=False):
         for r in body[:3]:
             print("    %s" % (r[:12],))
 
-    if mapping.get("date") is None:
-        raise RuntimeError("[%s] 找不到日期欄，請在 sales-sources.json 的 columns.date 指定欄名"
-                           % src["id"])
-    if mapping.get("revenue") is None:
-        raise RuntimeError("[%s] 找不到營業額欄，請在 sales-sources.json 的 columns.revenue 指定欄名"
-                           % src["id"])
+    for f in REQUIRED_FIELDS:
+        if mapping.get(f) is None:
+            raise RuntimeError(
+                "[%s] 找不到%s欄，請在 sales-sources.json 的 columns.%s 填入正確欄名。\n"
+                "  這份表的欄名有：%s"
+                % (src["id"], FIELD_LABELS[f], f,
+                   "、".join(str(x).strip() for x in header if str(x).strip())))
 
     fixed_platform = src.get("platform", "auto")
     if fixed_platform != "auto":
@@ -307,7 +328,8 @@ def read_source(src, inspect=False):
             continue
         out.append(rec)
 
-    return out, skipped, mapping
+    return {"rows": out, "skipped": skipped, "mapping": mapping,
+            "header": header, "fixedPlatform": fixed_platform}
 
 
 def merge(existing, incoming):
@@ -327,6 +349,27 @@ def merge(existing, incoming):
     return merged, added, updated
 
 
+def _mapping_table(res):
+    """把欄位偵測結果排成 Markdown 表格，給 GitHub Actions 摘要頁用。"""
+    header, mapping = res["header"], res["mapping"]
+    lines = ["| 欄位 | 對應到的欄名 | 狀態 |", "|---|---|---|"]
+    for f in FIELDS:
+        i = mapping.get(f)
+        if i is not None and i < len(header):
+            cell, state = "`%s`（第 %d 欄）" % (str(header[i]).strip(), i + 1), "✅"
+        elif f == "platform" and res["fixedPlatform"] != "auto":
+            cell, state = "整份表固定為 `%s`" % res["fixedPlatform"], "✅"
+        elif f in REQUIRED_FIELDS:
+            cell, state = "—", "❌ 必填，請在設定檔指定欄名"
+        else:
+            cell, state = "—", "⚠️ 沒對到，這個指標會一律記為 0"
+        lines.append("| %s `%s` | %s | %s |" % (FIELD_LABELS[f], f, cell, state))
+    names = "、".join("`%s`" % str(h).strip() for h in header if str(h).strip())
+    lines += ["", "<details><summary>這份表的全部欄名</summary>",
+              "", names or "（沒有讀到任何欄名）", "", "</details>"]
+    return "\n".join(lines)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--inspect", action="store_true",
@@ -339,25 +382,42 @@ def main():
         cfg = json.load(f)
 
     all_rows, errors = [], []
+    emit_summary("## 業績同步報告 %s\n" % datetime.date.today().isoformat())
+
     for src in cfg["sources"]:
+        sheet_url = ("https://docs.google.com/spreadsheets/d/%s/edit?gid=%s"
+                     % (src["sheetId"], src["gid"]))
+        title = "### %s（%s）" % (src["id"], src.get("label", "未命名"))
         try:
-            rows, skipped, _ = read_source(src, inspect=args.inspect)
-            all_rows.extend(rows)
-            print("[%s] 取得 %d 筆有效紀錄（略過 %d 列）" % (src["id"], len(rows), skipped))
+            res = read_source(src, inspect=args.inspect)
+            all_rows.extend(res["rows"])
+            print("[%s] 取得 %d 筆有效紀錄（略過 %d 列）"
+                  % (src["id"], len(res["rows"]), res["skipped"]))
+            emit_summary("%s\n\n[開啟這份 Sheet](%s)\n\n%s\n\n取得 **%d** 筆有效紀錄，略過 %d 列。\n"
+                         % (title, sheet_url, _mapping_table(res), len(res["rows"]), res["skipped"]))
         except Exception as e:  # noqa: BLE001 - 逐來源回報，不讓一份表壞掉全炸
             errors.append((src["id"], str(e)))
             print("[%s] 失敗：%s" % (src["id"], e), file=sys.stderr)
+            emit_summary("%s\n\n[開啟這份 Sheet](%s)\n\n> [!CAUTION]\n> **讀取失敗**\n>\n> ```\n> %s\n> ```\n"
+                         % (title, sheet_url, str(e).replace("\n", "\n> ")))
 
     if args.inspect:
         print("\n--inspect 模式：未寫入任何檔案。")
+        emit_summary("---\n\n**檢查模式**：只讀取欄名，沒有寫入任何資料。\n\n"
+                     "上表若有 ❌ 或 ⚠️，請修改 `scripts/sales-sources.json` 後再跑一次。")
         return 1 if errors else 0
 
     if errors:
         print("\n有 %d 個來源失敗，為避免寫入不完整資料，本次不更新 sales-data.json。"
               % len(errors), file=sys.stderr)
+        emit_summary("---\n\n> [!WARNING]\n> 有 %d 個來源讀取失敗，**本次未更新 sales-data.json**。\n>\n"
+                     "> 只寫入部分平台會讓佔比失真，所以寧可整批不寫。" % len(errors))
         return 1
     if not all_rows:
         print("\n沒有解析到任何資料列，不更新 sales-data.json。", file=sys.stderr)
+        emit_summary("---\n\n> [!WARNING]\n> 三份表都讀到了，但沒有解析出任何有效資料列，"
+                     "**本次未更新 sales-data.json**。\n>\n"
+                     "> 常見原因：日期欄格式不是腳本認得的寫法，或平台欄的寫法不在對照表裡。")
         return 1
 
     with open(DATA_PATH, encoding="utf-8") as f:
@@ -376,8 +436,18 @@ def main():
     print("\n合計 %d 筆（新增 %d、更新 %d），涵蓋 %s → %s"
           % (len(merged), added, updated, min(dates), max(dates)))
 
+    by_plat = {}
+    for r in merged:
+        by_plat[r["platform"]] = by_plat.get(r["platform"], 0) + r["revenue"]
+    plat_lines = "\n".join("| %s | %s |" % (p, "{:,}".format(v)) for p, v in sorted(by_plat.items()))
+    emit_summary("---\n\n### 同步結果\n\n"
+                 "合計 **%d** 筆平台日紀錄（新增 %d、更新 %d），涵蓋 %s → %s。\n\n"
+                 "| 平台 | 期間總營業額 |\n|---|---|\n%s\n"
+                 % (len(merged), added, updated, min(dates), max(dates), plat_lines))
+
     if args.dry_run:
         print("--dry-run：未寫入 sales-data.json。")
+        emit_summary("\n**試跑模式**：未寫入 sales-data.json。")
         return 0
 
     with open(DATA_PATH, "w", encoding="utf-8") as f:
