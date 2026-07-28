@@ -18,6 +18,8 @@ h1{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,4.5vw,44
 .scan-time{color:var(--paper);font-size:15px;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
 .pulse{width:8px;height:8px;border-radius:50%;background:var(--calm);animation:pulse 2.4s infinite;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,168,163,0.5);}70%{box-shadow:0 0 0 7px rgba(95,168,163,0);}100%{box-shadow:0 0 0 0 rgba(95,168,163,0));}}
+.navlink{font-family:var(--font-mono);font-size:12px;color:var(--calm);text-decoration:none;border:1px solid var(--rule-strong);padding:6px 12px;border-radius:2px;display:inline-block;margin-top:8px;}
+.navlink:hover{background:var(--surface);}
 .month-row,.date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .month-row{margin-bottom:12px;}.date-row{margin-bottom:32px;}
 .row-label{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-dim);margin-right:4px;}
@@ -115,6 +117,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div>
     <div class="eyebrow">COMPETITIVE INTELLIGENCE CENTER</div>
     <h1>競品分析中心</h1>
+    <a class="navlink" href="./sales.html">業績整合中心 →</a>
   </div>
   <div class="status-block">
     <div class="scan-time"><span class="pulse"></span><span id="lastUpdated">—</span> 最後掃描</div>

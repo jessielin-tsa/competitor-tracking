@@ -1,0 +1,1429 @@
+{
+ "note": "三平台業績整合資料。daily 為「每日 × 平台」一筆的扁平陣列，由 scripts/sync_sales.py 從 Google Sheet 自動同步寫入。isDemo=true 代表目前為示範資料，首次成功同步真實資料後會自動改為 false。",
+ "isDemo": true,
+ "updatedAt": "2026-07-28",
+ "currency": "TWD",
+ "metrics": {
+  "revenue": "營業額（未稅或含稅請三平台統一，建議含稅實收）",
+  "orders": "有效訂單數（已扣除取消／退貨）",
+  "adSpend": "該平台當日廣告花費",
+  "adRevenue": "廣告直接帶來的營收（用於計算 ROAS）"
+ },
+ "platforms": [
+  {
+   "id": "shopee",
+   "label": "蝦皮",
+   "accent": "brass"
+  },
+  {
+   "id": "momo",
+   "label": "momo",
+   "accent": "calm"
+  },
+  {
+   "id": "web",
+   "label": "官網",
+   "accent": "violet"
+  }
+ ],
+ "campaigns": [
+  {
+   "id": "c618",
+   "label": "618 年中慶",
+   "from": "2026-06-10",
+   "to": "2026-06-18",
+   "platforms": [
+    "shopee",
+    "momo"
+   ]
+  },
+  {
+   "id": "s0707",
+   "label": "蝦皮 7.7 購物節",
+   "from": "2026-07-05",
+   "to": "2026-07-07",
+   "platforms": [
+    "shopee"
+   ]
+  },
+  {
+   "id": "web_anniv",
+   "label": "官網週年慶",
+   "from": "2026-07-15",
+   "to": "2026-07-21",
+   "platforms": [
+    "web"
+   ]
+  }
+ ],
+ "daily": [
+  {
+   "date": "2026-06-01",
+   "platform": "shopee",
+   "revenue": 43100,
+   "orders": 35,
+   "adSpend": 5940,
+   "adRevenue": 28300
+  },
+  {
+   "date": "2026-06-01",
+   "platform": "momo",
+   "revenue": 58500,
+   "orders": 39,
+   "adSpend": 5510,
+   "adRevenue": 33800
+  },
+  {
+   "date": "2026-06-01",
+   "platform": "web",
+   "revenue": 20800,
+   "orders": 12,
+   "adSpend": 4930,
+   "adRevenue": 17900
+  },
+  {
+   "date": "2026-06-02",
+   "platform": "shopee",
+   "revenue": 36400,
+   "orders": 30,
+   "adSpend": 4400,
+   "adRevenue": 16800
+  },
+  {
+   "date": "2026-06-02",
+   "platform": "momo",
+   "revenue": 48000,
+   "orders": 34,
+   "adSpend": 3970,
+   "adRevenue": 22600
+  },
+  {
+   "date": "2026-06-02",
+   "platform": "web",
+   "revenue": 22800,
+   "orders": 14,
+   "adSpend": 4700,
+   "adRevenue": 12500
+  },
+  {
+   "date": "2026-06-03",
+   "platform": "shopee",
+   "revenue": 32400,
+   "orders": 29,
+   "adSpend": 4040,
+   "adRevenue": 18200
+  },
+  {
+   "date": "2026-06-03",
+   "platform": "momo",
+   "revenue": 46800,
+   "orders": 32,
+   "adSpend": 3730,
+   "adRevenue": 21500
+  },
+  {
+   "date": "2026-06-03",
+   "platform": "web",
+   "revenue": 20300,
+   "orders": 13,
+   "adSpend": 4130,
+   "adRevenue": 10400
+  },
+  {
+   "date": "2026-06-04",
+   "platform": "shopee",
+   "revenue": 39800,
+   "orders": 34,
+   "adSpend": 6350,
+   "adRevenue": 31600
+  },
+  {
+   "date": "2026-06-04",
+   "platform": "momo",
+   "revenue": 49200,
+   "orders": 33,
+   "adSpend": 4350,
+   "adRevenue": 24800
+  },
+  {
+   "date": "2026-06-04",
+   "platform": "web",
+   "revenue": 18000,
+   "orders": 10,
+   "adSpend": 4260,
+   "adRevenue": 12300
+  },
+  {
+   "date": "2026-06-05",
+   "platform": "shopee",
+   "revenue": 40600,
+   "orders": 37,
+   "adSpend": 4910,
+   "adRevenue": 20700
+  },
+  {
+   "date": "2026-06-05",
+   "platform": "momo",
+   "revenue": 51900,
+   "orders": 34,
+   "adSpend": 5220,
+   "adRevenue": 33200
+  },
+  {
+   "date": "2026-06-05",
+   "platform": "web",
+   "revenue": 19200,
+   "orders": 12,
+   "adSpend": 3950,
+   "adRevenue": 12400
+  },
+  {
+   "date": "2026-06-06",
+   "platform": "shopee",
+   "revenue": 37700,
+   "orders": 32,
+   "adSpend": 5540,
+   "adRevenue": 26300
+  },
+  {
+   "date": "2026-06-06",
+   "platform": "momo",
+   "revenue": 59700,
+   "orders": 41,
+   "adSpend": 4950,
+   "adRevenue": 22500
+  },
+  {
+   "date": "2026-06-06",
+   "platform": "web",
+   "revenue": 23100,
+   "orders": 13,
+   "adSpend": 4980,
+   "adRevenue": 16600
+  },
+  {
+   "date": "2026-06-07",
+   "platform": "shopee",
+   "revenue": 47300,
+   "orders": 43,
+   "adSpend": 7480,
+   "adRevenue": 30400
+  },
+  {
+   "date": "2026-06-07",
+   "platform": "momo",
+   "revenue": 50400,
+   "orders": 33,
+   "adSpend": 4930,
+   "adRevenue": 22300
+  },
+  {
+   "date": "2026-06-07",
+   "platform": "web",
+   "revenue": 26400,
+   "orders": 15,
+   "adSpend": 5580,
+   "adRevenue": 14400
+  },
+  {
+   "date": "2026-06-08",
+   "platform": "shopee",
+   "revenue": 33300,
+   "orders": 27,
+   "adSpend": 4240,
+   "adRevenue": 20900
+  },
+  {
+   "date": "2026-06-08",
+   "platform": "momo",
+   "revenue": 52700,
+   "orders": 35,
+   "adSpend": 5360,
+   "adRevenue": 31300
+  },
+  {
+   "date": "2026-06-08",
+   "platform": "web",
+   "revenue": 19200,
+   "orders": 11,
+   "adSpend": 3880,
+   "adRevenue": 12800
+  },
+  {
+   "date": "2026-06-09",
+   "platform": "shopee",
+   "revenue": 36400,
+   "orders": 31,
+   "adSpend": 5610,
+   "adRevenue": 20600
+  },
+  {
+   "date": "2026-06-09",
+   "platform": "momo",
+   "revenue": 53900,
+   "orders": 37,
+   "adSpend": 5500,
+   "adRevenue": 30400
+  },
+  {
+   "date": "2026-06-09",
+   "platform": "web",
+   "revenue": 19000,
+   "orders": 11,
+   "adSpend": 3980,
+   "adRevenue": 14100
+  },
+  {
+   "date": "2026-06-10",
+   "platform": "shopee",
+   "revenue": 95200,
+   "orders": 78,
+   "adSpend": 12480,
+   "adRevenue": 47400
+  },
+  {
+   "date": "2026-06-10",
+   "platform": "momo",
+   "revenue": 145100,
+   "orders": 102,
+   "adSpend": 13990,
+   "adRevenue": 90900
+  },
+  {
+   "date": "2026-06-10",
+   "platform": "web",
+   "revenue": 18700,
+   "orders": 11,
+   "adSpend": 4100,
+   "adRevenue": 10200
+  },
+  {
+   "date": "2026-06-11",
+   "platform": "shopee",
+   "revenue": 104500,
+   "orders": 91,
+   "adSpend": 12450,
+   "adRevenue": 43600
+  },
+  {
+   "date": "2026-06-11",
+   "platform": "momo",
+   "revenue": 135000,
+   "orders": 86,
+   "adSpend": 13450,
+   "adRevenue": 64000
+  },
+  {
+   "date": "2026-06-11",
+   "platform": "web",
+   "revenue": 21600,
+   "orders": 13,
+   "adSpend": 4600,
+   "adRevenue": 11900
+  },
+  {
+   "date": "2026-06-12",
+   "platform": "shopee",
+   "revenue": 114400,
+   "orders": 103,
+   "adSpend": 14270,
+   "adRevenue": 67900
+  },
+  {
+   "date": "2026-06-12",
+   "platform": "momo",
+   "revenue": 150700,
+   "orders": 95,
+   "adSpend": 14800,
+   "adRevenue": 74100
+  },
+  {
+   "date": "2026-06-12",
+   "platform": "web",
+   "revenue": 20700,
+   "orders": 11,
+   "adSpend": 3970,
+   "adRevenue": 13200
+  },
+  {
+   "date": "2026-06-13",
+   "platform": "shopee",
+   "revenue": 94500,
+   "orders": 87,
+   "adSpend": 14020,
+   "adRevenue": 65300
+  },
+  {
+   "date": "2026-06-13",
+   "platform": "momo",
+   "revenue": 148200,
+   "orders": 94,
+   "adSpend": 12690,
+   "adRevenue": 66200
+  },
+  {
+   "date": "2026-06-13",
+   "platform": "web",
+   "revenue": 22900,
+   "orders": 13,
+   "adSpend": 5230,
+   "adRevenue": 15300
+  },
+  {
+   "date": "2026-06-14",
+   "platform": "shopee",
+   "revenue": 102200,
+   "orders": 86,
+   "adSpend": 12380,
+   "adRevenue": 49400
+  },
+  {
+   "date": "2026-06-14",
+   "platform": "momo",
+   "revenue": 136600,
+   "orders": 90,
+   "adSpend": 11740,
+   "adRevenue": 76900
+  },
+  {
+   "date": "2026-06-14",
+   "platform": "web",
+   "revenue": 25100,
+   "orders": 14,
+   "adSpend": 4870,
+   "adRevenue": 13900
+  },
+  {
+   "date": "2026-06-15",
+   "platform": "shopee",
+   "revenue": 88100,
+   "orders": 71,
+   "adSpend": 10770,
+   "adRevenue": 51900
+  },
+  {
+   "date": "2026-06-15",
+   "platform": "momo",
+   "revenue": 112800,
+   "orders": 83,
+   "adSpend": 9660,
+   "adRevenue": 57400
+  },
+  {
+   "date": "2026-06-15",
+   "platform": "web",
+   "revenue": 20000,
+   "orders": 11,
+   "adSpend": 4300,
+   "adRevenue": 14100
+  },
+  {
+   "date": "2026-06-16",
+   "platform": "shopee",
+   "revenue": 111100,
+   "orders": 90,
+   "adSpend": 17810,
+   "adRevenue": 81000
+  },
+  {
+   "date": "2026-06-16",
+   "platform": "momo",
+   "revenue": 158900,
+   "orders": 113,
+   "adSpend": 16380,
+   "adRevenue": 80900
+  },
+  {
+   "date": "2026-06-16",
+   "platform": "web",
+   "revenue": 19500,
+   "orders": 12,
+   "adSpend": 3870,
+   "adRevenue": 12800
+  },
+  {
+   "date": "2026-06-17",
+   "platform": "shopee",
+   "revenue": 104300,
+   "orders": 85,
+   "adSpend": 14920,
+   "adRevenue": 64200
+  },
+  {
+   "date": "2026-06-17",
+   "platform": "momo",
+   "revenue": 131600,
+   "orders": 95,
+   "adSpend": 12530,
+   "adRevenue": 66900
+  },
+  {
+   "date": "2026-06-17",
+   "platform": "web",
+   "revenue": 21400,
+   "orders": 12,
+   "adSpend": 4680,
+   "adRevenue": 15200
+  },
+  {
+   "date": "2026-06-18",
+   "platform": "shopee",
+   "revenue": 107300,
+   "orders": 96,
+   "adSpend": 14750,
+   "adRevenue": 61400
+  },
+  {
+   "date": "2026-06-18",
+   "platform": "momo",
+   "revenue": 123300,
+   "orders": 82,
+   "adSpend": 12360,
+   "adRevenue": 62700
+  },
+  {
+   "date": "2026-06-18",
+   "platform": "web",
+   "revenue": 24100,
+   "orders": 13,
+   "adSpend": 4960,
+   "adRevenue": 16400
+  },
+  {
+   "date": "2026-06-19",
+   "platform": "shopee",
+   "revenue": 43500,
+   "orders": 40,
+   "adSpend": 6300,
+   "adRevenue": 28300
+  },
+  {
+   "date": "2026-06-19",
+   "platform": "momo",
+   "revenue": 52300,
+   "orders": 36,
+   "adSpend": 4950,
+   "adRevenue": 23900
+  },
+  {
+   "date": "2026-06-19",
+   "platform": "web",
+   "revenue": 24100,
+   "orders": 15,
+   "adSpend": 6040,
+   "adRevenue": 18700
+  },
+  {
+   "date": "2026-06-20",
+   "platform": "shopee",
+   "revenue": 43000,
+   "orders": 35,
+   "adSpend": 6570,
+   "adRevenue": 32400
+  },
+  {
+   "date": "2026-06-20",
+   "platform": "momo",
+   "revenue": 52000,
+   "orders": 34,
+   "adSpend": 4360,
+   "adRevenue": 27100
+  },
+  {
+   "date": "2026-06-20",
+   "platform": "web",
+   "revenue": 24100,
+   "orders": 13,
+   "adSpend": 6070,
+   "adRevenue": 20800
+  },
+  {
+   "date": "2026-06-21",
+   "platform": "shopee",
+   "revenue": 43900,
+   "orders": 39,
+   "adSpend": 5940,
+   "adRevenue": 27100
+  },
+  {
+   "date": "2026-06-21",
+   "platform": "momo",
+   "revenue": 60000,
+   "orders": 39,
+   "adSpend": 4630,
+   "adRevenue": 25600
+  },
+  {
+   "date": "2026-06-21",
+   "platform": "web",
+   "revenue": 23800,
+   "orders": 13,
+   "adSpend": 5980,
+   "adRevenue": 19400
+  },
+  {
+   "date": "2026-06-22",
+   "platform": "shopee",
+   "revenue": 39500,
+   "orders": 32,
+   "adSpend": 5890,
+   "adRevenue": 24000
+  },
+  {
+   "date": "2026-06-22",
+   "platform": "momo",
+   "revenue": 56800,
+   "orders": 38,
+   "adSpend": 5260,
+   "adRevenue": 29100
+  },
+  {
+   "date": "2026-06-22",
+   "platform": "web",
+   "revenue": 23600,
+   "orders": 13,
+   "adSpend": 5440,
+   "adRevenue": 15900
+  },
+  {
+   "date": "2026-06-23",
+   "platform": "shopee",
+   "revenue": 34700,
+   "orders": 29,
+   "adSpend": 4870,
+   "adRevenue": 16400
+  },
+  {
+   "date": "2026-06-23",
+   "platform": "momo",
+   "revenue": 52500,
+   "orders": 36,
+   "adSpend": 5200,
+   "adRevenue": 30600
+  },
+  {
+   "date": "2026-06-23",
+   "platform": "web",
+   "revenue": 21000,
+   "orders": 12,
+   "adSpend": 4130,
+   "adRevenue": 13500
+  },
+  {
+   "date": "2026-06-24",
+   "platform": "shopee",
+   "revenue": 32500,
+   "orders": 29,
+   "adSpend": 5190,
+   "adRevenue": 23500
+  },
+  {
+   "date": "2026-06-24",
+   "platform": "momo",
+   "revenue": 58500,
+   "orders": 37,
+   "adSpend": 5460,
+   "adRevenue": 28100
+  },
+  {
+   "date": "2026-06-24",
+   "platform": "web",
+   "revenue": 19800,
+   "orders": 11,
+   "adSpend": 4940,
+   "adRevenue": 13100
+  },
+  {
+   "date": "2026-06-25",
+   "platform": "shopee",
+   "revenue": 44500,
+   "orders": 40,
+   "adSpend": 6690,
+   "adRevenue": 25400
+  },
+  {
+   "date": "2026-06-25",
+   "platform": "momo",
+   "revenue": 56400,
+   "orders": 40,
+   "adSpend": 5490,
+   "adRevenue": 29700
+  },
+  {
+   "date": "2026-06-25",
+   "platform": "web",
+   "revenue": 21400,
+   "orders": 13,
+   "adSpend": 4170,
+   "adRevenue": 15300
+  },
+  {
+   "date": "2026-06-26",
+   "platform": "shopee",
+   "revenue": 32900,
+   "orders": 29,
+   "adSpend": 4480,
+   "adRevenue": 22200
+  },
+  {
+   "date": "2026-06-26",
+   "platform": "momo",
+   "revenue": 50900,
+   "orders": 36,
+   "adSpend": 4740,
+   "adRevenue": 27400
+  },
+  {
+   "date": "2026-06-26",
+   "platform": "web",
+   "revenue": 24400,
+   "orders": 15,
+   "adSpend": 5890,
+   "adRevenue": 21500
+  },
+  {
+   "date": "2026-06-27",
+   "platform": "shopee",
+   "revenue": 47600,
+   "orders": 38,
+   "adSpend": 6360,
+   "adRevenue": 26000
+  },
+  {
+   "date": "2026-06-27",
+   "platform": "momo",
+   "revenue": 61400,
+   "orders": 39,
+   "adSpend": 5650,
+   "adRevenue": 30700
+  },
+  {
+   "date": "2026-06-27",
+   "platform": "web",
+   "revenue": 24700,
+   "orders": 14,
+   "adSpend": 5370,
+   "adRevenue": 15400
+  },
+  {
+   "date": "2026-06-28",
+   "platform": "shopee",
+   "revenue": 35500,
+   "orders": 31,
+   "adSpend": 5430,
+   "adRevenue": 19300
+  },
+  {
+   "date": "2026-06-28",
+   "platform": "momo",
+   "revenue": 63100,
+   "orders": 41,
+   "adSpend": 5420,
+   "adRevenue": 28100
+  },
+  {
+   "date": "2026-06-28",
+   "platform": "web",
+   "revenue": 27100,
+   "orders": 16,
+   "adSpend": 6430,
+   "adRevenue": 20600
+  },
+  {
+   "date": "2026-06-29",
+   "platform": "shopee",
+   "revenue": 41600,
+   "orders": 37,
+   "adSpend": 6080,
+   "adRevenue": 25700
+  },
+  {
+   "date": "2026-06-29",
+   "platform": "momo",
+   "revenue": 52100,
+   "orders": 35,
+   "adSpend": 4340,
+   "adRevenue": 25700
+  },
+  {
+   "date": "2026-06-29",
+   "platform": "web",
+   "revenue": 23300,
+   "orders": 14,
+   "adSpend": 5200,
+   "adRevenue": 16700
+  },
+  {
+   "date": "2026-06-30",
+   "platform": "shopee",
+   "revenue": 31800,
+   "orders": 29,
+   "adSpend": 5010,
+   "adRevenue": 17300
+  },
+  {
+   "date": "2026-06-30",
+   "platform": "momo",
+   "revenue": 42900,
+   "orders": 27,
+   "adSpend": 3490,
+   "adRevenue": 23100
+  },
+  {
+   "date": "2026-06-30",
+   "platform": "web",
+   "revenue": 19500,
+   "orders": 12,
+   "adSpend": 4100,
+   "adRevenue": 13400
+  },
+  {
+   "date": "2026-07-01",
+   "platform": "shopee",
+   "revenue": 42600,
+   "orders": 35,
+   "adSpend": 5570,
+   "adRevenue": 23100
+  },
+  {
+   "date": "2026-07-01",
+   "platform": "momo",
+   "revenue": 51900,
+   "orders": 35,
+   "adSpend": 5220,
+   "adRevenue": 30100
+  },
+  {
+   "date": "2026-07-01",
+   "platform": "web",
+   "revenue": 21200,
+   "orders": 12,
+   "adSpend": 4100,
+   "adRevenue": 13300
+  },
+  {
+   "date": "2026-07-02",
+   "platform": "shopee",
+   "revenue": 37300,
+   "orders": 33,
+   "adSpend": 5950,
+   "adRevenue": 20400
+  },
+  {
+   "date": "2026-07-02",
+   "platform": "momo",
+   "revenue": 59900,
+   "orders": 43,
+   "adSpend": 5620,
+   "adRevenue": 26600
+  },
+  {
+   "date": "2026-07-02",
+   "platform": "web",
+   "revenue": 21700,
+   "orders": 14,
+   "adSpend": 4180,
+   "adRevenue": 15300
+  },
+  {
+   "date": "2026-07-03",
+   "platform": "shopee",
+   "revenue": 44200,
+   "orders": 40,
+   "adSpend": 6980,
+   "adRevenue": 32400
+  },
+  {
+   "date": "2026-07-03",
+   "platform": "momo",
+   "revenue": 52100,
+   "orders": 33,
+   "adSpend": 5170,
+   "adRevenue": 34200
+  },
+  {
+   "date": "2026-07-03",
+   "platform": "web",
+   "revenue": 20900,
+   "orders": 11,
+   "adSpend": 4390,
+   "adRevenue": 14900
+  },
+  {
+   "date": "2026-07-04",
+   "platform": "shopee",
+   "revenue": 45800,
+   "orders": 39,
+   "adSpend": 5730,
+   "adRevenue": 25300
+  },
+  {
+   "date": "2026-07-04",
+   "platform": "momo",
+   "revenue": 65400,
+   "orders": 44,
+   "adSpend": 5480,
+   "adRevenue": 34000
+  },
+  {
+   "date": "2026-07-04",
+   "platform": "web",
+   "revenue": 24300,
+   "orders": 14,
+   "adSpend": 5110,
+   "adRevenue": 13200
+  },
+  {
+   "date": "2026-07-05",
+   "platform": "shopee",
+   "revenue": 97100,
+   "orders": 88,
+   "adSpend": 11990,
+   "adRevenue": 58800
+  },
+  {
+   "date": "2026-07-05",
+   "platform": "momo",
+   "revenue": 60600,
+   "orders": 40,
+   "adSpend": 4680,
+   "adRevenue": 22100
+  },
+  {
+   "date": "2026-07-05",
+   "platform": "web",
+   "revenue": 23600,
+   "orders": 15,
+   "adSpend": 4470,
+   "adRevenue": 16400
+  },
+  {
+   "date": "2026-07-06",
+   "platform": "shopee",
+   "revenue": 85500,
+   "orders": 80,
+   "adSpend": 10660,
+   "adRevenue": 42700
+  },
+  {
+   "date": "2026-07-06",
+   "platform": "momo",
+   "revenue": 45400,
+   "orders": 32,
+   "adSpend": 3500,
+   "adRevenue": 21000
+  },
+  {
+   "date": "2026-07-06",
+   "platform": "web",
+   "revenue": 19800,
+   "orders": 12,
+   "adSpend": 3820,
+   "adRevenue": 10500
+  },
+  {
+   "date": "2026-07-07",
+   "platform": "shopee",
+   "revenue": 96900,
+   "orders": 79,
+   "adSpend": 12450,
+   "adRevenue": 54800
+  },
+  {
+   "date": "2026-07-07",
+   "platform": "momo",
+   "revenue": 60800,
+   "orders": 40,
+   "adSpend": 5530,
+   "adRevenue": 30900
+  },
+  {
+   "date": "2026-07-07",
+   "platform": "web",
+   "revenue": 23100,
+   "orders": 14,
+   "adSpend": 4510,
+   "adRevenue": 16200
+  },
+  {
+   "date": "2026-07-08",
+   "platform": "shopee",
+   "revenue": 31900,
+   "orders": 26,
+   "adSpend": 4770,
+   "adRevenue": 17700
+  },
+  {
+   "date": "2026-07-08",
+   "platform": "momo",
+   "revenue": 54000,
+   "orders": 39,
+   "adSpend": 5530,
+   "adRevenue": 32000
+  },
+  {
+   "date": "2026-07-08",
+   "platform": "web",
+   "revenue": 20300,
+   "orders": 11,
+   "adSpend": 3820,
+   "adRevenue": 10000
+  },
+  {
+   "date": "2026-07-09",
+   "platform": "shopee",
+   "revenue": 40900,
+   "orders": 34,
+   "adSpend": 5200,
+   "adRevenue": 25300
+  },
+  {
+   "date": "2026-07-09",
+   "platform": "momo",
+   "revenue": 52200,
+   "orders": 35,
+   "adSpend": 4850,
+   "adRevenue": 23000
+  },
+  {
+   "date": "2026-07-09",
+   "platform": "web",
+   "revenue": 19600,
+   "orders": 11,
+   "adSpend": 4350,
+   "adRevenue": 12500
+  },
+  {
+   "date": "2026-07-10",
+   "platform": "shopee",
+   "revenue": 42400,
+   "orders": 35,
+   "adSpend": 6730,
+   "adRevenue": 26300
+  },
+  {
+   "date": "2026-07-10",
+   "platform": "momo",
+   "revenue": 52500,
+   "orders": 38,
+   "adSpend": 4270,
+   "adRevenue": 22700
+  },
+  {
+   "date": "2026-07-10",
+   "platform": "web",
+   "revenue": 23200,
+   "orders": 14,
+   "adSpend": 4790,
+   "adRevenue": 12800
+  },
+  {
+   "date": "2026-07-11",
+   "platform": "shopee",
+   "revenue": 37600,
+   "orders": 31,
+   "adSpend": 5720,
+   "adRevenue": 27700
+  },
+  {
+   "date": "2026-07-11",
+   "platform": "momo",
+   "revenue": 67400,
+   "orders": 43,
+   "adSpend": 6560,
+   "adRevenue": 44000
+  },
+  {
+   "date": "2026-07-11",
+   "platform": "web",
+   "revenue": 23100,
+   "orders": 13,
+   "adSpend": 5680,
+   "adRevenue": 15900
+  },
+  {
+   "date": "2026-07-12",
+   "platform": "shopee",
+   "revenue": 40900,
+   "orders": 35,
+   "adSpend": 6430,
+   "adRevenue": 24400
+  },
+  {
+   "date": "2026-07-12",
+   "platform": "momo",
+   "revenue": 63500,
+   "orders": 42,
+   "adSpend": 6080,
+   "adRevenue": 31600
+  },
+  {
+   "date": "2026-07-12",
+   "platform": "web",
+   "revenue": 22300,
+   "orders": 13,
+   "adSpend": 4260,
+   "adRevenue": 12100
+  },
+  {
+   "date": "2026-07-13",
+   "platform": "shopee",
+   "revenue": 36600,
+   "orders": 33,
+   "adSpend": 5560,
+   "adRevenue": 22400
+  },
+  {
+   "date": "2026-07-13",
+   "platform": "momo",
+   "revenue": 47500,
+   "orders": 31,
+   "adSpend": 4120,
+   "adRevenue": 19200
+  },
+  {
+   "date": "2026-07-13",
+   "platform": "web",
+   "revenue": 17600,
+   "orders": 10,
+   "adSpend": 4070,
+   "adRevenue": 14800
+  },
+  {
+   "date": "2026-07-14",
+   "platform": "shopee",
+   "revenue": 31200,
+   "orders": 28,
+   "adSpend": 5020,
+   "adRevenue": 21300
+  },
+  {
+   "date": "2026-07-14",
+   "platform": "momo",
+   "revenue": 58900,
+   "orders": 40,
+   "adSpend": 5780,
+   "adRevenue": 27800
+  },
+  {
+   "date": "2026-07-14",
+   "platform": "web",
+   "revenue": 22600,
+   "orders": 13,
+   "adSpend": 5100,
+   "adRevenue": 13500
+  },
+  {
+   "date": "2026-07-15",
+   "platform": "shopee",
+   "revenue": 35800,
+   "orders": 29,
+   "adSpend": 5580,
+   "adRevenue": 19200
+  },
+  {
+   "date": "2026-07-15",
+   "platform": "momo",
+   "revenue": 42900,
+   "orders": 27,
+   "adSpend": 4360,
+   "adRevenue": 25200
+  },
+  {
+   "date": "2026-07-15",
+   "platform": "web",
+   "revenue": 46300,
+   "orders": 26,
+   "adSpend": 10560,
+   "adRevenue": 31900
+  },
+  {
+   "date": "2026-07-16",
+   "platform": "shopee",
+   "revenue": 37400,
+   "orders": 33,
+   "adSpend": 5830,
+   "adRevenue": 23000
+  },
+  {
+   "date": "2026-07-16",
+   "platform": "momo",
+   "revenue": 55500,
+   "orders": 39,
+   "adSpend": 5090,
+   "adRevenue": 31400
+  },
+  {
+   "date": "2026-07-16",
+   "platform": "web",
+   "revenue": 63100,
+   "orders": 39,
+   "adSpend": 13760,
+   "adRevenue": 39200
+  },
+  {
+   "date": "2026-07-17",
+   "platform": "shopee",
+   "revenue": 42200,
+   "orders": 36,
+   "adSpend": 5510,
+   "adRevenue": 24300
+  },
+  {
+   "date": "2026-07-17",
+   "platform": "momo",
+   "revenue": 58300,
+   "orders": 42,
+   "adSpend": 4610,
+   "adRevenue": 27600
+  },
+  {
+   "date": "2026-07-17",
+   "platform": "web",
+   "revenue": 62200,
+   "orders": 37,
+   "adSpend": 15380,
+   "adRevenue": 41900
+  },
+  {
+   "date": "2026-07-18",
+   "platform": "shopee",
+   "revenue": 47300,
+   "orders": 39,
+   "adSpend": 6230,
+   "adRevenue": 23900
+  },
+  {
+   "date": "2026-07-18",
+   "platform": "momo",
+   "revenue": 58300,
+   "orders": 42,
+   "adSpend": 5440,
+   "adRevenue": 32500
+  },
+  {
+   "date": "2026-07-18",
+   "platform": "web",
+   "revenue": 70500,
+   "orders": 41,
+   "adSpend": 16550,
+   "adRevenue": 52700
+  },
+  {
+   "date": "2026-07-19",
+   "platform": "shopee",
+   "revenue": 49000,
+   "orders": 44,
+   "adSpend": 7050,
+   "adRevenue": 30200
+  },
+  {
+   "date": "2026-07-19",
+   "platform": "momo",
+   "revenue": 58500,
+   "orders": 39,
+   "adSpend": 4670,
+   "adRevenue": 22600
+  },
+  {
+   "date": "2026-07-19",
+   "platform": "web",
+   "revenue": 51700,
+   "orders": 30,
+   "adSpend": 10070,
+   "adRevenue": 36600
+  },
+  {
+   "date": "2026-07-20",
+   "platform": "shopee",
+   "revenue": 44300,
+   "orders": 36,
+   "adSpend": 5600,
+   "adRevenue": 28000
+  },
+  {
+   "date": "2026-07-20",
+   "platform": "momo",
+   "revenue": 51800,
+   "orders": 37,
+   "adSpend": 4310,
+   "adRevenue": 24100
+  },
+  {
+   "date": "2026-07-20",
+   "platform": "web",
+   "revenue": 51800,
+   "orders": 30,
+   "adSpend": 10850,
+   "adRevenue": 27100
+  },
+  {
+   "date": "2026-07-21",
+   "platform": "shopee",
+   "revenue": 38300,
+   "orders": 35,
+   "adSpend": 5640,
+   "adRevenue": 23700
+  },
+  {
+   "date": "2026-07-21",
+   "platform": "momo",
+   "revenue": 60200,
+   "orders": 44,
+   "adSpend": 6160,
+   "adRevenue": 37500
+  },
+  {
+   "date": "2026-07-21",
+   "platform": "web",
+   "revenue": 52400,
+   "orders": 30,
+   "adSpend": 12020,
+   "adRevenue": 34900
+  },
+  {
+   "date": "2026-07-22",
+   "platform": "shopee",
+   "revenue": 36100,
+   "orders": 31,
+   "adSpend": 4750,
+   "adRevenue": 20400
+  },
+  {
+   "date": "2026-07-22",
+   "platform": "momo",
+   "revenue": 55700,
+   "orders": 36,
+   "adSpend": 4630,
+   "adRevenue": 24200
+  },
+  {
+   "date": "2026-07-22",
+   "platform": "web",
+   "revenue": 22100,
+   "orders": 13,
+   "adSpend": 5240,
+   "adRevenue": 18700
+  },
+  {
+   "date": "2026-07-23",
+   "platform": "shopee",
+   "revenue": 32700,
+   "orders": 27,
+   "adSpend": 3960,
+   "adRevenue": 13400
+  },
+  {
+   "date": "2026-07-23",
+   "platform": "momo",
+   "revenue": 45500,
+   "orders": 31,
+   "adSpend": 4290,
+   "adRevenue": 24600
+  },
+  {
+   "date": "2026-07-23",
+   "platform": "web",
+   "revenue": 19400,
+   "orders": 11,
+   "adSpend": 4580,
+   "adRevenue": 16000
+  },
+  {
+   "date": "2026-07-24",
+   "platform": "shopee",
+   "revenue": 41300,
+   "orders": 34,
+   "adSpend": 5290,
+   "adRevenue": 24300
+  },
+  {
+   "date": "2026-07-24",
+   "platform": "momo",
+   "revenue": 43700,
+   "orders": 32,
+   "adSpend": 3760,
+   "adRevenue": 23300
+  },
+  {
+   "date": "2026-07-24",
+   "platform": "web",
+   "revenue": 18400,
+   "orders": 11,
+   "adSpend": 3450,
+   "adRevenue": 11500
+  },
+  {
+   "date": "2026-07-25",
+   "platform": "shopee",
+   "revenue": 43000,
+   "orders": 40,
+   "adSpend": 6050,
+   "adRevenue": 28900
+  },
+  {
+   "date": "2026-07-25",
+   "platform": "momo",
+   "revenue": 53400,
+   "orders": 36,
+   "adSpend": 5030,
+   "adRevenue": 24300
+  },
+  {
+   "date": "2026-07-25",
+   "platform": "web",
+   "revenue": 20500,
+   "orders": 12,
+   "adSpend": 4730,
+   "adRevenue": 13700
+  },
+  {
+   "date": "2026-07-26",
+   "platform": "shopee",
+   "revenue": 38000,
+   "orders": 34,
+   "adSpend": 5190,
+   "adRevenue": 23800
+  },
+  {
+   "date": "2026-07-26",
+   "platform": "momo",
+   "revenue": 65800,
+   "orders": 46,
+   "adSpend": 6310,
+   "adRevenue": 30600
+  },
+  {
+   "date": "2026-07-26",
+   "platform": "web",
+   "revenue": 22300,
+   "orders": 13,
+   "adSpend": 4810,
+   "adRevenue": 13800
+  },
+  {
+   "date": "2026-07-27",
+   "platform": "shopee",
+   "revenue": 39200,
+   "orders": 34,
+   "adSpend": 5720,
+   "adRevenue": 23600
+  },
+  {
+   "date": "2026-07-27",
+   "platform": "momo",
+   "revenue": 46400,
+   "orders": 30,
+   "adSpend": 4380,
+   "adRevenue": 19900
+  },
+  {
+   "date": "2026-07-27",
+   "platform": "web",
+   "revenue": 18700,
+   "orders": 11,
+   "adSpend": 4230,
+   "adRevenue": 14700
+  }
+ ]
+}
