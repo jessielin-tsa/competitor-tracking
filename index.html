@@ -18,6 +18,8 @@ h1{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,4.5vw,44
 .scan-time{color:var(--paper);font-size:15px;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
 .pulse{width:8px;height:8px;border-radius:50%;background:var(--calm);animation:pulse 2.4s infinite;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,168,163,0.5);}70%{box-shadow:0 0 0 7px rgba(95,168,163,0);}100%{box-shadow:0 0 0 0 rgba(95,168,163,0));}}
+.navlink{font-family:var(--font-mono);font-size:12px;color:var(--calm);text-decoration:none;border:1px solid var(--rule-strong);padding:6px 12px;border-radius:2px;display:inline-block;margin-top:8px;}
+.navlink:hover{background:var(--surface);}
 .month-row,.date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .month-row{margin-bottom:12px;}.date-row{margin-bottom:32px;}
 .row-label{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-dim);margin-right:4px;}
@@ -49,6 +51,9 @@ button:focus-visible{outline:2px solid var(--calm);outline-offset:2px;}
 .trend-card{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--calm);padding:16px 18px;}
 .trend-card h3{font-family:var(--font-serif);font-weight:600;font-size:15px;margin:0 0 8px;}
 .trend-card p{font-size:13.5px;line-height:1.6;color:var(--paper-dim);margin:0;}
+.trend-src{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:10px;line-height:1.5;}
+.trend-src a{color:var(--calm);text-decoration:underline;overflow-wrap:anywhere;}
+.trend-src-none{color:var(--brass);opacity:0.75;}
 .brand-bar{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
 .brand-btn{font-family:var(--font-display);font-size:20px;font-weight:700;padding:14px 28px;border:1px solid var(--rule-strong);background:var(--surface);color:var(--paper-dim);cursor:pointer;border-radius:2px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;}
 .brand-btn small{font-family:var(--font-mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:400;}
@@ -112,6 +117,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div>
     <div class="eyebrow">COMPETITIVE INTELLIGENCE CENTER</div>
     <h1>競品分析中心</h1>
+    <a class="navlink" href="./sales.html">業績整合中心 →</a>
   </div>
   <div class="status-block">
     <div class="scan-time"><span class="pulse"></span><span id="lastUpdated">—</span> 最後掃描</div>
@@ -172,9 +178,23 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 
 <script>
 let currentSnap=null, currentBrandId=null, currentCatId=null, priceData=null;
+let ALL_SNAPS=[], activeDate=null;
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function srcHtml(sources){
+  if(!sources||!sources.length)return'<div class="trend-src trend-src-none">來源：未紀錄</div>';
+  return'<div class="trend-src">來源：'+sources.map(s=>{
+    const name=esc(s.name||s.url||'連結');
+    return s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${name}</a>`:name;
+  }).join('、')+'</div>';
+}
 
 async function loadData(){
   try{const r=await fetch('./tracking-data.json',{cache:'no-store'});if(!r.ok)throw 0;return await r.json();}
+  catch(e){return{snapshots:[]};}
+}
+async function loadHistory(){
+  try{const r=await fetch('./tracking-history.json',{cache:'no-store'});if(!r.ok)throw 0;return await r.json();}
   catch(e){return{snapshots:[]};}
 }
 async function loadPrices(){
@@ -302,31 +322,31 @@ function loadSnap(snap){
   const tg=document.getElementById('trendGroups');
   const groups=snap.trendGroups||(snap.globalTrends?[{id:'all',label:'',sub:'',items:snap.globalTrends}]:[]);
   tg.innerHTML=groups.length?groups.map(g=>`
-    <details class="trend-group g-${g.id}">
-      <summary><h3>${g.label}</h3><small>${g.sub||''}</small><span class="count">${(g.items||[]).length} 則</span></summary>
-      <div class="trend-grid">${(g.items||[]).map(t=>`<div class="trend-card"><h3>${t.title}</h3><p>${t.summary}</p></div>`).join('')}</div>
+    <details class="trend-group g-${esc(g.id)}">
+      <summary><h3>${esc(g.label)}</h3><small>${esc(g.sub||'')}</small><span class="count">${(g.items||[]).length} 則</span></summary>
+      <div class="trend-grid">${(g.items||[]).map(t=>`<div class="trend-card"><h3>${esc(t.title)}</h3><p>${esc(t.summary)}</p>${srcHtml(t.sources)}</div>`).join('')}</div>
     </details>`).join(''):'<div class="empty-state">本期尚無趨勢資料</div>';
   if(!currentBrandId||!snap.brands.find(b=>b.id===currentBrandId)) currentBrandId=snap.brands[0].id;
   const brand=snap.brands.find(b=>b.id===currentBrandId);
   if(!currentCatId||!brand.categories.find(c=>c.id===currentCatId)) currentCatId=brand.categories[0].id;
   renderBrand();
 }
-function render(data){
-  const snaps=(data.snapshots||[]).sort((a,b)=>a.date.localeCompare(b.date));
+function setupRange(keepDate){
+  const snaps=ALL_SNAPS.slice().sort((a,b)=>a.date.localeCompare(b.date));
   if(!snaps.length){document.getElementById('brandLine').textContent='尚無資料';return;}
   const fromEl=document.getElementById('rangeFrom'), toEl=document.getElementById('rangeTo');
   fromEl.value=snaps[0].date;
   toEl.value=snaps[snaps.length-1].date;
-  let activeDate=snaps[snaps.length-1].date;
+  if(!activeDate) activeDate=snaps[snaps.length-1].date;
 
   function inRange(){
     const f=fromEl.value||'0000-00-00', t=toEl.value||'9999-99-99';
     return snaps.filter(s=>s.date>=f && s.date<=t);
   }
-  function refresh(keepDate){
+  function refresh(keep){
     const list=inRange();
     if(!list.length){renderSnapPicker([],null,pick);return;}
-    activeDate=(keepDate && list.find(s=>s.date===keepDate))?keepDate:list[list.length-1].date;
+    activeDate=(keep && list.find(s=>s.date===keep))?keep:list[list.length-1].date;
     renderSnapPicker(list,activeDate,pick);
     loadSnap(snaps.find(s=>s.date===activeDate));
   }
@@ -338,9 +358,23 @@ function render(data){
   }
   fromEl.onchange=()=>refresh(activeDate);
   toEl.onchange=()=>refresh(activeDate);
-  refresh();
+  refresh(keepDate||activeDate);
 }
-Promise.all([loadData(),loadPrices()]).then(([d])=>render(d));
+
+// 先只載入最新一筆（tracking-data.json）→ 畫面立即顯示，載入速度不受歷史累積影響
+loadData().then(latest=>{
+  ALL_SNAPS=(latest.snapshots||[]).slice();
+  return loadPrices();
+}).then(()=>{
+  setupRange();
+  // 歷史資料（tracking-history.json）在背景載入，載到後才補進日期選單
+  loadHistory().then(hist=>{
+    const seen=new Set(ALL_SNAPS.map(s=>s.date));
+    let added=false;
+    (hist.snapshots||[]).forEach(s=>{if(!seen.has(s.date)){ALL_SNAPS.push(s);seen.add(s.date);added=true;}});
+    if(added) setupRange(activeDate);
+  });
+});
 </script>
 </body>
 </html>

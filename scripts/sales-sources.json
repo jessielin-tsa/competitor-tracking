@@ -1,0 +1,71 @@
+{
+  "_說明": [
+    "這是唯一需要你手動維護的檔案：告訴同步腳本『三份 Google Sheet 的哪一欄是什麼』。",
+    "",
+    "欄位對應留 null = 由腳本自動猜測（會比對常見中英文欄名）。",
+    "先跑 `python3 scripts/sync_sales.py --inspect`，它會印出每份表的實際欄名與猜測結果，",
+    "猜錯的再把欄名字串填進 columns 裡覆蓋掉即可。",
+    "",
+    "前置條件：每份 Sheet 需設為「知道連結的人皆可檢視」，GitHub Action 才讀得到。",
+    "若公司政策不允許公開連結，改用服務帳號，見 scripts/README.md。"
+  ],
+
+  "sources": [
+    {
+      "id": "sheet_a",
+      "label": "待確認（表一）",
+      "sheetId": "1lPHq6DNGu3zjXAzPU0yRt5fyS9GAMGckDLGRxqfTA9c",
+      "gid": "1695466955",
+      "platform": "auto",
+      "headerRow": 1,
+      "skipRowsAfterHeader": 0,
+      "columns": {
+        "date": null,
+        "platform": null,
+        "revenue": null,
+        "orders": null,
+        "adSpend": null,
+        "adRevenue": null
+      }
+    },
+    {
+      "id": "sheet_b",
+      "label": "待確認（表二）",
+      "sheetId": "1e79JkfaR_lzPdYEHmrrQE7PcSQkh6XubjEeXIJcaYb4",
+      "gid": "1724714728",
+      "platform": "auto",
+      "headerRow": 1,
+      "skipRowsAfterHeader": 0,
+      "columns": {
+        "date": null,
+        "platform": null,
+        "revenue": null,
+        "orders": null,
+        "adSpend": null,
+        "adRevenue": null
+      }
+    },
+    {
+      "id": "sheet_c",
+      "label": "待確認（表三）",
+      "sheetId": "15xJXeTdTJRIrzhr6vfzKRBd-P62mJd1jZnJavfu8KtU",
+      "gid": "861140857",
+      "platform": "auto",
+      "headerRow": 1,
+      "skipRowsAfterHeader": 0,
+      "columns": {
+        "date": null,
+        "platform": null,
+        "revenue": null,
+        "orders": null,
+        "adSpend": null,
+        "adRevenue": null
+      }
+    }
+  ],
+
+  "_platform 欄位怎麼填": [
+    "'auto'  = 讓腳本從資料列的『平台/通路』欄判斷（適合一份表就含三個平台）",
+    "'shopee'/'momo'/'web' = 整份表都算這個平台（適合一個平台一份表）"
+  ]
+}
