@@ -15,7 +15,7 @@ jobs:
       - name: Validate JSON files
         run: |
           git checkout ${GITHUB_REF_NAME}
-          for f in tracking-data.json price-history.json; do
+          for f in tracking-data.json price-history.json sales-data.json; do
             if [ -f "$f" ]; then python3 -m json.tool "$f" > /dev/null || exit 1; fi
           done
       - name: Merge into main and delete branch
