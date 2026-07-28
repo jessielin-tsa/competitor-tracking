@@ -81,6 +81,13 @@ table.data tbody tr:hover td{background:rgba(23,27,34,0.035);}
 table.data tfoot td{font-weight:600;color:var(--paper);background:var(--surface);border-top:1px solid var(--rule-strong);}
 .tbl-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;}
 .empty-state{font-family:var(--font-mono);font-size:13px;color:var(--paper-dim);padding:28px;border:1px dashed var(--rule-strong);text-align:center;line-height:1.7;}
+.fatal{background:var(--surface);border:1px solid var(--rule-strong);border-left:4px solid var(--brass);padding:22px 26px;margin-bottom:24px;}
+.fatal h2{font-family:var(--font-display);font-size:22px;margin:0 0 12px;color:var(--brass);}
+.fatal p,.fatal li{font-size:14.5px;line-height:1.7;margin:0 0 10px;}
+.fatal ol{margin:0;padding-left:22px;}
+.fatal li{margin-bottom:8px;}
+.fatal code{font-family:var(--font-mono);font-size:12.5px;background:var(--surface-2);padding:2px 6px;border-radius:3px;overflow-wrap:anywhere;}
+.fatal-tech{font-family:var(--font-mono);font-size:11.5px;color:var(--paper-dim);border-top:1px solid var(--rule);padding-top:10px;margin-bottom:0;}
 footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);line-height:1.7;}
 @media(max-width:640px){.status-block{text-align:left;}header{align-items:flex-start;}.cmp-note{margin-left:0;}}
 </style>
@@ -495,25 +502,52 @@ function buildMetricRow(){
   });
 }
 
+// 讀不到資料時，把空的區塊全部收起來，並把說明放在最上面——
+// 否則使用者只會看到一整頁有標題、沒內容的空殼，而提示藏在頁尾。
+function fatal(title, body){
+  document.querySelectorAll('.section, .ctrl').forEach(el=>{el.style.display='none';});
+  document.getElementById('coverLine').textContent='資料未載入';
+  document.getElementById('lastUpdated').textContent='—';
+  document.querySelector('header').insertAdjacentHTML('afterend',
+    `<div class="fatal"><h2>${title}</h2>${body}</div>`);
+}
+
 async function init(){
   let d;
+  const isFile=location.protocol==='file:';
   try{
     const r=await fetch('./sales-data.json',{cache:'no-store'});
     if(!r.ok)throw new Error('HTTP '+r.status);
     d=await r.json();
   }catch(e){
-    document.querySelector('.wrap').insertAdjacentHTML('beforeend',
-      `<div class="empty-state">無法載入 sales-data.json（${esc(e.message)}）。<br>
-       若你是用檔案總管直接雙擊開啟本頁，瀏覽器會擋住本地讀取；請在資料夾內執行 <code>python3 -m http.server 8000</code> 後開 <code>http://localhost:8000/sales.html</code>。</div>`);
+    fatal('讀不到資料檔 sales-data.json', isFile
+      ? `<p>你是用<b>檔案總管直接雙擊</b>開啟這個網頁的。瀏覽器基於安全限制，
+         這種開法不允許網頁讀取旁邊的資料檔，所以畫面才是空的。<b>這跟 Google 權限無關。</b></p>
+         <p>三種可行的開法：</p>
+         <ol>
+           <li><b>用 GitHub Pages</b>（最方便，手機也能看）—— 設定好之後用網址開</li>
+           <li><b>在本機開個小網站</b>：在放這些檔案的資料夾裡執行
+               <code>python3 -m http.server 8000</code>，然後開
+               <code>http://localhost:8000/sales.html</code></li>
+           <li><b>用單檔版本</b>：資料直接內嵌在 HTML 裡的那一份，雙擊就能開</li>
+         </ol>`
+      : `<p>網頁本身載入成功，但同資料夾裡找不到 <code>sales-data.json</code>，
+         或它的內容不是合法的 JSON。<b>這跟 Google 權限無關</b>——
+         網頁只讀這個檔案，不會去連 Google。</p>
+         <p>請確認 <code>sales.html</code> 和 <code>sales-data.json</code>
+         放在<b>同一個資料夾</b>裡。</p>
+         <p class="fatal-tech">技術訊息：${esc(e.message)}</p>`);
     return;
   }
   DATA=d;
   DATA.daily=(DATA.daily||[]).filter(r=>r&&r.date&&r.platform);
   if(!DATA.platforms||!DATA.platforms.length){DATA.platforms=[];}
   if(!DATA.daily.length){
-    document.getElementById('coverLine').textContent='尚無資料';
-    document.querySelector('.wrap').insertAdjacentHTML('beforeend',
-      '<div class="empty-state">sales-data.json 目前沒有任何 daily 紀錄。<br>執行 <code>python3 scripts/sync_sales.py</code> 或等待每日排程同步。</div>');
+    fatal('資料檔讀到了，但裡面沒有任何業績紀錄',
+      `<p><code>sales-data.json</code> 的 <code>daily</code> 是空的。</p>
+       <p>如果你已經設定好三份 Google Sheet 的同步，代表同步還沒成功跑過一次。
+       到 GitHub 的 <b>Actions → Sync sales data</b> 看最近一次執行的報告，
+       上面會列出每份表的讀取結果與失敗原因。</p>`);
     return;
   }
   const ds=DATA.daily.map(r=>r.date).sort();
