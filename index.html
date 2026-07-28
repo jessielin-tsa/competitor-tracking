@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* 淺色主題，與 sales.html 共用同一組色票 */
+/* 淺色主題 */
 :root{color-scheme:light;--ink:#f4f2ec;--surface:#ffffff;--surface-2:#eeebe3;--paper:#171b22;--paper-dim:#6d6a63;--rule:rgba(23,27,34,0.11);--rule-strong:rgba(23,27,34,0.22);--brass:#b04e15;--caution:#8a6a0d;--calm:#23655f;--green:#2c7a4f;--violet:#6b46c1;--font-display:'Big Shoulders Display',sans-serif;--font-serif:'Source Serif 4',Georgia,serif;--font-mono:'IBM Plex Mono',monospace;}
 *{box-sizing:border-box;}
 body{margin:0;background:repeating-linear-gradient(0deg,rgba(23,27,34,0.030) 0px,rgba(23,27,34,0.030) 1px,transparent 1px,transparent 28px),var(--ink);color:var(--paper);font-family:var(--font-serif);min-height:100vh;padding:32px 24px 80px;}
@@ -19,8 +19,6 @@ h1{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,4.5vw,44
 .scan-time{color:var(--paper);font-size:15px;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
 .pulse{width:8px;height:8px;border-radius:50%;background:var(--calm);animation:pulse 2.4s infinite;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(35,101,95,0.45);}70%{box-shadow:0 0 0 7px rgba(35,101,95,0);}100%{box-shadow:0 0 0 0 rgba(35,101,95,0);}}
-.navlink{font-family:var(--font-mono);font-size:12px;color:var(--calm);text-decoration:none;border:1px solid var(--rule-strong);padding:6px 12px;border-radius:2px;display:inline-block;margin-top:8px;}
-.navlink:hover{background:var(--surface);}
 .month-row,.date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .month-row{margin-bottom:12px;}.date-row{margin-bottom:32px;}
 .row-label{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-dim);margin-right:4px;}
@@ -118,7 +116,6 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div>
     <div class="eyebrow">COMPETITIVE INTELLIGENCE CENTER</div>
     <h1>競品分析中心</h1>
-    <a class="navlink" href="./sales.html">業績整合中心 →</a>
   </div>
   <div class="status-block">
     <div class="scan-time"><span class="pulse"></span><span id="lastUpdated">—</span> 最後掃描</div>
