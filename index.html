@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>競品分析中心｜PowerHero × 御熹堂</title>
+<title>競品分析中心｜PowerHero</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -136,7 +136,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 </div>
 
 <section class="section">
-  <div class="section-head"><span class="num">01</span><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 兩品牌共同關注</span></div>
+  <div class="section-head"><span class="num">01</span><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 品牌共同關注</span></div>
   <div id="trendGroups"></div>
 </section>
 
@@ -239,7 +239,8 @@ function volatility(series,key){
 function renderPrices(){
   const sec=document.getElementById('priceSection');
   if(!priceData||!priceData.products){sec.style.display='none';return;}
-  const PAUSED=new Set(['yx_redyeast','daiken_redyeast','niangjia_redyeast','yoho_redyeast','hac_redyeast','vitabox_fishoil','ftime_fishoil']);
+  // 暫停顯示的查價品項id（目前無）
+  const PAUSED=new Set([]);
   const prods=priceData.products.filter(p=>p.brand===currentBrandId && !PAUSED.has(p.id));
   if(!prods.length){sec.style.display='none';return;}
   sec.style.display='';
