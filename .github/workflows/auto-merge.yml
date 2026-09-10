@@ -15,7 +15,7 @@ jobs:
       - name: Validate JSON files
         run: |
           git checkout ${GITHUB_REF_NAME}
-          for f in tracking-data.json price-history.json; do
+          for f in tracking-data.json tracking-history.json price-history.json; do
             if [ -f "$f" ]; then python3 -m json.tool "$f" > /dev/null || exit 1; fi
           done
       - name: Merge into main and delete branch
@@ -23,6 +23,26 @@ jobs:
           git config user.name "auto-merge-bot"
           git config user.email "actions@users.noreply.github.com"
           git checkout main
-          git merge --no-ff ${GITHUB_REF_NAME} -m "Auto-merge ${GITHUB_REF_NAME}"
+          if git merge --no-ff ${GITHUB_REF_NAME} -m "Auto-merge ${GITHUB_REF_NAME}"; then
+            echo "Clean merge."
+          else
+            echo "Merge conflict — trying safe auto-resolve for append-only data files."
+            conflicts=$(git diff --name-only --diff-filter=U)
+            allowed="price-history.json tracking-history.json"
+            for f in $conflicts; do
+              case " $allowed " in
+                *" $f "*) ;;
+                *) echo "Unresolvable conflict in $f — aborting for human review."; git merge --abort; exit 1;;
+              esac
+            done
+            python3 scripts/merge_price_history.py $conflicts || { git merge --abort; exit 1; }
+            if [ -n "$(git diff --name-only --diff-filter=U)" ]; then
+              echo "Conflicts remain after auto-resolve — aborting."; git merge --abort; exit 1
+            fi
+            for f in tracking-data.json tracking-history.json price-history.json; do
+              if [ -f "$f" ]; then python3 -m json.tool "$f" > /dev/null || { git merge --abort; exit 1; }; fi
+            done
+            git commit --no-edit
+          fi
           git push origin main
           git push origin --delete ${GITHUB_REF_NAME}
