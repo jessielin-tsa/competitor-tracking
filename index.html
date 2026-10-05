@@ -162,7 +162,15 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .chg-who{font-family:var(--font-mono);font-size:12px;color:var(--paper);}
 .note-line{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:10px;line-height:1.7;}
 @media(max-width:640px){.bar-row{grid-template-columns:90px 1fr 86px;}.chg-row{grid-template-columns:auto 1fr;}.chg-row>div:last-child{grid-column:1/-1;}}
-.two-col{display:grid;gap:0 26px;align-items:start;}
+.two-col{display:grid;gap:20px 26px;align-items:start;}
+.panel-card{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:18px 20px;}
+.panel-card h4{font-family:var(--font-display);font-size:17px;font-weight:700;margin:0 0 14px;}
+.panel-card h4 small{font-family:var(--font-mono);font-size:11px;font-weight:400;color:var(--paper-dim);margin-left:8px;letter-spacing:.3px;}
+.src-note{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);line-height:1.7;margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);display:flex;gap:8px;align-items:flex-start;}
+.src-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto;margin-top:5px;}
+.src-note code{background:rgba(234,231,222,.08);padding:1px 5px;border-radius:3px;color:var(--paper);}
+.src-note b{color:var(--paper);font-weight:600;}
+.panel-card.c-prod .bar-label{color:var(--brass);}
 .pcard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;}
 .pcard{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--brass);padding:14px 15px;}
 .pcard-name{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.1;}
@@ -227,16 +235,19 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
     <div class="pcard-grid" id="prodCards"></div>
   </div>
 
-  <div class="two-col">
-    <div class="block">
-      <div class="block-h"><h3>近 12 個月營收結構 — 單品貢獻度</h3><small>折扣前，Top 12</small></div>
-      <div id="specBars"></div>
-      <div class="note-line" id="discNote"></div>
-    </div>
-
-    <div class="block">
-      <div class="block-h"><h3>近 12 個月營收結構 — 通路貢獻度</h3><small>折扣後淨額</small></div>
-      <div id="chanBars"></div>
+  <div class="block">
+    <div class="block-h"><h3>近 12 個月營收結構</h3><small>2025-10 ～ 2026-09，12 個完整月</small></div>
+    <div class="two-col">
+      <div class="panel-card c-prod">
+        <h4>單品貢獻度<small>Top 12</small></h4>
+        <div id="specBars"></div>
+        <div class="src-note"><span class="src-dot"></span><span id="discNote"></span></div>
+      </div>
+      <div class="panel-card">
+        <h4>品牌通路結構<small>Top 10</small></h4>
+        <div id="chanBars"></div>
+        <div class="src-note"><span class="src-dot"></span><span id="chanNote"></span></div>
+      </div>
     </div>
   </div>
 
@@ -603,12 +614,19 @@ function renderSales(){
 
   const tops=d.specs.filter(s=>s.spec!=='折扣'&&s.revenue>0).slice(0,12);
   document.getElementById('specBars').innerHTML=barList(tops.map(s=>({label:s.spec,value:s.revenue,note:s.category})),'alt');
-  document.getElementById('discNote').textContent=
-    `上列為折扣前金額。折扣 ${fmtW(d.discount)}（佔折扣前營收 ${(Math.abs(d.discount)/d.grossBeforeDiscount*100).toFixed(1)}%）未分攤至單品，故單品加總大於淨營收。`;
+  document.getElementById('discNote').innerHTML=
+    `來源：TSA Inside BI <code>query_sales</code>，依規格彙總。上列為<b>折扣前</b>金額——折扣 `+
+    `<b>${fmtW(d.discount)}</b>（佔折扣前營收 ${(Math.abs(d.discount)/d.grossBeforeDiscount*100).toFixed(1)}%）未分攤至單品，故單品加總大於淨營收。`;
 
+  const chAll=d.channels.filter(c=>c.revenue>0);
+  const chTot=chAll.reduce((a,x)=>a+x.revenue,0);
   document.getElementById('chanBars').innerHTML=barList(
-    d.channels.filter(c=>c.revenue>0).slice(0,10).map(c=>({label:c.name,value:c.revenue,
-      note:(c.revenue/d.channels.reduce((a,x)=>a+Math.max(x.revenue,0),0)*100).toFixed(1)+'%'})),'alt');
+    chAll.slice(0,10).map(c=>({label:c.name,value:c.revenue,
+      note:(c.revenue/chTot*100).toFixed(1)+'%'})),'alt');
+  const t3=chAll.slice(0,3), p3=t3.reduce((a,x)=>a+x.revenue,0)/chTot*100;
+  document.getElementById('chanNote').innerHTML=
+    `來源：TSA Inside BI，折扣後淨額。<b>${t3.map(c=>esc(c.name)).join('＋')}</b> 合計 `+
+    `<b>${p3.toFixed(0)}%</b> — 競品比價追這三個通路即可涵蓋主戰場；其餘 ${chAll.length-3} 個通路共 ${(100-p3).toFixed(1)}%。`;
 
   document.getElementById('monthChart').innerHTML=monthChart(d.monthly);
 
