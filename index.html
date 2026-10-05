@@ -108,6 +108,59 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .price-latest .vol-high{color:var(--brass);font-weight:600;}
 .price-chart{width:100%;height:auto;display:block;}
 .price-chart .axis-label{font-family:var(--font-mono);font-size:9px;fill:var(--paper-dim);}
+.tab-bar{display:flex;gap:2px;border-bottom:1px solid var(--rule-strong);margin-bottom:30px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+.tab-btn{font-family:var(--font-display);font-size:18px;font-weight:700;letter-spacing:0.5px;padding:12px 20px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--paper-dim);cursor:pointer;white-space:nowrap;flex:0 0 auto;}
+.tab-btn:hover{color:var(--paper);}
+.tab-btn.active{color:var(--brass);border-bottom-color:var(--brass);}
+.tab-btn:focus-visible{outline:2px solid var(--calm);outline-offset:-2px;}
+.todo-box{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--caution);padding:20px 22px;}
+.todo-box h3{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--caution);margin:0 0 4px;}
+.todo-box .todo-intro{font-size:13.5px;line-height:1.6;color:var(--paper-dim);margin:0 0 14px;}
+.todo-list{margin:0;padding:0;list-style:none;}
+.todo-list li{font-size:14px;line-height:1.6;padding:11px 0;border-top:1px solid var(--rule);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
+.todo-list li:first-child{border-top:none;}
+.todo-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;padding:3px 8px;border-radius:2px;white-space:nowrap;flex:0 0 auto;}
+.todo-tag.ready{color:var(--green);border:1px solid var(--green);}
+.todo-tag.missing{color:var(--brass);border:1px solid var(--brass);}
+.todo-list li span:last-child{flex:1 1 220px;}
+@media(max-width:640px){.tab-btn{font-size:16px;padding:11px 14px;}}
+.meta-bar{font-family:var(--font-mono);font-size:11.5px;color:var(--paper-dim);line-height:1.9;border:1px solid var(--rule);border-left:3px solid var(--calm);background:rgba(24,31,42,.4);padding:12px 16px;margin-bottom:26px;}
+.meta-bar b{color:var(--paper);font-weight:600;}
+.meta-bar .warn{color:var(--caution);}
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px;}
+.stat{background:var(--surface);border:1px solid var(--rule);border-top:2px solid var(--brass);padding:14px 16px;}
+.stat .k{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--paper-dim);margin-bottom:6px;}
+.stat .v{font-family:var(--font-display);font-size:26px;font-weight:700;line-height:1;}
+.stat .s{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:5px;}
+.stat .up{color:var(--green);}.stat .down{color:var(--brass);}
+.block{margin-bottom:34px;}
+.block-h{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.block-h h3{font-family:var(--font-display);font-size:20px;font-weight:700;margin:0;}
+.block-h small{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);}
+.bar-row{display:grid;grid-template-columns:116px 1fr 104px;gap:10px;align-items:center;padding:7px 0;border-top:1px solid var(--rule);}
+.bar-row:first-child{border-top:none;}
+.bar-label{font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bar-track{background:rgba(234,231,222,.06);height:14px;border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;background:var(--brass);}
+.bar-fill.alt{background:var(--calm);}
+.bar-fill.neg{background:var(--caution);}
+.bar-val{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--paper);}
+.bar-val small{display:block;color:var(--paper-dim);font-size:10px;}
+.chart-wrap{border:1px solid var(--rule);background:var(--surface);padding:14px;overflow-x:auto;}
+.chart-wrap svg{display:block;width:100%;height:auto;min-width:520px;}
+.chart-wrap .gl{stroke:rgba(234,231,222,.08);}
+.chart-wrap .lbl{font-family:var(--font-mono);font-size:9px;fill:var(--paper-dim);}
+.legend{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px;}
+.chg-row{display:grid;grid-template-columns:auto 96px 1fr;gap:12px;align-items:baseline;padding:11px 0;border-top:1px solid var(--rule);font-size:14px;}
+.chg-row:first-child{border-top:none;}
+.chg-sev{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;padding:2px 7px;border-radius:2px;}
+.chg-sev.high{color:var(--brass);border:1px solid var(--brass);}
+.chg-sev.medium{color:var(--caution);border:1px solid var(--caution);}
+.chg-sev.low{color:var(--calm);border:1px solid var(--calm);}
+.chg-who{font-family:var(--font-mono);font-size:12px;color:var(--paper);}
+.note-line{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:10px;line-height:1.7;}
+@media(max-width:640px){.bar-row{grid-template-columns:90px 1fr 86px;}.chg-row{grid-template-columns:auto 1fr;}.chg-row>div:last-child{grid-column:1/-1;}}
 </style>
 </head>
 <body>
@@ -135,13 +188,52 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <span class="row-label" id="snapCount" style="margin-left:6px;text-transform:none;"></span>
 </div>
 
-<section class="section">
-  <div class="section-head"><span class="num">01</span><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 品牌共同關注</span></div>
-  <div id="trendGroups"></div>
-</section>
+<nav class="tab-bar" id="tabBar" role="tablist" aria-label="分析區塊">
+  <button class="tab-btn" role="tab" data-tab="home" id="tab-home" aria-controls="panel-home" aria-selected="false">戰情首頁</button>
+  <button class="tab-btn" role="tab" data-tab="category" id="tab-category" aria-controls="panel-category" aria-selected="false">品類分析</button>
+  <button class="tab-btn" role="tab" data-tab="price" id="tab-price" aria-controls="panel-price" aria-selected="false">價格走勢</button>
+  <button class="tab-btn" role="tab" data-tab="ads" id="tab-ads" aria-controls="panel-ads" aria-selected="false">廣告</button>
+  <button class="tab-btn" role="tab" data-tab="market" id="tab-market" aria-controls="panel-market" aria-selected="false">市場資訊</button>
+</nav>
 
+<div class="tab-panel" data-tab="home" id="panel-home" role="tabpanel" aria-labelledby="tab-home" hidden>
 <section class="section">
-  <div class="section-head"><span class="num">02</span><h2>品牌品類競品分析</h2><span class="eyebrow-sm">BRAND × CATEGORY</span></div>
+  <div class="section-head"><h2>戰情首頁</h2><span class="eyebrow-sm">WAR ROOM</span></div>
+  <div class="meta-bar" id="salesMeta">載入中…</div>
+  <div class="stat-row" id="statRow"></div>
+
+  <div class="block">
+    <div class="block-h"><h3>本期該知道的三件事</h3><small id="chgMore"></small></div>
+    <div id="homeChanges"></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>主力品銷售評比</h3><small>近12個月營收，多入組合已併回單品</small></div>
+    <div id="prodBars"></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>近 12 個月營收結構 — 單品貢獻度</h3><small>折扣前，Top 12</small></div>
+    <div id="specBars"></div>
+    <div class="note-line" id="discNote"></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>近 12 個月營收結構 — 通路貢獻度</h3><small>折扣後淨額</small></div>
+    <div id="chanBars"></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>月營收與季節變化</h3><small>柱＝營收，線＝廣告費</small></div>
+    <div class="chart-wrap" id="monthChart"></div>
+    <div class="legend"><span><i style="background:var(--brass)"></i>營收</span><span><i style="background:var(--calm)"></i>廣告費</span><span><i style="background:rgba(234,231,222,.18)"></i>未滿月（不計入）</span></div>
+  </div>
+</section>
+</div>
+
+<div class="tab-panel" data-tab="category" id="panel-category" role="tabpanel" aria-labelledby="tab-category" hidden>
+<section class="section">
+  <div class="section-head"><h2>品牌品類競品分析</h2><span class="eyebrow-sm">BRAND × CATEGORY</span></div>
   <div class="brand-bar" id="brandBar"></div>
   <div class="cat-row" id="catRow"></div>
   <div class="own-product" id="ownProduct"></div>
@@ -154,22 +246,51 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   </div>
   <div class="log-list" id="logList"></div>
 </section>
+</div>
 
-<section class="section">
-  <div class="section-head"><span class="num">03</span><h2 id="recoTitle">方向建議</h2><span class="eyebrow-sm">STRATEGIC DIRECTION</span></div>
-  <div class="reco-box"><h3 id="recoSubtitle">品牌建議行動</h3><ol id="recoList"></ol></div>
-</section>
-
+<div class="tab-panel" data-tab="price" id="panel-price" role="tabpanel" aria-labelledby="tab-price" hidden>
 <section class="section" id="priceSection" style="display:none">
-  <div class="section-head"><span class="num">04</span><h2>價格走勢追蹤</h2><span class="eyebrow-sm">PRICE WATCH · momo 每日監測</span></div>
+  <div class="section-head"><h2>價格走勢追蹤</h2><span class="eyebrow-sm">PRICE WATCH · momo 每日監測</span></div>
   <div class="price-note">監測重點商品在 momo 的每日價格走勢。斷線代表當日查無資料。用途：觀察競品一週內是否有大幅價格波動或檔期降價。</div>
   <div class="price-grid" id="priceGrid"></div>
 </section>
+</div>
+
+<div class="tab-panel" data-tab="ads" id="panel-ads" role="tabpanel" aria-labelledby="tab-ads" hidden>
+<section class="section">
+  <div class="section-head"><h2>廣告</h2><span class="eyebrow-sm">AD INTELLIGENCE</span></div>
+  <div class="meta-bar" id="adMeta">載入中…</div>
+
+  <div class="block">
+    <div class="block-h"><h3>Meta 廣告成效</h3><small id="adPerfRange"></small></div>
+    <div class="stat-row" id="adStats"></div>
+    <div class="note-line">ATL／BTL 為漏斗上層（品牌曝光）與下層（轉換導購）花費拆分。</div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>每月廣告費</h3><small>財務認列口徑，含合約攤提</small></div>
+    <div class="chart-wrap" id="adChart"></div>
+    <div class="note-line" id="adNote"></div>
+  </div>
+</section>
+</div>
+
+<div class="tab-panel" data-tab="market" id="panel-market" role="tabpanel" aria-labelledby="tab-market" hidden>
+<section class="section">
+  <div class="section-head"><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 品牌共同關注</span></div>
+  <div id="trendGroups"></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2 id="recoTitle">方向建議</h2><span class="eyebrow-sm">STRATEGIC DIRECTION</span></div>
+  <div class="reco-box"><h3 id="recoSubtitle">品牌建議行動</h3><ol id="recoList"></ol></div>
+</section>
 
 <section class="section" id="futureSection" style="display:none">
-  <div class="section-head"><span class="num">＋</span><h2>未來市場觀察</h2><span class="eyebrow-sm">FUTURE MARKETS</span></div>
+  <div class="section-head"><h2>未來市場觀察</h2><span class="eyebrow-sm">FUTURE MARKETS</span></div>
   <div class="future-grid" id="futureGrid"></div>
 </section>
+</div>
 
 <footer>資料來源：tracking-data.json · 由 Claude Code Routine 定期更新</footer>
 </div>
@@ -329,6 +450,7 @@ function loadSnap(snap){
   const brand=snap.brands.find(b=>b.id===currentBrandId);
   if(!currentCatId||!brand.categories.find(c=>c.id===currentCatId)) currentCatId=brand.categories[0].id;
   renderBrand();
+  renderHomeChanges(snap);
 }
 function setupRange(keepDate){
   const snaps=ALL_SNAPS.slice().sort((a,b)=>a.date.localeCompare(b.date));
@@ -360,11 +482,148 @@ function setupRange(keepDate){
   refresh(keepDate||activeDate);
 }
 
+const TABS=['home','category','price','ads','market'];
+function showTab(name){
+  if(TABS.indexOf(name)<0) name='home';
+  document.querySelectorAll('.tab-panel').forEach(p=>{p.hidden = p.dataset.tab!==name;});
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    const on=b.dataset.tab===name;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',on?'true':'false');
+  });
+  try{localStorage.setItem('ph_active_tab',name);}catch(e){}
+}
+function initTabs(){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+  let saved='home';
+  try{saved=localStorage.getItem('ph_active_tab')||'home';}catch(e){}
+  showTab(saved);
+}
+initTabs();
+
+let salesData=null;
+
+async function loadSales(){
+  try{const r=await fetch('./sales-data.json',{cache:'no-store'});if(!r.ok)throw 0;salesData=await r.json();}
+  catch(e){salesData=null;}
+}
+const fmtW=v=>{const n=Math.round(v/10000);return (n<0?'-':'')+Math.abs(n).toLocaleString()+'萬';};
+const fmtN=v=>Math.round(v).toLocaleString();
+
+function barList(items,cls){
+  const max=Math.max(...items.map(i=>Math.abs(i.value)),1);
+  return items.map(i=>`<div class="bar-row">
+    <div class="bar-label" title="${esc(i.label)}">${esc(i.label)}</div>
+    <div class="bar-track"><div class="bar-fill ${i.value<0?'neg':(cls||'')}" style="width:${(Math.abs(i.value)/max*100).toFixed(1)}%"></div></div>
+    <div class="bar-val">${fmtW(i.value)}${i.note?`<small>${esc(i.note)}</small>`:''}</div>
+  </div>`).join('');
+}
+
+// 柱(營收)＋線(廣告費) 月趨勢；未滿月以淡色標示且不納入線
+function monthChart(rows){
+  const W=760,H=230,padL=52,padR=52,padT=16,padB=34;
+  const iw=W-padL-padR, ih=H-padT-padB, n=rows.length;
+  const maxR=Math.max(...rows.map(r=>r.revenue),1);
+  const fees=rows.filter(r=>r.adFee!=null&&!r.partial).map(r=>r.adFee);
+  const maxF=fees.length?Math.max(...fees):0;
+  const bw=iw/n*0.58;
+  const cx=i=>padL+iw*(i+0.5)/n;
+  const yR=v=>padT+ih*(1-v/maxR);
+  const yF=v=>maxF?padT+ih*(1-v/maxF):padT+ih;
+  let g='';
+  [0,.5,1].forEach(t=>{const y=padT+ih*(1-t);
+    g+=`<line class="gl" x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}"/>`+
+       `<text class="lbl" x="${padL-6}" y="${y+3}" text-anchor="end">${fmtW(maxR*t)}</text>`;
+    if(maxF)g+=`<text class="lbl" x="${W-padR+6}" y="${y+3}" text-anchor="start" style="fill:var(--calm)">${fmtW(maxF*t)}</text>`;});
+  const bars=rows.map((r,i)=>`<rect x="${(cx(i)-bw/2).toFixed(1)}" y="${yR(r.revenue).toFixed(1)}" width="${bw.toFixed(1)}" height="${(ih-(yR(r.revenue)-padT)).toFixed(1)}" fill="${r.partial?'rgba(234,231,222,.18)':'var(--brass)'}"/>`).join('');
+  let d='',dots='',started=false;
+  rows.forEach((r,i)=>{
+    if(r.adFee==null||r.partial){started=false;return;}
+    d+=(started?'L':'M')+cx(i).toFixed(1)+','+yF(r.adFee).toFixed(1);started=true;
+    dots+=`<circle cx="${cx(i).toFixed(1)}" cy="${yF(r.adFee).toFixed(1)}" r="2.8" fill="var(--calm)"/>`;});
+  const xs=rows.map((r,i)=>`<text class="lbl" x="${cx(i).toFixed(1)}" y="${H-12}" text-anchor="middle">${r.month.slice(2).replace('-','/')}</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}${bars}<path d="${d}" fill="none" stroke="var(--calm)" stroke-width="1.8"/>${dots}${xs}</svg>`;
+}
+
+function renderSales(){
+  if(!salesData){
+    document.getElementById('salesMeta').textContent='銷售資料載入失敗（sales-data.json）';
+    document.getElementById('adMeta').textContent='廣告資料載入失敗（sales-data.json）';
+    return;
+  }
+  const d=salesData, M=d.meta;
+  document.getElementById('salesMeta').innerHTML=
+    `<b>報表產出</b> ${esc(M.generatedAt)} ｜ <b>銷售資料</b> 截至 ${esc(M.salesThrough)} ｜ <b>統計區間</b> ${esc(M.window)} ｜ 來源 ${esc(M.source)}<br>`+
+    M.notes.map(n=>`<span class="warn">·</span> ${esc(n)}`).join('<br>');
+
+  const full=d.monthly.filter(m=>!m.partial);
+  const rev12=full.reduce((a,m)=>a+m.revenue,0);
+  const mg12=full.reduce((a,m)=>a+m.margin,0);
+  const od12=full.reduce((a,m)=>a+m.orders,0);
+  const last=full[full.length-1], prev=full[full.length-2];
+  const mom=prev?((last.revenue-prev.revenue)/prev.revenue*100):0;
+  const first=full[0];
+  const yoy=((last.revenue-first.revenue)/first.revenue*100);
+  document.getElementById('statRow').innerHTML=`
+    <div class="stat"><div class="k">近12個月營收</div><div class="v">${fmtW(rev12)}</div><div class="s">${full.length} 個完整月</div></div>
+    <div class="stat"><div class="k">最新完整月 ${esc(last.month)}</div><div class="v">${fmtW(last.revenue)}</div><div class="s ${mom>=0?'up':'down'}">較上月 ${mom>=0?'+':''}${mom.toFixed(1)}%</div></div>
+    <div class="stat"><div class="k">毛利率</div><div class="v">${(mg12/rev12*100).toFixed(1)}%</div><div class="s">近12個月累計</div></div>
+    <div class="stat"><div class="k">訂單數</div><div class="v">${fmtN(od12)}</div><div class="s">客單價 ${fmtN(rev12/od12)} 元</div></div>
+    <div class="stat"><div class="k">對比 ${esc(first.month)}</div><div class="v ${yoy>=0?'up':'down'}" style="font-size:22px">${yoy>=0?'+':''}${yoy.toFixed(0)}%</div><div class="s">${esc(first.month)} → ${esc(last.month)}</div></div>`;
+
+  document.getElementById('prodBars').innerHTML=barList(
+    d.products.map(p=>({label:p.name,value:p.revenue,note:p.specs.length>1?p.specs.length+' 個規格':''})));
+
+  const tops=d.specs.filter(s=>s.spec!=='折扣'&&s.revenue>0).slice(0,12);
+  document.getElementById('specBars').innerHTML=barList(tops.map(s=>({label:s.spec,value:s.revenue,note:s.category})),'alt');
+  document.getElementById('discNote').textContent=
+    `上列為折扣前金額。折扣 ${fmtW(d.discount)}（佔折扣前營收 ${(Math.abs(d.discount)/d.grossBeforeDiscount*100).toFixed(1)}%）未分攤至單品，故單品加總大於淨營收。`;
+
+  document.getElementById('chanBars').innerHTML=barList(
+    d.channels.filter(c=>c.revenue>0).slice(0,10).map(c=>({label:c.name,value:c.revenue,
+      note:(c.revenue/d.channels.reduce((a,x)=>a+Math.max(x.revenue,0),0)*100).toFixed(1)+'%'})),'alt');
+
+  document.getElementById('monthChart').innerHTML=monthChart(d.monthly);
+
+  // ---- 廣告分頁 ----
+  const a=d.adPerformance;
+  document.getElementById('adMeta').innerHTML=
+    `<b>廣告費</b> 截至 ${esc(M.adFeeThrough)}（月粒度，財務認列）｜ <b>Meta 實抓成效</b> ${esc(M.adPerfRange)}<br>`+
+    `<span class="warn">·</span> 廣告成效與廣告費為不同資料管線，月加總不必然相等，勿交叉比對。<br>`+
+    `<span class="warn">·</span> 2025-10～2025-12 無廣告費資料（非零投放），圖表該區間留空。`;
+  document.getElementById('adPerfRange').textContent=M.adPerfRange;
+  document.getElementById('adStats').innerHTML=`
+    <div class="stat"><div class="k">花費</div><div class="v">${fmtW(a.spend)}</div><div class="s">ATL ${fmtW(a.atl)} / BTL ${fmtW(a.btl)}</div></div>
+    <div class="stat"><div class="k">ROAS</div><div class="v">${a.roas}x</div><div class="s">廣告營收 ${fmtW(a.revenue)}</div></div>
+    <div class="stat"><div class="k">CPA</div><div class="v">${fmtN(a.cpa)}</div><div class="s">購買 ${fmtN(a.purchases)} 次</div></div>
+    <div class="stat"><div class="k">CTR</div><div class="v">${a.ctr}%</div><div class="s">${fmtN(a.clicks)} 點擊 / ${fmtW(a.impressions*1)} 次曝光</div></div>`;
+  const feeRows=d.monthly.map(m=>({month:m.month,revenue:m.adFee==null?0:m.adFee,adFee:null,partial:m.partial||m.adFee==null}));
+  document.getElementById('adChart').innerHTML=monthChart(feeRows);
+  document.getElementById('adNote').textContent='淡色柱代表該月無廣告費資料或未滿月。';
+}
+
+// 本期變化：彙整所有品類的 log，依重要度排序
+function renderHomeChanges(snap){
+  const el=document.getElementById('homeChanges'); if(!el||!snap)return;
+  const rank={high:0,medium:1,low:2}, all=[];
+  (snap.brands||[]).forEach(b=>(b.categories||[]).forEach(c=>
+    (c.log||[]).forEach(l=>all.push(Object.assign({cat:c.label},l)))));
+  all.sort((x,y)=>(rank[x.severity]??3)-(rank[y.severity]??3));
+  const top=all.slice(0,3);
+  el.innerHTML=top.length?top.map(l=>`<div class="chg-row">
+      <div class="chg-sev ${esc(l.severity)}">${l.severity==='high'?'高':l.severity==='medium'?'中':'低'}</div>
+      <div class="chg-who">${esc(l.cat)}<br><span style="color:var(--paper-dim)">${esc(l.competitor)}</span></div>
+      <div>${esc(l.change)}</div></div>`).join(''):'<div class="empty-state">本期無變更紀錄</div>';
+  const more=document.getElementById('chgMore');
+  if(more) more.textContent=`本期共 ${all.length} 則變更，完整內容見各品類分析`;
+}
+
 // 先只載入最新一筆（tracking-data.json）→ 畫面立即顯示，載入速度不受歷史累積影響
 loadData().then(latest=>{
   ALL_SNAPS=(latest.snapshots||[]).slice();
-  return loadPrices();
+  return Promise.all([loadPrices(),loadSales()]);
 }).then(()=>{
+  renderSales();
   setupRange();
   // 歷史資料（tracking-history.json）在背景載入，載到後才補進日期選單
   loadHistory().then(hist=>{

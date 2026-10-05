@@ -1,0 +1,555 @@
+{
+  "meta": {
+    "brand": "PowerHero",
+    "generatedAt": "2026-10-05",
+    "salesThrough": "2026-10-04",
+    "adFeeThrough": "2026-10",
+    "adPerfRange": "2026-07-06 ~ 2026-10-04",
+    "window": "2025-10-01 ~ 2026-10-04",
+    "source": "TSA Inside BI",
+    "notes": [
+      "營收為淨營收。單品／規格為折扣前金額，折扣另列一行，未分攤至單品。",
+      "2026-10 僅含 10/01–10/04，未滿月，趨勢圖不計入。",
+      "廣告費 2025-10～2025-12 為無資料（非零投放），該區間不繪製。",
+      "多入組合(x3/x6/x9…)已依規格收斂回單一商品，避免低估三至四成。",
+      "組合包「強健豐盈組」「極黑精粹組」橫跨養髮液與洗髮精，未拆分、不計入任一單品。",
+      "月份／通路／規格三個維度加總最大差異 3 元，為各維度獨立四捨五入所致。",
+      "廣告成效(Meta實抓)與廣告費(財務認列)為不同口徑，月加總不必然相等。"
+    ]
+  },
+  "monthly": [
+    {
+      "month": "2025-10",
+      "revenue": 5020045,
+      "orders": 3384,
+      "margin": 3619635,
+      "adFee": null,
+      "partial": false
+    },
+    {
+      "month": "2025-11",
+      "revenue": 7596254,
+      "orders": 4183,
+      "margin": 5406794,
+      "adFee": null,
+      "partial": false
+    },
+    {
+      "month": "2025-12",
+      "revenue": 5077680,
+      "orders": 3031,
+      "margin": 3608958,
+      "adFee": null,
+      "partial": false
+    },
+    {
+      "month": "2026-01",
+      "revenue": 4736559,
+      "orders": 2779,
+      "margin": 3340364,
+      "adFee": 1217144,
+      "partial": false
+    },
+    {
+      "month": "2026-02",
+      "revenue": 4877087,
+      "orders": 2898,
+      "margin": 3443318,
+      "adFee": 1349420,
+      "partial": false
+    },
+    {
+      "month": "2026-03",
+      "revenue": 4542130,
+      "orders": 2560,
+      "margin": 2741686,
+      "adFee": 1485272,
+      "partial": false
+    },
+    {
+      "month": "2026-04",
+      "revenue": 3377353,
+      "orders": 1991,
+      "margin": 2369378,
+      "adFee": 915656,
+      "partial": false
+    },
+    {
+      "month": "2026-05",
+      "revenue": 4064671,
+      "orders": 2243,
+      "margin": 2826610,
+      "adFee": 1022814,
+      "partial": false
+    },
+    {
+      "month": "2026-06",
+      "revenue": 3586439,
+      "orders": 2328,
+      "margin": 2505781,
+      "adFee": 1103013,
+      "partial": false
+    },
+    {
+      "month": "2026-07",
+      "revenue": 3001328,
+      "orders": 1665,
+      "margin": 2137365,
+      "adFee": 691356,
+      "partial": false
+    },
+    {
+      "month": "2026-08",
+      "revenue": 3411679,
+      "orders": 1980,
+      "margin": 2468137,
+      "adFee": 665824,
+      "partial": false
+    },
+    {
+      "month": "2026-09",
+      "revenue": 3089438,
+      "orders": 1888,
+      "margin": 2219396,
+      "adFee": 759419,
+      "partial": false
+    },
+    {
+      "month": "2026-10",
+      "revenue": 394152,
+      "orders": 203,
+      "margin": 277779,
+      "adFee": 93326,
+      "partial": true
+    }
+  ],
+  "channels": [
+    {
+      "name": "MOMO",
+      "revenue": 20229464
+    },
+    {
+      "name": "蝦皮",
+      "revenue": 18282847
+    },
+    {
+      "name": "官網-Cyberbz",
+      "revenue": 9645499
+    },
+    {
+      "name": "全家超商",
+      "revenue": 1037667
+    },
+    {
+      "name": "酷澎",
+      "revenue": 937058
+    },
+    {
+      "name": "屈臣氏",
+      "revenue": 866235
+    },
+    {
+      "name": "PChome",
+      "revenue": 638507
+    },
+    {
+      "name": "Yahoo",
+      "revenue": 403317
+    },
+    {
+      "name": "寶雅",
+      "revenue": 200164
+    },
+    {
+      "name": "蝦皮數位電商",
+      "revenue": 130148
+    },
+    {
+      "name": "東森",
+      "revenue": 93151
+    },
+    {
+      "name": "企購及團購-其他",
+      "revenue": 81002
+    },
+    {
+      "name": "大樹醫藥",
+      "revenue": 76188
+    },
+    {
+      "name": "廣告交換",
+      "revenue": 69790
+    },
+    {
+      "name": "其他",
+      "revenue": 45013
+    },
+    {
+      "name": "國內代銷",
+      "revenue": 34026
+    },
+    {
+      "name": "國外代銷",
+      "revenue": 3188
+    },
+    {
+      "name": "HKTV",
+      "revenue": 2389
+    },
+    {
+      "name": "香港-寵物店",
+      "revenue": 136
+    },
+    {
+      "name": "PRINCESS",
+      "revenue": 136
+    },
+    {
+      "name": "網購-其他",
+      "revenue": -1112
+    }
+  ],
+  "products": [
+    {
+      "name": "瑪卡",
+      "revenue": 14580795,
+      "specs": [
+        "瑪卡(90顆/盒)",
+        "瑪卡粉包(14入/盒)",
+        "瑪卡(15顆/包)"
+      ]
+    },
+    {
+      "name": "養髮液",
+      "revenue": 9756017,
+      "specs": [
+        "強健養髮液(60ml/瓶)",
+        "極黑養髮液(60ml/瓶)"
+      ]
+    },
+    {
+      "name": "紅麴",
+      "revenue": 7173505,
+      "specs": [
+        "紅麴(60顆/盒)(2024)",
+        "紅麴(10顆/包)(2024)",
+        "健字紅麴(將脂康30顆/盒)",
+        "紅麴納豆(60顆/盒)"
+      ]
+    },
+    {
+      "name": "洗髮精",
+      "revenue": 5210108,
+      "specs": [
+        "強健洗髮精(500ml/瓶)",
+        "極黑洗髮精(500ml/瓶)",
+        "抗屑洗髮精(500ml/瓶)",
+        "薄荷洗髮精(500ml/瓶)",
+        "強健洗髮(40ml/瓶)(聞香瓶)",
+        "極黑洗髮(40ml/瓶)(聞香瓶)"
+      ]
+    },
+    {
+      "name": "強法健",
+      "revenue": 4699443,
+      "specs": [
+        "強法健(60顆/盒)",
+        "強法健(10顆/包)"
+      ]
+    },
+    {
+      "name": "南瓜籽",
+      "revenue": 3060690,
+      "specs": [
+        "南瓜籽(60顆/盒)"
+      ]
+    }
+  ],
+  "specs": [
+    {
+      "category": "男性保健",
+      "spec": "瑪卡(90顆/盒)",
+      "revenue": 12611124
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "強健養髮液(60ml/瓶)",
+      "revenue": 9025498
+    },
+    {
+      "category": "循環代謝",
+      "spec": "紅麴(60顆/盒)(2024)",
+      "revenue": 7146284
+    },
+    {
+      "category": "機能保健",
+      "spec": "強法健(60顆/盒)",
+      "revenue": 4554976
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "強健洗髮精(500ml/瓶)",
+      "revenue": 4345399
+    },
+    {
+      "category": "關節/骨骼",
+      "spec": "UC-II(60顆/盒)",
+      "revenue": 3533836
+    },
+    {
+      "category": "男性保健",
+      "spec": "南瓜籽(60顆/盒)",
+      "revenue": 3060690
+    },
+    {
+      "category": "機能保健",
+      "spec": "薑黃(60顆/盒)",
+      "revenue": 2038671
+    },
+    {
+      "category": "循環代謝",
+      "spec": "魚油(60顆/包)(2025)",
+      "revenue": 1963276
+    },
+    {
+      "category": "男性保健",
+      "spec": "瑪卡粉包(14入/盒)",
+      "revenue": 1490789
+    },
+    {
+      "category": "機能保健",
+      "spec": "快充有神B(20顆/包)",
+      "revenue": 1052617
+    },
+    {
+      "category": "機能保健",
+      "spec": "黑頭髮(60顆/盒)",
+      "revenue": 788268
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "極黑養髮液(60ml/瓶)",
+      "revenue": 730519
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "極黑洗髮精(500ml/瓶)",
+      "revenue": 679743
+    },
+    {
+      "category": "關節/骨骼",
+      "spec": "胺基酸鈣(30顆/包)",
+      "revenue": 672006
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "強健豐盈組",
+      "revenue": 601513
+    },
+    {
+      "category": "機能保健",
+      "spec": "葉黃素(60顆/盒)",
+      "revenue": 498655
+    },
+    {
+      "category": "男性保健",
+      "spec": "瑪卡(15顆/包)",
+      "revenue": 478882
+    },
+    {
+      "category": "男性保健",
+      "spec": "精胺酸(90顆/盒)",
+      "revenue": 327466
+    },
+    {
+      "category": "機能保健",
+      "spec": "奶茶蛋白粉(500g/袋)",
+      "revenue": 319228
+    },
+    {
+      "category": "機能保健",
+      "spec": "GABA(60顆/盒)",
+      "revenue": 307291
+    },
+    {
+      "category": "機能保健",
+      "spec": "葉黃素(30顆/包)",
+      "revenue": 259049
+    },
+    {
+      "category": "維生素礦物",
+      "spec": "B群(60顆/盒)",
+      "revenue": 159164
+    },
+    {
+      "category": "維生素礦物",
+      "spec": "酵母鋅(60顆/盒)",
+      "revenue": 155131
+    },
+    {
+      "category": "機能保健",
+      "spec": "強法健(10顆/包)",
+      "revenue": 144467
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "抗屑洗髮精(500ml/瓶)",
+      "revenue": 132600
+    },
+    {
+      "category": "機能保健",
+      "spec": "左旋肉鹼(60顆/盒)",
+      "revenue": 105271
+    },
+    {
+      "category": "機能保健",
+      "spec": "楷模戰力膠囊(30顆/盒)",
+      "revenue": 74911
+    },
+    {
+      "category": "機能保健",
+      "spec": "BCAA(60顆/盒)",
+      "revenue": 59220
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "極黑精粹組",
+      "revenue": 56885
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "薄荷洗髮精(500ml/瓶)",
+      "revenue": 52256
+    },
+    {
+      "category": "私密處清潔保餋",
+      "spec": "激情潤滑液(100ml/條)",
+      "revenue": 43721
+    },
+    {
+      "category": "循環代謝",
+      "spec": "紅麴(10顆/包)(2024)",
+      "revenue": 22286
+    },
+    {
+      "category": "機能保健",
+      "spec": "牛磺酸(60顆/盒)",
+      "revenue": 16031
+    },
+    {
+      "category": "臉部清潔",
+      "spec": "痘痘洗面乳(100g/條)",
+      "revenue": 13313
+    },
+    {
+      "category": "身體清潔",
+      "spec": "曠世沐浴露(500ml/瓶)",
+      "revenue": 11218
+    },
+    {
+      "category": "機能保健",
+      "spec": "健字紅麴(將脂康30顆/盒)",
+      "revenue": 10574
+    },
+    {
+      "category": "身體清潔",
+      "spec": "沁涼沐浴露(500ml/瓶)",
+      "revenue": 9881
+    },
+    {
+      "category": "私密處清潔保餋",
+      "spec": "熱感潤滑液(100ml/條)",
+      "revenue": 8524
+    },
+    {
+      "category": "機能保健",
+      "spec": "巧克力蛋白粉(500g/袋)",
+      "revenue": 2841
+    },
+    {
+      "category": "臉部清潔",
+      "spec": "控油洗面乳(100g/條)",
+      "revenue": 2457
+    },
+    {
+      "category": "私密處清潔保餋",
+      "spec": "保濕潤滑液(100ml/條)",
+      "revenue": 1922
+    },
+    {
+      "category": "臉部清潔",
+      "spec": "保濕洗面乳(100g/條)",
+      "revenue": 1542
+    },
+    {
+      "category": "身體清潔",
+      "spec": "雅典沐浴露(500ml/瓶)",
+      "revenue": 1142
+    },
+    {
+      "category": "身體清潔",
+      "spec": "3in1沐浴露(250ml/瓶)",
+      "revenue": 1133
+    },
+    {
+      "category": "身體清潔",
+      "spec": "野性沐浴露(500ml/瓶)",
+      "revenue": 315
+    },
+    {
+      "category": "身體清潔",
+      "spec": "極地沐浴露(500ml/瓶)",
+      "revenue": 315
+    },
+    {
+      "category": "私密處清潔保餋",
+      "spec": "私密保養液(60ml/瓶)",
+      "revenue": 142
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "極黑洗髮(40ml/瓶)(聞香瓶)",
+      "revenue": 55
+    },
+    {
+      "category": "洗髪護髪",
+      "spec": "強健洗髮(40ml/瓶)(聞香瓶)",
+      "revenue": 55
+    },
+    {
+      "category": "機能保健",
+      "spec": "原味蛋白粉(500g/袋)",
+      "revenue": -525
+    },
+    {
+      "category": "循環代謝",
+      "spec": "92%魚油(120顆/盒)",
+      "revenue": -3724
+    },
+    {
+      "category": "循環代謝",
+      "spec": "紅麴納豆(60顆/盒)",
+      "revenue": -5639
+    },
+    {
+      "category": "未分類",
+      "spec": "折扣",
+      "revenue": -4788452
+    }
+  ],
+  "discount": -4788452,
+  "grossBeforeDiscount": 57563264,
+  "adPerformance": {
+    "source": "Meta",
+    "spend": 892784,
+    "impressions": 6652850,
+    "clicks": 138712,
+    "ctr": 2.09,
+    "purchases": 1109,
+    "revenue": 2610723,
+    "roas": 2.92,
+    "cpa": 805,
+    "atl": 265689,
+    "btl": 627095
+  }
+}
