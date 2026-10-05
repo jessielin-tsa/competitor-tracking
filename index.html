@@ -163,6 +163,16 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .note-line{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:10px;line-height:1.7;}
 @media(max-width:640px){.bar-row{grid-template-columns:90px 1fr 86px;}.chg-row{grid-template-columns:auto 1fr;}.chg-row>div:last-child{grid-column:1/-1;}}
 .two-col{display:grid;gap:0 26px;align-items:start;}
+.pcard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;}
+.pcard{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--brass);padding:14px 15px;}
+.pcard-name{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.1;}
+.pcard-sub{font-family:var(--font-mono);font-size:10.5px;color:var(--paper-dim);margin:4px 0 11px;letter-spacing:.3px;}
+.pcard-row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:12.5px;padding:5px 0;border-top:1px solid var(--rule);}
+.pcard-row:first-of-type{border-top:none;}
+.pcard-row span{color:var(--paper-dim);white-space:nowrap;}
+.pcard-row b{font-family:var(--font-mono);font-weight:600;white-space:nowrap;}
+.pcard-row b.up{color:var(--green);}
+.pcard-row b.down{color:var(--brass);}
 @media(min-width:1000px){
   .two-col{grid-template-columns:1fr 1fr;}
   .two-col .chg-row{grid-template-columns:auto 1fr;}
@@ -207,17 +217,17 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div class="meta-bar" id="salesMeta">載入中…</div>
   <div class="stat-row" id="statRow"></div>
 
+  <div class="block">
+    <div class="block-h"><h3>本期重點</h3><small id="chgMore"></small></div>
+    <div id="homeChanges"></div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>主力品銷售評比</h3><small>12 個完整月（2025-10～2026-09），多入組合已併回單品</small></div>
+    <div class="pcard-grid" id="prodCards"></div>
+  </div>
+
   <div class="two-col">
-    <div class="block">
-      <div class="block-h"><h3>本期該知道的三件事</h3><small id="chgMore"></small></div>
-      <div id="homeChanges"></div>
-    </div>
-
-    <div class="block">
-      <div class="block-h"><h3>主力品銷售評比</h3><small>近12個月營收，多入組合已併回單品</small></div>
-      <div id="prodBars"></div>
-    </div>
-
     <div class="block">
       <div class="block-h"><h3>近 12 個月營收結構 — 單品貢獻度</h3><small>折扣前，Top 12</small></div>
       <div id="specBars"></div>
@@ -578,8 +588,18 @@ function renderSales(){
     <div class="stat"><div class="k">訂單數</div><div class="v">${fmtN(od12)}</div><div class="s">客單價 ${fmtN(rev12/od12)} 元</div></div>
     <div class="stat"><div class="k">對比 ${esc(first.month)}</div><div class="v ${yoy>=0?'up':'down'}" style="font-size:22px">${yoy>=0?'+':''}${yoy.toFixed(0)}%</div><div class="s">${esc(first.month)} → ${esc(last.month)}</div></div>`;
 
-  document.getElementById('prodBars').innerHTML=barList(
-    d.products.map(p=>({label:p.name,value:p.revenue,note:p.specs.length>1?p.specs.length+' 個規格':''})));
+  document.getElementById('prodCards').innerHTML=d.products.map(p=>{
+    const t=p.trend, cls=t==null?'':(t>=0?'up':'down');
+    const tv=t==null?'—':(t>=0?'+':'')+t.toFixed(1)+'%';
+    return `<div class="pcard">
+      <div class="pcard-name">${esc(p.name)}</div>
+      <div class="pcard-sub">${p.specCount} 個規格 · ${esc(p.category)}</div>
+      <div class="pcard-row"><span>近12月營收</span><b>${fmtW(p.revenue)}</b></div>
+      <div class="pcard-row"><span>銷售數量</span><b>${fmtN(p.volume)}</b></div>
+      <div class="pcard-row"><span>平均單價</span><b>$${fmtN(p.avgPrice)}</b></div>
+      <div class="pcard-row"><span>毛利率</span><b>${p.marginRate}%</b></div>
+      <div class="pcard-row"><span>近3月趨勢</span><b class="${cls}">${tv}</b></div>
+    </div>`;}).join('');
 
   const tops=d.specs.filter(s=>s.spec!=='折扣'&&s.revenue>0).slice(0,12);
   document.getElementById('specBars').innerHTML=barList(tops.map(s=>({label:s.spec,value:s.revenue,note:s.category})),'alt');
@@ -622,7 +642,7 @@ function renderHomeChanges(snap){
       <div class="chg-who">${esc(l.cat)}<br><span style="color:var(--paper-dim)">${esc(l.competitor)}</span></div>
       <div>${esc(l.change)}</div></div>`).join(''):'<div class="empty-state">本期無變更紀錄</div>';
   const more=document.getElementById('chgMore');
-  if(more) more.textContent=`本期共 ${all.length} 則變更，完整內容見各品類分析`;
+  if(more) more.textContent=`本期共 ${all.length} 則變更 · 完整內容見各品類分析`;
 }
 
 // 先只載入最新一筆（tracking-data.json）→ 畫面立即顯示，載入速度不受歷史累積影響
