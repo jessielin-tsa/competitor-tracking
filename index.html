@@ -275,6 +275,19 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
     </div>
   </div>
 
+  <div class="block">
+    <div class="block-h"><h3>銷售業績 vs 廣告費</h3><small id="adVsWin"></small></div>
+    <div class="stat-row" id="adCorrStats"></div>
+    <div class="chart-wrap" id="adVsRevChart"></div>
+    <div class="legend"><span><i style="background:var(--brass)"></i>月營收（柱）</span><span><i style="background:var(--calm)"></i>廣告費（線）</span></div>
+    <div class="sowhat">
+      <h5>So What</h5>
+      <div class="chk" id="adChk"></div>
+      <p id="adP1"></p>
+      <p id="adP2"></p>
+    </div>
+  </div>
+
 </section>
 </div>
 
@@ -674,6 +687,34 @@ function renderSales(){
   document.getElementById('chanNote').innerHTML=
     `來源：TSA Inside BI，折扣後淨額。<b>${t3.map(c=>esc(c.name)).join('＋')}</b> 合計 `+
     `<b>${p3.toFixed(0)}%</b> — 競品比價追這三個通路即可涵蓋主戰場；其餘 ${chAll.length-3} 個通路共 ${(100-p3).toFixed(1)}%。`;
+
+  // ---- 銷售業績 vs 廣告費 ----
+  const av=d.adVsRev;
+  if(av){
+    document.getElementById('adVsWin').textContent=av.window+'，廣告費資料自 2026-01 起';
+    const effPct=((av.effLast-av.effFirst)/av.effFirst*100);
+    document.getElementById('adCorrStats').innerHTML=`
+      <div class="stat"><div class="k">同月相關係數</div><div class="v">${av.corrSame}</div><div class="s">廣告費 vs 當月營收</div></div>
+      <div class="stat"><div class="k">落後一期相關</div><div class="v">${av.corrLag}</div><div class="s">廣告費 vs 次月營收</div></div>
+      <div class="stat"><div class="k">廣告效率</div><div class="v">${av.effLast}</div><div class="s ${effPct>=0?'up':'down'}">元/元 · 較首月 ${effPct>=0?'+':''}${effPct.toFixed(0)}%</div></div>
+      <div class="stat"><div class="k">期間變化</div><div class="v" style="font-size:20px">${av.adChange}% / ${av.revChange}%</div><div class="s">廣告費 / 營收</div></div>
+      <div class="stat"><div class="k">Meta ROAS</div><div class="v">${d.adPerformance.roas}x</div><div class="s">近 92 天平台實抓</div></div>`;
+    const rows=d.monthly.filter(m=>av.months.indexOf(m.month)>=0);
+    document.getElementById('adVsRevChart').innerHTML=monthChart(rows);
+    document.getElementById('adChk').innerHTML=av.verified.map(v=>
+      `<span class="${v.result==='成立'?'yes':'no'}">${esc(v.claim)}：${esc(v.result)}</span>`).join('');
+    document.getElementById('adP1').innerHTML=
+      `廣告費與營收<b>同月相關 r = ${av.corrSame}</b>，看起來高度連動。但這不足以證明廣告帶動業績——`+
+      `兩個同時下滑的數列，相關係數本來就會偏高。三項檢驗結果：`+
+      av.verified.map(v=>`${esc(v.claim)}<b>${esc(v.result)}</b>`).join('、')+`。`;
+    document.getElementById('adP2').innerHTML=
+      `<span class="warn">關鍵反證</span>：廣告費期間降 <b>${Math.abs(av.adChange)}%</b>，但每 1 元廣告帶來的營收`+
+      `反而由 <b>${av.effFirst} 元升至 ${av.effLast} 元</b>（2026-08 廣告費最低的 67 萬，效率卻是全期最高的 5.12 元）。`+
+      `若「少投導致少賣」成立，砍掉近四成預算後效率應該變差才對。`+
+      `<br>較合理的解讀是<b>反向因果</b>：先看到銷售下滑，才調降廣告預算。`+
+      `<br>建議：要真正驗證因果，需做<b>可控測試</b>——例如挑單一通路或單一品項，刻意維持或加碼預算一至兩個月，`+
+      `與其他條件相近的對照組比較。單看歷史數字無法分辨「廣告帶動銷售」與「銷售決定預算」。`;
+  }
 
   // ---- 月營收節奏 vs 市場季節性 ----
   const mp=d.monthlyByProduct, sz=d.seasonality;
