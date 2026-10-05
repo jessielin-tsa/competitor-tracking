@@ -128,6 +128,12 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .meta-bar{font-family:var(--font-mono);font-size:11.5px;color:var(--paper-dim);line-height:1.9;border:1px solid var(--rule);border-left:3px solid var(--calm);background:rgba(24,31,42,.4);padding:12px 16px;margin-bottom:26px;}
 .meta-bar b{color:var(--paper);font-weight:600;}
 .meta-bar .warn{color:var(--caution);}
+.meta-bar details summary{cursor:pointer;list-style:none;display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.meta-bar details summary::-webkit-details-marker{display:none;}
+.meta-bar details summary::after{content:"▸";color:var(--calm);transition:transform .15s;margin-left:2px;}
+.meta-bar details[open] summary::after{transform:rotate(90deg);}
+.meta-bar details ul{margin:10px 0 0;padding-left:16px;}
+.meta-bar details li{margin-bottom:5px;}
 .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:26px;}
 .stat{background:var(--surface);border:1px solid var(--rule);border-top:2px solid var(--brass);padding:14px 16px;}
 .stat .k{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--paper-dim);margin-bottom:6px;}
@@ -229,6 +235,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <button class="tab-btn" role="tab" data-tab="price" id="tab-price" aria-controls="panel-price" aria-selected="false">價格走勢</button>
   <button class="tab-btn" role="tab" data-tab="ads" id="tab-ads" aria-controls="panel-ads" aria-selected="false">廣告</button>
   <button class="tab-btn" role="tab" data-tab="market" id="tab-market" aria-controls="panel-market" aria-selected="false">市場資訊</button>
+  <button class="tab-btn" role="tab" data-tab="deep" id="tab-deep" aria-controls="panel-deep" aria-selected="false">深度分析</button>
 </nav>
 
 <div class="tab-panel" data-tab="home" id="panel-home" role="tabpanel" aria-labelledby="tab-home" hidden>
@@ -238,7 +245,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div class="stat-row" id="statRow"></div>
 
   <div class="block">
-    <div class="block-h"><h3>本期重點</h3><small id="chgMore"></small></div>
+    <div class="block-h"><h3>本週該做的事</h3><small id="chgMore"></small></div>
     <div id="homeChanges"></div>
   </div>
 
@@ -263,30 +270,6 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
     </div>
   </div>
 
-  <div class="block">
-    <div class="block-h"><h3>月營收節奏 vs 市場季節性</h3><small>各主力品月營收，24 個月（2024-10 ～ 2026-09）</small></div>
-    <div class="chart-wrap" id="seasonChart"></div>
-    <div class="mlegend" id="seasonLegend"></div>
-    <div class="sowhat">
-      <h5>So What</h5>
-      <div class="chk" id="seasonChk"></div>
-      <p id="seasonP1"></p>
-      <p id="seasonP2"></p>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="block-h"><h3>銷售業績 vs 廣告費</h3><small id="adVsWin"></small></div>
-    <div class="stat-row" id="adCorrStats"></div>
-    <div class="chart-wrap" id="adVsRevChart"></div>
-    <div class="legend"><span><i style="background:var(--brass)"></i>月營收（柱）</span><span><i style="background:var(--calm)"></i>廣告費（線）</span></div>
-    <div class="sowhat">
-      <h5>So What</h5>
-      <div class="chk" id="adChk"></div>
-      <p id="adP1"></p>
-      <p id="adP2"></p>
-    </div>
-  </div>
 
 </section>
 </div>
@@ -349,6 +332,37 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 <section class="section" id="futureSection" style="display:none">
   <div class="section-head"><h2>未來市場觀察</h2><span class="eyebrow-sm">FUTURE MARKETS</span></div>
   <div class="future-grid" id="futureGrid"></div>
+</section>
+</div>
+
+<div class="tab-panel" data-tab="deep" id="panel-deep" role="tabpanel" aria-labelledby="tab-deep" hidden>
+<section class="section">
+  <div class="section-head"><h2>深度分析</h2><span class="eyebrow-sm">DEEP DIVE</span></div>
+  <div class="block">
+    <div class="block-h"><h3>月營收節奏 vs 市場季節性</h3><small>各主力品月營收，24 個月（2024-10 ～ 2026-09）</small></div>
+    <div class="chart-wrap" id="seasonChart"></div>
+    <div class="mlegend" id="seasonLegend"></div>
+    <div class="sowhat">
+      <h5>So What</h5>
+      <div class="chk" id="seasonChk"></div>
+      <p id="seasonP1"></p>
+      <p id="seasonP2"></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-h"><h3>銷售業績 vs 廣告費</h3><small id="adVsWin"></small></div>
+    <div class="stat-row" id="adCorrStats"></div>
+    <div class="chart-wrap" id="adVsRevChart"></div>
+    <div class="legend"><span><i style="background:var(--brass)"></i>月營收（柱）</span><span><i style="background:var(--calm)"></i>廣告費（線）</span></div>
+    <div class="sowhat">
+      <h5>So What</h5>
+      <div class="chk" id="adChk"></div>
+      <p id="adP1"></p>
+      <p id="adP2"></p>
+    </div>
+  </div>
+
 </section>
 </div>
 
@@ -542,7 +556,7 @@ function setupRange(keepDate){
   refresh(keepDate||activeDate);
 }
 
-const TABS=['home','category','price','ads','market'];
+const TABS=['home','category','price','ads','market','deep'];
 function showTab(name){
   if(TABS.indexOf(name)<0) name='home';
   document.querySelectorAll('.tab-panel').forEach(p=>{p.hidden = p.dataset.tab!==name;});
@@ -641,8 +655,9 @@ function renderSales(){
   }
   const d=salesData, M=d.meta;
   document.getElementById('salesMeta').innerHTML=
-    `<b>報表產出</b> ${esc(M.generatedAt)} ｜ <b>銷售資料</b> 截至 ${esc(M.salesThrough)} ｜ <b>統計區間</b> ${esc(M.window)} ｜ 來源 ${esc(M.source)}<br>`+
-    M.notes.map(n=>`<span class="warn">·</span> ${esc(n)}`).join('<br>');
+    `<details><summary><b>資料截至 ${esc(M.salesThrough)}</b>｜報表產出 ${esc(M.generatedAt)}`+
+    `｜來源 ${esc(M.source)}｜<span class="warn">${M.notes.length} 項計算說明</span></summary>`+
+    `<ul>${M.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul></details>`;
 
   const full=d.monthly.filter(m=>!m.partial);
   const rev12=full.reduce((a,m)=>a+m.revenue,0);
