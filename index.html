@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>競品分析中心｜PowerHero</title>
+<title>PowerHero 勁漢英雄 銷售與競品分析</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -13,16 +13,17 @@
 body{margin:0;background:repeating-linear-gradient(0deg,rgba(23,27,34,0.030) 0px,rgba(23,27,34,0.030) 1px,transparent 1px,transparent 28px),var(--ink);color:var(--paper);font-family:var(--font-serif);min-height:100vh;padding:32px 24px 80px;}
 .wrap{max-width:1180px;margin:0 auto;}
 header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:20px;margin-bottom:20px;}
-h1{font-family:var(--font-display);font-weight:900;font-size:clamp(26px,4.5vw,44px);margin:0 0 4px;line-height:0.95;}
+h1{font-family:var(--font-display);font-weight:900;font-size:clamp(22px,3.6vw,34px);margin:0;line-height:1.05;}
 .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--calm);}
 .status-block{text-align:right;font-family:var(--font-mono);font-size:13px;color:var(--paper-dim);}
 .scan-time{color:var(--paper);font-size:15px;display:flex;align-items:center;gap:8px;justify-content:flex-end;}
 .pulse{width:8px;height:8px;border-radius:50%;background:var(--calm);animation:pulse 2.4s infinite;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(35,101,95,0.45);}70%{box-shadow:0 0 0 7px rgba(35,101,95,0);}100%{box-shadow:0 0 0 0 rgba(35,101,95,0);}}
-.month-row,.date-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.month-row{margin-bottom:12px;}.date-row{margin-bottom:32px;}
+.filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.row-sep{width:1px;height:20px;background:var(--rule-strong);margin:0 4px;}
+@media(max-width:640px){.row-sep{display:none;}}
 .row-label{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--paper-dim);margin-right:4px;}
-.picker{font-family:var(--font-mono);font-size:13px;background:var(--surface);border:1px solid var(--rule-strong);color:var(--paper);padding:9px 36px 9px 14px;border-radius:4px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236d6a63'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.picker{font-family:var(--font-mono);font-size:13px;height:37px;background:var(--surface);border:1px solid var(--rule-strong);color:var(--paper);padding:9px 36px 9px 14px;border-radius:4px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236d6a63'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
 .picker:focus-visible{outline:2px solid var(--calm);outline-offset:2px;}
 .picker option{background:var(--surface-2);color:var(--paper);}
 button:focus-visible{outline:2px solid var(--calm);outline-offset:2px;}
@@ -161,14 +162,19 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .chg-who{font-family:var(--font-mono);font-size:12px;color:var(--paper);}
 .note-line{font-family:var(--font-mono);font-size:11px;color:var(--paper-dim);margin-top:10px;line-height:1.7;}
 @media(max-width:640px){.bar-row{grid-template-columns:90px 1fr 86px;}.chg-row{grid-template-columns:auto 1fr;}.chg-row>div:last-child{grid-column:1/-1;}}
+.two-col{display:grid;gap:0 26px;align-items:start;}
+@media(min-width:1000px){
+  .two-col{grid-template-columns:1fr 1fr;}
+  .two-col .chg-row{grid-template-columns:auto 1fr;}
+  .two-col .chg-row>div:last-child{grid-column:1/-1;}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div>
-    <div class="eyebrow">COMPETITIVE INTELLIGENCE CENTER</div>
-    <h1>競品分析中心</h1>
+    <h1>PowerHero 勁漢英雄 銷售與競品分析</h1>
   </div>
   <div class="status-block">
     <div class="scan-time"><span class="pulse"></span><span id="lastUpdated">—</span> 最後掃描</div>
@@ -176,13 +182,12 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   </div>
 </header>
 
-<div class="month-row" id="rangeRow">
+<div class="filter-row" id="filterRow">
   <span class="row-label">日期區間</span>
   <input type="date" class="picker" id="rangeFrom">
   <span class="row-label" style="margin:0 2px">至</span>
   <input type="date" class="picker" id="rangeTo">
-</div>
-<div class="date-row" id="snapRow">
+  <span class="row-sep" aria-hidden="true"></span>
   <span class="row-label">查看快照</span>
   <select class="picker" id="snapSel"></select>
   <span class="row-label" id="snapCount" style="margin-left:6px;text-transform:none;"></span>
@@ -202,25 +207,27 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <div class="meta-bar" id="salesMeta">載入中…</div>
   <div class="stat-row" id="statRow"></div>
 
-  <div class="block">
-    <div class="block-h"><h3>本期該知道的三件事</h3><small id="chgMore"></small></div>
-    <div id="homeChanges"></div>
-  </div>
+  <div class="two-col">
+    <div class="block">
+      <div class="block-h"><h3>本期該知道的三件事</h3><small id="chgMore"></small></div>
+      <div id="homeChanges"></div>
+    </div>
 
-  <div class="block">
-    <div class="block-h"><h3>主力品銷售評比</h3><small>近12個月營收，多入組合已併回單品</small></div>
-    <div id="prodBars"></div>
-  </div>
+    <div class="block">
+      <div class="block-h"><h3>主力品銷售評比</h3><small>近12個月營收，多入組合已併回單品</small></div>
+      <div id="prodBars"></div>
+    </div>
 
-  <div class="block">
-    <div class="block-h"><h3>近 12 個月營收結構 — 單品貢獻度</h3><small>折扣前，Top 12</small></div>
-    <div id="specBars"></div>
-    <div class="note-line" id="discNote"></div>
-  </div>
+    <div class="block">
+      <div class="block-h"><h3>近 12 個月營收結構 — 單品貢獻度</h3><small>折扣前，Top 12</small></div>
+      <div id="specBars"></div>
+      <div class="note-line" id="discNote"></div>
+    </div>
 
-  <div class="block">
-    <div class="block-h"><h3>近 12 個月營收結構 — 通路貢獻度</h3><small>折扣後淨額</small></div>
-    <div id="chanBars"></div>
+    <div class="block">
+      <div class="block-h"><h3>近 12 個月營收結構 — 通路貢獻度</h3><small>折扣後淨額</small></div>
+      <div id="chanBars"></div>
+    </div>
   </div>
 
   <div class="block">
