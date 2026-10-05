@@ -223,7 +223,7 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   </div>
 
   <div class="block">
-    <div class="block-h"><h3>主力品銷售評比</h3><small>12 個完整月（2025-10～2026-09），多入組合已併回單品</small></div>
+    <div class="block-h"><h3>主力品銷售評比</h3><small>12 個完整月（2025-10～2026-09）· 近3月趨勢為 07~09 vs 04~06</small></div>
     <div class="pcard-grid" id="prodCards"></div>
   </div>
 
@@ -593,11 +593,11 @@ function renderSales(){
     const tv=t==null?'—':(t>=0?'+':'')+t.toFixed(1)+'%';
     return `<div class="pcard">
       <div class="pcard-name">${esc(p.name)}</div>
-      <div class="pcard-sub">${p.specCount} 個規格 · ${esc(p.category)}</div>
+      <div class="pcard-sub">${esc(p.pack)} · ${esc(p.category)}</div>
       <div class="pcard-row"><span>近12月營收</span><b>${fmtW(p.revenue)}</b></div>
       <div class="pcard-row"><span>銷售數量</span><b>${fmtN(p.volume)}</b></div>
       <div class="pcard-row"><span>平均單價</span><b>$${fmtN(p.avgPrice)}</b></div>
-      <div class="pcard-row"><span>毛利率</span><b>${p.marginRate}%</b></div>
+      <div class="pcard-row"><span>毛利率</span><b>${p.marginRate.toFixed(1)}%</b></div>
       <div class="pcard-row"><span>近3月趨勢</span><b class="${cls}">${tv}</b></div>
     </div>`;}).join('');
 
