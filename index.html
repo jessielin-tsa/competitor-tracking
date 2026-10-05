@@ -171,6 +171,18 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .src-note code{background:rgba(234,231,222,.08);padding:1px 5px;border-radius:3px;color:var(--paper);}
 .src-note b{color:var(--paper);font-weight:600;}
 .panel-card.c-prod .bar-label{color:var(--brass);}
+.sowhat{background:rgba(217,167,61,.07);border:1px solid rgba(217,167,61,.3);border-left:3px solid var(--caution);padding:16px 18px;margin-top:16px;}
+.sowhat h5{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--caution);margin:0 0 10px;}
+.sowhat p{font-size:13.5px;line-height:1.75;margin:0 0 9px;color:var(--paper);}
+.sowhat p:last-child{margin-bottom:0;}
+.sowhat b{color:var(--caution);}
+.sowhat .warn{color:var(--brass);}
+.chk{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px;}
+.chk span{font-family:var(--font-mono);font-size:11px;padding:3px 9px;border-radius:2px;border:1px solid;}
+.chk .yes{color:var(--green);border-color:var(--green);}
+.chk .no{color:var(--brass);border-color:var(--brass);}
+.mlegend{font-family:var(--font-mono);font-size:11.5px;color:var(--paper-dim);display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;}
+.mlegend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:3px;border-radius:2px;}
 .pcard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;}
 .pcard{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--brass);padding:14px 15px;}
 .pcard-name{font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.1;}
@@ -252,10 +264,17 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   </div>
 
   <div class="block">
-    <div class="block-h"><h3>月營收與季節變化</h3><small>柱＝營收，線＝廣告費</small></div>
-    <div class="chart-wrap" id="monthChart"></div>
-    <div class="legend"><span><i style="background:var(--brass)"></i>營收</span><span><i style="background:var(--calm)"></i>廣告費</span><span><i style="background:rgba(234,231,222,.18)"></i>未滿月（不計入）</span></div>
+    <div class="block-h"><h3>月營收節奏 vs 市場季節性</h3><small>各主力品月營收，24 個月（2024-10 ～ 2026-09）</small></div>
+    <div class="chart-wrap" id="seasonChart"></div>
+    <div class="mlegend" id="seasonLegend"></div>
+    <div class="sowhat">
+      <h5>So What</h5>
+      <div class="chk" id="seasonChk"></div>
+      <p id="seasonP1"></p>
+      <p id="seasonP2"></p>
+    </div>
   </div>
+
 </section>
 </div>
 
@@ -573,6 +592,34 @@ function monthChart(rows){
   return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}${bars}<path d="${d}" fill="none" stroke="var(--calm)" stroke-width="1.8"/>${dots}${xs}</svg>`;
 }
 
+// 多條線的月營收節奏圖（含高峰標注）
+function multiLine(months,series,peaks,peakLabel){
+  const W=960,H=300,padL=54,padR=14,padT=26,padB=38;
+  const iw=W-padL-padR, ih=H-padT-padB, n=months.length;
+  const all=series.flatMap(s=>s.values).filter(v=>v!=null);
+  const max=Math.max(...all,1);
+  const x=i=>padL+iw*i/(n-1);
+  const y=v=>padT+ih*(1-v/max);
+  let g='';
+  [0,.25,.5,.75,1].forEach(t=>{const yy=padT+ih*(1-t);
+    g+=`<line class="gl" x1="${padL}" y1="${yy}" x2="${W-padR}" y2="${yy}"/>`+
+       `<text class="lbl" x="${padL-6}" y="${yy+3}" text-anchor="end">${fmtW(max*t)}</text>`;});
+  let pk='';
+  (peaks||[]).forEach(p=>{const i=months.indexOf(p); if(i<0)return;
+    pk+=`<line x1="${x(i).toFixed(1)}" y1="${padT}" x2="${x(i).toFixed(1)}" y2="${padT+ih}" stroke="var(--brass)" stroke-width="1" stroke-dasharray="4 3"/>`+
+        `<text class="lbl" x="${(x(i)+5).toFixed(1)}" y="${padT-8}" style="fill:var(--brass)">${esc(peakLabel||'')}</text>`;});
+  const lines=series.map(s=>{
+    let d='',dots='',st=false;
+    s.values.forEach((v,i)=>{ if(v==null){st=false;return;}
+      d+=(st?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1); st=true;
+      dots+=`<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="2.1" fill="${s.color}"/>`;});
+    return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="1.9" stroke-linejoin="round"/>${dots}`;
+  }).join('');
+  const xs=months.map((m,i)=>{ if(n>14 && i%2===1 && i!==n-1) return '';
+    return `<text class="lbl" x="${x(i).toFixed(1)}" y="${H-14}" text-anchor="middle">${m.slice(2).replace('-','/')}</text>`;}).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${g}${pk}${lines}${xs}</svg>`;
+}
+
 function renderSales(){
   if(!salesData){
     document.getElementById('salesMeta').textContent='銷售資料載入失敗（sales-data.json）';
@@ -628,7 +675,27 @@ function renderSales(){
     `來源：TSA Inside BI，折扣後淨額。<b>${t3.map(c=>esc(c.name)).join('＋')}</b> 合計 `+
     `<b>${p3.toFixed(0)}%</b> — 競品比價追這三個通路即可涵蓋主戰場；其餘 ${chAll.length-3} 個通路共 ${(100-p3).toFixed(1)}%。`;
 
-  document.getElementById('monthChart').innerHTML=monthChart(d.monthly);
+  // ---- 月營收節奏 vs 市場季節性 ----
+  const mp=d.monthlyByProduct, sz=d.seasonality;
+  if(mp){
+    document.getElementById('seasonChart').innerHTML=multiLine(mp.months,mp.series,mp.peaks,mp.peakLabel);
+    document.getElementById('seasonLegend').innerHTML=mp.series.map(s=>
+      `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('');
+  }
+  if(sz){
+    document.getElementById('seasonChk').innerHTML=sz.verified.map(v=>
+      `<span class="${v.result==='成立'?'yes':'no'}">${esc(v.claim)}：${esc(v.result)}</span>`).join('');
+    const pk=sz.peak2511.map(p=>`${esc(p.name)} ${fmtW(p.v)}`).join('、');
+    document.getElementById('seasonP1').innerHTML=
+      `保健食品市場普遍認為 <b>5 月與 11 月</b>為銷售高峰。以 PowerHero 自身 24 個月資料驗證：`+
+      sz.verified.map(v=>`${esc(v.claim)}<b>${esc(v.result)}</b>（${esc(v.detail)}）`).join('；')+`。`+
+      `<br>2025-11 當月 <b>${sz.peak2511.length} 個主力品同步觸及全年最高</b>：${pk}。`;
+    document.getElementById('seasonP2').innerHTML=
+      `<span class="warn">但季節性被結構性衰退蓋過</span>：1-9 月同期營收 2025 年 <b>${sz.yoy['2025']}%</b>、`+
+      `2026 年 <b>${sz.yoy['2026']}%</b>，連兩年衰退且加速。圖上三條年度曲線是「整體下移」而非「同形起伏」，`+
+      `代表 <b>2026-11 不會自動回到 760 萬</b>——旺季會來，但基期已低了約三成。`+
+      `<br>建議：11 月檔期資源提前於 9 月鎖定（2025 年 10 月即已起漲）；但不可把 11 月回升誤判為衰退結束，仍須對照年增率。`;
+  }
 
   // ---- 廣告分頁 ----
   const a=d.adPerformance;
