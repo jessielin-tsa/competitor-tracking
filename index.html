@@ -108,6 +108,22 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
 .price-latest .vol-high{color:var(--brass);font-weight:600;}
 .price-chart{width:100%;height:auto;display:block;}
 .price-chart .axis-label{font-family:var(--font-mono);font-size:9px;fill:var(--paper-dim);}
+.tab-bar{display:flex;gap:2px;border-bottom:1px solid var(--rule-strong);margin-bottom:30px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+.tab-btn{font-family:var(--font-display);font-size:18px;font-weight:700;letter-spacing:0.5px;padding:12px 20px;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--paper-dim);cursor:pointer;white-space:nowrap;flex:0 0 auto;}
+.tab-btn:hover{color:var(--paper);}
+.tab-btn.active{color:var(--brass);border-bottom-color:var(--brass);}
+.tab-btn:focus-visible{outline:2px solid var(--calm);outline-offset:-2px;}
+.todo-box{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--caution);padding:20px 22px;}
+.todo-box h3{font-family:var(--font-mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--caution);margin:0 0 4px;}
+.todo-box .todo-intro{font-size:13.5px;line-height:1.6;color:var(--paper-dim);margin:0 0 14px;}
+.todo-list{margin:0;padding:0;list-style:none;}
+.todo-list li{font-size:14px;line-height:1.6;padding:11px 0;border-top:1px solid var(--rule);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;}
+.todo-list li:first-child{border-top:none;}
+.todo-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;padding:3px 8px;border-radius:2px;white-space:nowrap;flex:0 0 auto;}
+.todo-tag.ready{color:var(--green);border:1px solid var(--green);}
+.todo-tag.missing{color:var(--brass);border:1px solid var(--brass);}
+.todo-list li span:last-child{flex:1 1 220px;}
+@media(max-width:640px){.tab-btn{font-size:16px;padding:11px 14px;}}
 </style>
 </head>
 <body>
@@ -135,13 +151,33 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   <span class="row-label" id="snapCount" style="margin-left:6px;text-transform:none;"></span>
 </div>
 
-<section class="section">
-  <div class="section-head"><span class="num">01</span><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 品牌共同關注</span></div>
-  <div id="trendGroups"></div>
-</section>
+<nav class="tab-bar" id="tabBar" role="tablist" aria-label="分析區塊">
+  <button class="tab-btn" role="tab" data-tab="home" id="tab-home" aria-controls="panel-home" aria-selected="false">戰情首頁</button>
+  <button class="tab-btn" role="tab" data-tab="category" id="tab-category" aria-controls="panel-category" aria-selected="false">品類分析</button>
+  <button class="tab-btn" role="tab" data-tab="price" id="tab-price" aria-controls="panel-price" aria-selected="false">價格走勢</button>
+  <button class="tab-btn" role="tab" data-tab="ads" id="tab-ads" aria-controls="panel-ads" aria-selected="false">廣告</button>
+  <button class="tab-btn" role="tab" data-tab="market" id="tab-market" aria-controls="panel-market" aria-selected="false">市場資訊</button>
+</nav>
 
+<div class="tab-panel" data-tab="home" id="panel-home" role="tabpanel" aria-labelledby="tab-home" hidden>
 <section class="section">
-  <div class="section-head"><span class="num">02</span><h2>品牌品類競品分析</h2><span class="eyebrow-sm">BRAND × CATEGORY</span></div>
+  <div class="section-head"><h2>戰情首頁</h2><span class="eyebrow-sm">WAR ROOM</span></div>
+  <div class="todo-box">
+    <h3>本分頁規劃內容</h3>
+    <p class="todo-intro">版面分頁已建立，以下為本頁規劃放置的四個區塊與其資料現況。標示「缺資料」者，目前的追蹤資料中尚無對應來源，待決定資料來源後再接入。</p>
+    <ul class="todo-list">
+      <li><span class="todo-tag ready">資料已具備</span><span><strong>本周該知道的三件事</strong>— 彙整四個品類的變更紀錄（現有資料每期約 20 則、已標註高／中／低重要度），依重要度排序後擇要呈現。</span></li>
+      <li><span class="todo-tag missing">缺資料</span><span><strong>主力品銷售評比</strong>— 需要自家主力品項的銷售數據。</span></li>
+      <li><span class="todo-tag missing">缺資料</span><span><strong>近 12 個月營收結構</strong>— 需要分品類／分通路的月營收資料。</span></li>
+      <li><span class="todo-tag missing">缺資料</span><span><strong>月營收與市場季節變化</strong>— 需要月營收資料，以及可對照的市場季節指標。</span></li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<div class="tab-panel" data-tab="category" id="panel-category" role="tabpanel" aria-labelledby="tab-category" hidden>
+<section class="section">
+  <div class="section-head"><h2>品牌品類競品分析</h2><span class="eyebrow-sm">BRAND × CATEGORY</span></div>
   <div class="brand-bar" id="brandBar"></div>
   <div class="cat-row" id="catRow"></div>
   <div class="own-product" id="ownProduct"></div>
@@ -154,22 +190,45 @@ footer{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-fa
   </div>
   <div class="log-list" id="logList"></div>
 </section>
+</div>
 
-<section class="section">
-  <div class="section-head"><span class="num">03</span><h2 id="recoTitle">方向建議</h2><span class="eyebrow-sm">STRATEGIC DIRECTION</span></div>
-  <div class="reco-box"><h3 id="recoSubtitle">品牌建議行動</h3><ol id="recoList"></ol></div>
-</section>
-
+<div class="tab-panel" data-tab="price" id="panel-price" role="tabpanel" aria-labelledby="tab-price" hidden>
 <section class="section" id="priceSection" style="display:none">
-  <div class="section-head"><span class="num">04</span><h2>價格走勢追蹤</h2><span class="eyebrow-sm">PRICE WATCH · momo 每日監測</span></div>
+  <div class="section-head"><h2>價格走勢追蹤</h2><span class="eyebrow-sm">PRICE WATCH · momo 每日監測</span></div>
   <div class="price-note">監測重點商品在 momo 的每日價格走勢。斷線代表當日查無資料。用途：觀察競品一週內是否有大幅價格波動或檔期降價。</div>
   <div class="price-grid" id="priceGrid"></div>
 </section>
+</div>
+
+<div class="tab-panel" data-tab="ads" id="panel-ads" role="tabpanel" aria-labelledby="tab-ads" hidden>
+<section class="section">
+  <div class="section-head"><h2>廣告</h2><span class="eyebrow-sm">AD INTELLIGENCE</span></div>
+  <div class="todo-box">
+    <h3>本分頁規劃內容</h3>
+    <p class="todo-intro">版面分頁已建立，內容待資料接入。</p>
+    <ul class="todo-list">
+      <li><span class="todo-tag missing">缺資料</span><span><strong>競品廣告投放情報</strong>— 需要廣告素材與投放資料來源（例如 Meta 廣告檔案庫），目前的追蹤資料中尚無廣告相關欄位。</span></li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<div class="tab-panel" data-tab="market" id="panel-market" role="tabpanel" aria-labelledby="tab-market" hidden>
+<section class="section">
+  <div class="section-head"><h2>整體市場趨勢</h2><span class="eyebrow-sm">INDUSTRY SIGNAL · 品牌共同關注</span></div>
+  <div id="trendGroups"></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2 id="recoTitle">方向建議</h2><span class="eyebrow-sm">STRATEGIC DIRECTION</span></div>
+  <div class="reco-box"><h3 id="recoSubtitle">品牌建議行動</h3><ol id="recoList"></ol></div>
+</section>
 
 <section class="section" id="futureSection" style="display:none">
-  <div class="section-head"><span class="num">＋</span><h2>未來市場觀察</h2><span class="eyebrow-sm">FUTURE MARKETS</span></div>
+  <div class="section-head"><h2>未來市場觀察</h2><span class="eyebrow-sm">FUTURE MARKETS</span></div>
   <div class="future-grid" id="futureGrid"></div>
 </section>
+</div>
 
 <footer>資料來源：tracking-data.json · 由 Claude Code Routine 定期更新</footer>
 </div>
@@ -359,6 +418,25 @@ function setupRange(keepDate){
   toEl.onchange=()=>refresh(activeDate);
   refresh(keepDate||activeDate);
 }
+
+const TABS=['home','category','price','ads','market'];
+function showTab(name){
+  if(TABS.indexOf(name)<0) name='home';
+  document.querySelectorAll('.tab-panel').forEach(p=>{p.hidden = p.dataset.tab!==name;});
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    const on=b.dataset.tab===name;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',on?'true':'false');
+  });
+  try{localStorage.setItem('ph_active_tab',name);}catch(e){}
+}
+function initTabs(){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+  let saved='home';
+  try{saved=localStorage.getItem('ph_active_tab')||'home';}catch(e){}
+  showTab(saved);
+}
+initTabs();
 
 // 先只載入最新一筆（tracking-data.json）→ 畫面立即顯示，載入速度不受歷史累積影響
 loadData().then(latest=>{
