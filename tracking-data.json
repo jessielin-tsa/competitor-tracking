@@ -1,7 +1,7 @@
 {
   "snapshots": [
     {
-      "date": "2026-10-05",
+      "date": "2026-10-12",
       "month": "2026-10",
       "trendGroups": [
         {
@@ -10,16 +10,16 @@
           "sub": "消費者在想什麼、怎麼做決定 — 直接影響廣告素材與商品頁設計",
           "items": [
             {
-              "title": "黑瑪卡選購仍高度依賴Dcard與評比文，本期(10/5)搜尋摘要未見PowerHero被提及",
-              "summary": "本期搜尋「黑瑪卡 推薦 評比」，結果仍以Dcard心得文(如f/mancare新文章、@fanfansuger系列)與my-best、helloyishi等評比文為主；搜尋摘要提及大研生醫(精氣神瑪卡粉包22包$1,980)、UNIQMAN(紅瑪卡2瓶組$1,190)、九五之丹(被評為適合重度勞動/熬夜族)，摘要中未見PowerHero。因egress proxy擋住dcard/my-best頁面，無法開頁逐字核對全文，故僅能說「搜尋摘要未見」，不能斷言全文完全未提及。顯示消費者仍依賴開箱文與比價決策，PowerHero自然聲量缺口持續。",
+              "title": "黑瑪卡選購仍依賴評比文與多組方案比價，本期(10/12)未見新的評測或聲量變化",
+              "summary": "本期搜尋大研生醫精氣神瑪卡，結果仍為momo商品頁(多組方案、折扣標示)與my-best、helloyishi等評比文；醫靠2025/12文章記載大研22包$1,980。搜尋結果未顯示日期，無法確認是否為本期新促銷，也未見PowerHero出現在搜尋摘要(未開頁核對全文，僅能說摘要未見)。消費者以多組價與評比文決策的行為未變，PowerHero自然聲量缺口持續。",
               "sources": [
                 {
                   "name": "my-best：瑪卡推薦評比",
                   "url": "https://tw.my-best.com/114996"
                 },
                 {
-                  "name": "Dcard：男性保健版黑瑪卡討論",
-                  "url": "https://www.dcard.tw/f/mancare/p/261355616"
+                  "name": "momo：大研生醫精氣神瑪卡(多組方案)",
+                  "url": "https://www.momoshop.com.tw/product/9107154"
                 }
               ]
             }
@@ -32,7 +32,7 @@
           "items": [
             {
               "title": "運動蛋白／機能營養賽道持續有大廠加碼（佳格2026年運動族新品，背景資訊）",
-              "summary": "佳格食品2026年針對運動族、青壯世代與蔬食者推出分離乳清蛋白、福樂PRO+雙效蛋白、純植蛋白奶三款新品，鎖定台灣約88%需無乳糖族群。該報導發布於5/11，非本期新事件，僅作運動營養賽道競爭背景；本期未查得男性運動保健（瑪卡／紅麴／攝護腺）品類的新品或產業事件，待下期持續觀察。",
+              "summary": "佳格食品2026年針對運動族、青壯世代與蔬食者推出分離乳清蛋白、福樂PRO+雙效蛋白、純植蛋白奶三款新品，鎖定台灣約88%需無乳糖族群。該報導發布於5/11，非本期新事件，僅作運動營養賽道競爭背景；本期未查得男性運動保健（瑪卡／紅麴／攝護腺）品類的新品或產業事件，待下期持續觀察。（10/12複查：本期仍未查得男性運動保健品類的新品或產業事件，沿用上期並維持背景定位。）",
               "sources": [
                 {
                   "name": "佳格聯手日本味之素 三款機能蛋白新品",
@@ -48,16 +48,26 @@
           "sub": "衛福部公告與裁罰風向 — 直接影響商品標示與廣告文案的合規邊界",
           "items": [
             {
-              "title": "歐盟紅麴Monacolin K禁令：5/13會員國投票通過，預計10月公告，上市品有12個月緩衝期（本期無法確認是否已正式公告）",
-              "summary": "本期搜尋顯示：歐盟會員國常設委員會已於5/13投票通過禁止食品補充劑使用紅麴來源Monacolin K的草案；後續須歷經歐洲議會與理事會約3個月審查，再由執委會核准並刊登公報，預估10月公布、公布後20日生效，生效前合法上市產品可有12個月緩衝(約2027年10月)；EFSA 2025年1月意見認為無法界定安全攝取量。上期(9/28)記載「仍未正式公告」，本期因foodchainid/complifegroup頁面被proxy擋住無法開頁，是否已於公報刊出待確認(foodchainid有標題為『Publication of the regulation on monacolins』之文章，內容未能核實)。台灣方面本期未查得食藥署針對紅麴的新公告，亦未查得與PowerHero相關的裁罰；廣告仍受食安法第45條規範。PowerHero納豆紅麴Q10每份含Monacolin K 15mg，若出口或跨境販售歐盟將直接受影響。",
+              "title": "歐盟紅麴Monacolin K禁令：10/12複查仍未查得公報刊登證據，預計10月公告",
+              "summary": "本期搜尋仍僅見歐盟會員國5/13投票通過、Valbiotis 5/27新聞稿預估10月公布、公布後20日生效、既有上市品有12個月過渡期；未查得歐盟公報正式刊登或台灣食藥署相關公告，故狀態維持「待確認」，建議直接查EUR-Lex。PowerHero納豆紅麴Q10每份含Monacolin K 15mg，若跨境販售歐盟將受影響。",
               "sources": [
                 {
-                  "name": "NutraIngredients：2026 monacolin ban 對業者的影響",
-                  "url": "https://www.nutraingredients.com/Article/2026/03/12/eu-monacolin-ban-2026-heart-health-alternatives/"
+                  "name": "Complife：monacolins 邁向全面禁令",
+                  "url": "https://www.complifegroup.com/2026/04/14/project-for-a-european-commission-regulation-monacolins-towards-a-definitive-ban/"
                 },
                 {
-                  "name": "FoodChainID：會員國投票通過紅麴Monacolin草案",
-                  "url": "https://www.foodchainid.com/?p=47436"
+                  "name": "Valbiotis 新聞稿(2026/5)",
+                  "url": "https://investisseurs.valbiotis.com/wp-content/uploads/2026/05/CP-Valbiotis-Levure-de-riz-rouge-OK_EN.pdf"
+                }
+              ]
+            },
+            {
+              "title": "食藥署10/1公開點名名人代言違規廣告，重申加重裁罰（與PowerHero無直接關聯）",
+              "summary": "TVBS報導食藥署10/1新聞稿點名保健食品代言廣告宣稱療效，今年已被地方衛生局裁罰7次共402萬元；依報導，食品廣告誇大不實罰4~400萬元、涉療效罰60~500萬元，名人代言違規最高可加權3倍，一年內違規5次以上可要求停業。未查得與PowerHero或本追蹤競品相關的裁罰；提醒瑪卡/紅麴/護髮文案避免療效與生髮宣稱，並注意KOL/開箱文合作的連坐風險。",
+              "sources": [
+                {
+                  "name": "TVBS：食藥署公開點名重罰",
+                  "url": "https://health.tvbs.com.tw/nutrition/366380"
                 }
               ]
             }
@@ -135,6 +145,24 @@
               ],
               "log": [
                 {
+                  "date": "2026-10-12",
+                  "competitor": "大研生醫",
+                  "change": "搜尋見momo多組方案(30包x5入組促銷價$4,550、30包單盒促銷價約$1,500)，頁面未標日期，無法確認是否新檔期，待確認",
+                  "severity": "low"
+                },
+                {
+                  "date": "2026-10-12",
+                  "competitor": "九五之丹/嚴萃/武倍/UNIQMAN",
+                  "change": "本期無新動態(未查得新價格或新品)",
+                  "severity": "low"
+                },
+                {
+                  "date": "2026-10-12",
+                  "competitor": "PowerHero",
+                  "change": "搜尋摘要仍未見PowerHero出現在黑瑪卡評比討論",
+                  "severity": "low"
+                },
+                {
                   "date": "2026-10-05",
                   "competitor": "全體",
                   "change": "momo/PChome/官網/Dcard/my-best仍被egress proxy擋住，金額僅能依搜尋摘要",
@@ -144,24 +172,6 @@
                   "date": "2026-10-05",
                   "competitor": "九五之丹",
                   "change": "評比摘要稱其適合重度勞動/熬夜族，無新促銷資訊",
-                  "severity": "low"
-                },
-                {
-                  "date": "2026-10-05",
-                  "competitor": "UNIQMAN",
-                  "change": "紅瑪卡2瓶組$1,190、60粒版$690，與上期一致",
-                  "severity": "low"
-                },
-                {
-                  "date": "2026-10-05",
-                  "competitor": "大研生醫",
-                  "change": "搜尋摘要查得精氣神瑪卡粉包22包$1,980(新增單盒價參考)，3入組價待確認",
-                  "severity": "low"
-                },
-                {
-                  "date": "2026-10-05",
-                  "competitor": "PowerHero",
-                  "change": "搜尋摘要中PowerHero未出現在黑瑪卡Dcard/評比討論，proxy擋頁無法核對全文",
                   "severity": "low"
                 }
               ]
@@ -305,16 +315,22 @@
               ],
               "log": [
                 {
-                  "date": "2026-10-05",
+                  "date": "2026-10-12",
+                  "competitor": "全體(產業)",
+                  "change": "歐盟Monacolin K禁令仍未查得公報刊登證據，預計10月公布，待確認",
+                  "severity": "medium"
+                },
+                {
+                  "date": "2026-10-12",
                   "competitor": "悠活原力/大研/豐傑/葡萄王",
-                  "change": "本期搜尋未查得新價格、新品或檔期，沿用上期資料",
+                  "change": "本期無新動態(未查得新價格、新品或檔期)",
                   "severity": "low"
                 },
                 {
-                  "date": "2026-10-05",
-                  "competitor": "全體(產業)",
-                  "change": "歐盟Monacolin K禁令5/13會員國投票通過、預計10月公告，是否已刊公報待確認",
-                  "severity": "medium"
+                  "date": "2026-10-12",
+                  "competitor": "PowerHero",
+                  "change": "mybest納豆紅麴第一名宣稱本期未重新取得可驗證證據，仍待人工核對(連續多期無法佐證)",
+                  "severity": "high"
                 },
                 {
                   "date": "2026-10-05",
@@ -327,12 +343,6 @@
                   "competitor": "PowerHero",
                   "change": "mybest納豆紅麴評測第一名宣稱本期第五次查證，結果與前四期一致查無佐證，且新查得PowerHero於mybest實際收錄類別為護髮/洗髮而非紅麴，進一步佐證錯置品類引用判斷",
                   "severity": "high"
-                },
-                {
-                  "date": "2026-09-28",
-                  "competitor": "悠活原力",
-                  "change": "momo『任2件79折』促銷(9/1-9/12)本期確認已如期結束，現無延續",
-                  "severity": "low"
                 }
               ]
             },
@@ -441,12 +451,13 @@
             }
           ],
           "recommendations": [
-            "紅麴：mybest「第一名」宣稱連續6期無法佐證且曾查得PowerHero僅收錄於護髮排行，請行銷/法務一週內人工登入核對並存證，無法證實即下架或改寫，避免食安法第45條不實廣告風險",
-            "紅麴：歐盟Monacolin K禁令已投票通過並預計10月公告，建議本月內由研發/法務評估是否有跨境販售，並啟動無Monacolin K替代配方的可行性評估，以因應悠活原力與葡萄王的差異化攻勢",
-            "男性戰力/紅麴：久倍戰力粉包與紅麴Q10連續多期查無公開價格，建議業務補齊momo/PChome/官網定價與促銷揭露，對照大研22包$1,980、UNIQMAN $1,190的可查價格",
+            "紅麴：mybest「第一名」宣稱連續7期無法佐證且曾查得PowerHero僅收錄於護髮排行，請行銷/法務一週內人工登入核對並存證，無法證實即下架或改寫，避免食安法第45條不實廣告風險",
+            "紅麴：歐盟Monacolin K禁令預計10月公布(10/12仍未查得刊登)，建議研發/法務先查EUR-Lex確認，並釐清是否有跨境販售，同步評估無Monacolin K替代配方可行性",
+            "男性戰力/紅麴：久倍戰力粉包與紅麴Q10仍查無公開價格，建議補齊momo/PChome/官網定價；對照大研momo多組方案(30包x5入組$4,550)，評估組合價設計",
             "男性戰力：搜尋摘要仍未見PowerHero出現在黑瑪卡Dcard/評比討論，建議安排開箱與評比文合作，並提供含劑量(瑪卡200mg+精胺酸150mg)與日成本約$40的對照素材",
             "攝護腺：黑麥花粉6.6mg與南瓜籽150mg被評測點名的產品力差距仍在，建議研發評估提高劑量，並爭取國際評鑑等第三方背書對標九五之丹",
-            "護髮：呂Ryo擴充頭皮清潔/精華產品線，建議評估為養髮液補充頭皮護理組合，並持續以保養品定位區隔落建藥品，避免宣稱生髮"
+            "護髮：呂Ryo擴充頭皮清潔/精華產品線，建議評估為養髮液補充頭皮護理組合，並持續以保養品定位區隔落建藥品，避免宣稱生髮",
+            "合規：食藥署10/1重申名人代言加重裁罰(最高3倍)，建議審視KOL/開箱文合作合約與文案，避免療效宣稱"
           ],
           "futureMarkets": [
             {
